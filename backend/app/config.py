@@ -10,13 +10,79 @@ deterministic estimate. That decision is always made server-side.
 
 from __future__ import annotations
 
+import logging
 from functools import lru_cache
 from typing import Literal
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+logger = logging.getLogger(__name__)
+
 Environment = Literal["development", "staging", "production"]
+
+# Values that mean "I have not filled this in yet". A slot left at one of
+# these must behave exactly like an absent key, or the app reports itself as
+# live and then fails every provider call with a 401.
+_PLACEHOLDERS = frozenset(
+    {
+        "your-key-here",
+        "your-key",
+        "your-api-key",
+        "your-token",
+        "your-id",
+        "your-secret",
+        "changeme",
+        "change_me",
+        "change-me",
+        "replace-me",
+        "replaceme",
+        "todo",
+        "tbd",
+        "none",
+        "null",
+        "xxx",
+        "xxxx",
+        "...",
+    }
+)
+
+
+def _clean_credential(value: str | None, field_name: str = "") -> str | None:
+    """Normalise a credential pasted into a .env file.
+
+    Setting up keys is where this app is most likely to be configured wrongly,
+    and the failure modes all look identical from the outside. This handles
+    the three that actually happen:
+
+    * a slot left empty or holding only whitespace -> treated as absent
+    * a value pasted with surrounding quotes -> quotes stripped, because
+      dotenv keeps them and the provider then rejects the key
+    * a placeholder left in from the example file -> treated as absent, with
+      a warning, rather than reported as a configured provider
+    """
+    if value is None:
+        return None
+
+    cleaned = value.strip()
+    # dotenv preserves quotes, so `KEY="abc"` arrives as `"abc"`.
+    if len(cleaned) >= 2 and cleaned[0] == cleaned[-1] and cleaned[0] in {'"', "'"}:
+        cleaned = cleaned[1:-1].strip()
+
+    if not cleaned:
+        return None
+
+    lowered = cleaned.lower()
+    if lowered in _PLACEHOLDERS or (cleaned.startswith("<") and cleaned.endswith(">")):
+        logger.warning(
+            "%s still holds the placeholder %r, so it is being ignored. "
+            "Replace it with a real value or delete the line.",
+            field_name or "A credential",
+            cleaned,
+        )
+        return None
+
+    return cleaned
 
 
 class Settings(BaseSettings):
@@ -103,6 +169,42 @@ class Settings(BaseSettings):
     contingency_rate: float = Field(0.08, ge=0.0, le=0.5)
     stretch_budget_tolerance: float = Field(0.15, ge=0.0, le=0.5)
     default_currency: str = "INR"
+
+    @field_validator(
+        "anthropic_api_key",
+        "openai_api_key",
+        "google_maps_server_key",
+        "google_maps_browser_key",
+        "geoapify_api_key",
+        "locationiq_api_key",
+        "openrouteservice_api_key",
+        "foursquare_api_key",
+        "amadeus_client_id",
+        "amadeus_client_secret",
+        "osm_contact_email",
+        "redis_url",
+        mode="before",
+    )
+    @classmethod
+    def _normalise_credential(cls, value: object, info) -> str | None:
+        """An unfilled slot must behave exactly like an absent key."""
+        if value is None or isinstance(value, str):
+            return _clean_credential(value, info.field_name)
+        return value
+
+    @field_validator("anthropic_model", "openai_model", mode="before")
+    @classmethod
+    def _normalise_model_name(cls, value: object, info) -> str:
+        """Model names are plain strings, so an unfilled slot becomes empty.
+
+        `openai_model` has no default on purpose, and an empty value is what
+        `active_llm_provider` checks to decide OpenAI is not usable yet.
+        """
+        if value is None:
+            return ""
+        if isinstance(value, str):
+            return _clean_credential(value, info.field_name) or ""
+        return value
 
     @field_validator("cors_origins")
     @classmethod

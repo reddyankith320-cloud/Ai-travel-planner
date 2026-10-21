@@ -86,9 +86,25 @@ migrations applied) and the frontend behind nginx.
 
 ## Adding API keys
 
-**You need none to start.** See **[docs/API_KEYS.md](docs/API_KEYS.md)** for
-exactly what each key buys, step-by-step signup instructions, and what it
-costs. The short version:
+**You need none to start.** When you do have one:
+
+```bash
+cp .env.example backend/.env     # slots are already laid out, just paste
+./scripts/check-keys.sh          # confirms what registered, never prints a key
+```
+
+Fill slots in one at a time — a half-filled file is a perfectly valid state.
+A blank slot, a slot still holding a placeholder, and a deleted line all
+behave identically: that provider simply is not used, and the app stays in
+demo mode until a real key lands. Quotes and stray spaces around a pasted key
+are stripped for you.
+
+`check-keys.sh` also catches the setup mistakes that are otherwise silent — a
+key pasted without its partner line, credentials present but the provider
+switch left off, a placeholder left behind.
+
+See **[docs/API_KEYS.md](docs/API_KEYS.md)** for where to get each key,
+step-by-step, and what it costs. The short version:
 
 | Want | Set | Cost |
 |---|---|---|
@@ -186,7 +202,7 @@ backend/
     routers/             HTTP surface
     db/                  models + sessions
   alembic/               migrations
-  tests/                 335 tests
+  tests/                 355 tests
 frontend/
   src/
     lib/                 api client, types, formatting, geolocation
@@ -206,10 +222,11 @@ scripts/
 ## Testing
 
 ```bash
-cd backend && pytest                 # 335 tests
+cd backend && pytest                 # 355 tests
 cd frontend && npm test              # 36 tests
 cd frontend && npx tsc --noEmit      # typecheck
 ./scripts/verify-no-secrets.sh       # credential scan of the built bundle
+./scripts/check-keys.sh              # which API key slots registered
 ```
 
 The backend suite runs fully offline — no test touches the network. Provider

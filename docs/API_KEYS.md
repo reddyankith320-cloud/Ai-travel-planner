@@ -38,6 +38,29 @@ exists.** See [the rail and bus section](#indian-rail-and-bus-there-is-no-key).
 
 ---
 
+## Filling the slots
+
+```bash
+cp .env.example backend/.env
+# paste a key after the "=" of its slot
+./scripts/check-keys.sh
+```
+
+Things that are handled for you, so you do not have to think about them:
+
+| What you do | What happens |
+|---|---|
+| Leave a slot blank | That provider is not used. Same as deleting the line. |
+| Leave a placeholder in (`your-key-here`) | Ignored, with a warning. It will **not** be sent to the provider. |
+| Paste with quotes (`KEY="abc"`) | Quotes stripped. The key works. |
+| Paste with stray spaces | Trimmed. The key works. |
+| Set `OPENAI_API_KEY` but not `OPENAI_MODEL` | OpenAI stays off, and `check-keys.sh` tells you why. |
+| Set `AMADEUS_*` but leave `FLIGHT_PROVIDER=none` | Stays off, and `check-keys.sh` tells you which switch to flip. |
+
+A half-filled `.env` is a normal, supported state. Add keys as you get them.
+
+---
+
 ## 1. Geocoding — the one worth getting first
 
 Without a geocoder, a user who declines location access cannot start a trip by

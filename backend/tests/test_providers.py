@@ -781,3 +781,121 @@ class TestWeatherScoring:
         assert _month_end(2024, 2).day == 29
         assert _month_end(2025, 2).day == 28
         assert _month_end(2025, 12).day == 31
+
+
+class TestCredentialSlots:
+    """An unfilled key slot must behave exactly like an absent key.
+
+    This is the state a `.env` spends most of its life in: half the slots
+    filled, half still empty or holding a placeholder. If a blank slot made
+    the app report a provider as configured, every call would fail with a 401
+    and the UI would stop saying "demo mode" -- the most confusing possible
+    outcome for someone setting keys up.
+    """
+
+    @pytest.mark.parametrize(
+        "raw",
+        ["", "   ", "\t", "\n", None],
+    )
+    def test_blank_slots_are_treated_as_absent(self, raw):
+        settings = Settings(geoapify_api_key=raw, enable_nominatim=False)
+        assert settings.geoapify_api_key is None
+        assert settings.geocoding_providers == []
+        assert settings.demo_mode
+
+    @pytest.mark.parametrize(
+        "placeholder",
+        ["your-key-here", "YOUR-KEY-HERE", "changeme", "replace-me", "TODO", "<paste key>"],
+    )
+    def test_placeholders_are_treated_as_absent(self, placeholder):
+        settings = Settings(geoapify_api_key=placeholder, enable_nominatim=False)
+        assert settings.geoapify_api_key is None
+        assert settings.demo_mode, "a placeholder must not switch off demo mode"
+
+    @pytest.mark.parametrize(
+        "raw,expected",
+        [
+            ("abc123", "abc123"),
+            ("  abc123  ", "abc123"),       # stray whitespace from a paste
+            ('"abc123"', "abc123"),          # dotenv keeps the quotes
+            ("'abc123'", "abc123"),
+            ('  "abc123"  ', "abc123"),
+        ],
+    )
+    def test_real_keys_are_cleaned_not_mangled(self, raw, expected):
+        """A key pasted with quotes or spaces must still work."""
+        settings = Settings(geoapify_api_key=raw)
+        assert settings.geoapify_api_key == expected
+        assert "geoapify" in settings.geocoding_providers
+        assert not settings.demo_mode
+
+    def test_cleaning_applies_to_every_credential_field(self):
+        blank = '  "" '
+        settings = Settings(
+            anthropic_api_key="  ",
+            openai_api_key="your-key-here",
+            google_maps_server_key='""',
+            google_maps_browser_key="<your browser key>",
+            locationiq_api_key="",
+            openrouteservice_api_key="   ",
+            foursquare_api_key="changeme",
+            amadeus_client_id="",
+            amadeus_client_secret="TODO",
+            osm_contact_email=blank,
+            enable_nominatim=False,
+            enable_osrm=False,
+            enable_overpass=False,
+            enable_open_meteo=False,
+            enable_wikimedia_images=False,
+        )
+        for field in (
+            "anthropic_api_key",
+            "openai_api_key",
+            "google_maps_server_key",
+            "google_maps_browser_key",
+            "locationiq_api_key",
+            "openrouteservice_api_key",
+            "foursquare_api_key",
+            "amadeus_client_id",
+            "amadeus_client_secret",
+            "osm_contact_email",
+        ):
+            assert getattr(settings, field) is None, f"{field} was not cleaned"
+        assert settings.demo_mode
+        assert settings.active_llm_provider is None
+
+    def test_openai_needs_both_key_and_model(self):
+        """A key with a blank model slot is not a usable OpenAI config."""
+        assert (
+            Settings(openai_api_key="sk-x", openai_model="  ").active_llm_provider is None
+        )
+        assert (
+            Settings(openai_api_key="sk-x", openai_model="your-key-here").active_llm_provider
+            is None
+        )
+        assert (
+            Settings(openai_api_key="sk-x", openai_model="gpt-x").active_llm_provider
+            == "openai"
+        )
+
+    def test_a_half_filled_file_enables_only_what_is_filled(self):
+        """The realistic mid-setup state: one key in, the rest still blank."""
+        settings = Settings(
+            geoapify_api_key="real-geoapify-key",
+            anthropic_api_key="",
+            google_maps_server_key="your-key-here",
+            amadeus_client_id="   ",
+            enable_nominatim=False,
+        )
+        assert settings.geocoding_providers == ["geoapify"]
+        assert settings.active_llm_provider is None
+        assert settings.provider_status()["flights"] == []
+        assert not settings.demo_mode  # one real provider is configured
+
+    def test_status_never_echoes_a_credential_even_when_set(self):
+        settings = Settings(
+            geoapify_api_key="super-secret-value",
+            anthropic_api_key="sk-ant-secret-value",
+        )
+        assert "super-secret-value" not in repr(settings.provider_status())
+        assert "sk-ant-secret-value" not in repr(settings.provider_status())
