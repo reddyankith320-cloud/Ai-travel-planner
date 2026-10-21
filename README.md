@@ -88,6 +88,63 @@ migrations applied) and the frontend behind nginx.
 
 ---
 
+## How to open the website
+
+Pick one of the three ways below.
+
+### Option 1: Open the preview (no install)
+
+1. Download or clone the repo.
+2. Open `docs/preview/index.html` in Chrome, Edge or Safari.
+3. Click an example trip, then browse the ranked destinations, itinerary and budget.
+
+### Option 2: Run the full app on your computer
+
+You need Python 3.11 or newer and Node.js 20 or newer.
+
+1. **Get the code:**
+   ```bash
+   git clone https://github.com/reddyankith320-cloud/Ai-travel-planner
+   cd Ai-travel-planner
+   git checkout ccr-bdabb13b-go18b8
+   ```
+2. **Start the server** (terminal 1):
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate          # Windows: .venv\Scripts\activate
+   pip install -r backend/requirements.txt
+   cd backend
+   uvicorn app.main:app --port 8000
+   ```
+   Leave this running. It is healthy when `http://localhost:8000/api/health` shows `{"status":"ok"}`.
+3. **Start the website** (terminal 2, from the repo root):
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+4. **Open** `http://localhost:5173` in your browser.
+
+No keys, card or database setup is needed. The app runs free on OpenStreetMap.
+
+### Option 3: Run with Docker
+
+1. Install Docker Desktop and start it.
+2. From the repo root:
+   ```bash
+   cp .env.example .env
+   docker compose up --build
+   ```
+3. Open `http://localhost:8080`. The first build takes several minutes.
+
+To stop the app, press `Ctrl+C` in each terminal, or run `docker compose down` for Option 3.
+
+### If the page does not load
+
+- **"This site can't be reached"**: the server or website is not running. Check that both terminals in Option 2 are still running.
+- **Phones**: `localhost` on a phone means the phone itself. Use the preview, or open the app from your computer's network address.
+- **Port already in use**: change the port, for example `--port 8001`, and set `VITE_API_PROXY_TARGET=http://localhost:8001` before `npm run dev`.
+
 ## Static preview (no server needed)
 
 `docs/preview/index.html` is a single self-contained file: the real app, its
