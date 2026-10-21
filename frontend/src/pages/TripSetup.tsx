@@ -5,7 +5,7 @@
  * point of TripWise, so the field does not exist, and the copy explains why.
  */
 
-import { useEffect, useMemo, useState } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../lib/api';
 import {
@@ -28,6 +28,11 @@ import type {
   TripRequest,
 } from '../lib/types';
 import { ErrorState, Spinner } from '../components/states';
+import { IS_PREVIEW } from '../lib/mode';
+
+// Only the static preview has example trips to offer. Loaded lazily so the
+// real build never carries the recorded data.
+const PreviewExamples = IS_PREVIEW ? lazy(() => import('../preview/Examples')) : null;
 
 const PACE_HINT: Record<Pace, string> = {
   relaxed: 'Two main things a day, with real breaks.',
@@ -262,6 +267,27 @@ export function TripSetup({ config, onSubmit }: Props) {
     navigate('/recommendations');
   }
 
+  function pickExample(request: TripRequest) {
+    const next: TripDraft = {
+      originLabel: request.origin.label ?? '',
+      originCoordinates: request.origin.coordinates ?? null,
+      originDetection: 'manual',
+      budget: String(request.budget_inr),
+      travelers: request.travelers,
+      days: request.days,
+      startDate: request.start_date,
+      travelMode: request.travel_mode,
+      accommodation: request.accommodation,
+      pace: request.pace,
+      interests: request.interests,
+      maxOneWayHours: '',
+      includeStretch: request.include_stretch_options ?? true,
+    };
+    setDraft(next);
+    onSubmit(draftToRequest(next));
+    navigate('/recommendations');
+  }
+
   const showError = (key: string) => (submitted ? errors[key] : undefined);
   const endDate = addDaysIso(draft.startDate, Math.max(0, draft.days - 1));
 
@@ -277,6 +303,12 @@ export function TripSetup({ config, onSubmit }: Props) {
           genuinely affordable and reachable — then ranks them and plans the days.
         </p>
       </header>
+
+      {PreviewExamples ? (
+        <Suspense fallback={<Spinner label="Loading examples…" />}>
+          <PreviewExamples onPick={pickExample} />
+        </Suspense>
+      ) : null}
 
       {optionsError ? (
         <ErrorState

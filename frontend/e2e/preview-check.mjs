@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+const errors = [];
+page.on('pageerror', e => errors.push(e.message));
+page.on('console', m => { if (m.type() === 'error' && !/tile|ERR_TUNNEL|ERR_NAME/.test(m.text())) errors.push(m.text()); });
+await page.goto('file:///home/user/Ai-travel-planner/frontend/dist-preview/preview.html', { waitUntil: 'load' });
+await page.waitForSelector('text=Pick an example trip', { timeout: 15000 });
+await page.click('text=Beaches and heritage from Hyderabad');
+await page.waitForSelector('article.card', { timeout: 15000 });
+console.log('cards:', await page.locator('article.card').count(), '| first:', await page.locator('article.card h2').first().innerText());
+await page.screenshot({ path: '/tmp/claude-0/-home-user-Ai-travel-planner/0b188332-ed8b-51e7-bf4e-bf3095c31ece/scratchpad/preview.png', fullPage: false });
+console.log('errors:', errors.length ? errors : 'none');
+await browser.close();

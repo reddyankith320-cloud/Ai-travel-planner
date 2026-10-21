@@ -88,6 +88,27 @@ migrations applied) and the frontend behind nginx.
 
 ---
 
+## Static preview (no server needed)
+
+`docs/preview/index.html` is a single self-contained file: the real app, its
+styles and recorded results for six example trips, all inlined. Open it
+directly in a browser, or host the `docs/preview/` folder on GitHub Pages.
+
+- **What it shows:** the setup form, five ranked destinations per example,
+  the day-by-day itinerary, and the budget dashboard. These are results the
+  real backend computed ahead of time (`scripts/build-preview-data.py`), with
+  providers disabled so the run is deterministic.
+- **What it cannot do:** plan a trip of your own, type a city, remove a stop,
+  edit an assumption, or save a trip. Those need the live server, so they are
+  switched off and explain why.
+- **Rebuild it:** `cd frontend && npm run build:preview`, then copy
+  `dist-preview/preview.html` to `docs/preview/index.html`. Regenerate the
+  example data with `python scripts/build-preview-data.py` first if the
+  engine or dataset has changed.
+
+The preview is not a substitute for the real product. Its numbers are fixed
+examples and will not reflect your budget or dates.
+
 ## Adding API keys
 
 **You need none to start.** When you do have one:

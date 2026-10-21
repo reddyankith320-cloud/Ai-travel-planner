@@ -16,6 +16,8 @@ interface ImportMetaEnv {
    * by HTTP referrer in the provider's console.
    */
   readonly VITE_GOOGLE_MAPS_BROWSER_KEY?: string;
+  /** '1' in the static preview build, which replays recorded results. */
+  readonly VITE_PREVIEW?: string;
 }
 
 interface ImportMeta {

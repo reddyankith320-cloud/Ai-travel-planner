@@ -46,3 +46,6 @@ Thumbs.db
 playwright-report/
 test-results/
 screenshots/
+
+# Preview build output (rebuilt from source; committed copy lives in docs/preview)
+frontend/dist-preview/
