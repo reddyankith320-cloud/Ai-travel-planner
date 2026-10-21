@@ -122,52 +122,6 @@ async def _route_with(
             note="Live road route",
         )
 
-    if provider == "openrouteservice":
-        payload = await client.post_json(
-            "openrouteservice",
-            "https://api.openrouteservice.org/v2/directions/driving-car",
-            json_body={"coordinates": [[origin_lon, origin_lat], [dest_lon, dest_lat]]},
-            headers={
-                "Authorization": settings.openrouteservice_api_key or "",
-                "Content-Type": "application/json",
-            },
-        )
-        routes = payload.get("routes") or []
-        if not routes:
-            return None
-        summary = routes[0].get("summary", {})
-        if "distance" not in summary:
-            return None
-        return RouteInfo(
-            road_km=round(summary["distance"] / 1000.0, 1),
-            road_hours=round(summary.get("duration", 0) / 3600.0, 2),
-            provenance=Provenance.live("openrouteservice"),
-            note="Live road route",
-        )
-
-    if provider == "geoapify":
-        payload = await client.get_json(
-            "geoapify-routing",
-            "https://api.geoapify.com/v1/routing",
-            params={
-                "waypoints": f"{origin_lat},{origin_lon}|{dest_lat},{dest_lon}",
-                "mode": "drive",
-                "apiKey": settings.geoapify_api_key,
-            },
-        )
-        features = payload.get("features") or []
-        if not features:
-            return None
-        props = features[0].get("properties", {})
-        if "distance" not in props:
-            return None
-        return RouteInfo(
-            road_km=round(props["distance"] / 1000.0, 1),
-            road_hours=round(props.get("time", 0) / 3600.0, 2),
-            provenance=Provenance.live("geoapify-routing"),
-            note="Live road route",
-        )
-
     if provider == "osrm":
         payload = await client.get_json(
             "osrm",

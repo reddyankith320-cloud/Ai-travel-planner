@@ -114,54 +114,6 @@ async def _geocode_with(
             provenance=Provenance.live("google-geocoding"),
         )
 
-    if provider == "geoapify":
-        payload = await client.get_json(
-            "geoapify-geocoding",
-            "https://api.geoapify.com/v1/geocode/search",
-            params={
-                "text": query,
-                "apiKey": settings.geoapify_api_key,
-                "limit": 1,
-                "filter": "countrycode:in",
-            },
-        )
-        features = payload.get("features") or []
-        if not features:
-            return None
-        props = features[0]["properties"]
-        return GeocodeResult(
-            coordinates=Coordinates(lat=props["lat"], lon=props["lon"]),
-            display_name=props.get("formatted", query),
-            state=props.get("state"),
-            country=props.get("country"),
-            provenance=Provenance.live("geoapify-geocoding"),
-        )
-
-    if provider == "locationiq":
-        payload = await client.get_json(
-            "locationiq-geocoding",
-            "https://us1.locationiq.com/v1/search",
-            params={
-                "key": settings.locationiq_api_key,
-                "q": query,
-                "format": "json",
-                "limit": 1,
-                "countrycodes": "in",
-                "addressdetails": 1,
-            },
-        )
-        if not payload:
-            return None
-        top = payload[0]
-        address = top.get("address", {})
-        return GeocodeResult(
-            coordinates=Coordinates(lat=float(top["lat"]), lon=float(top["lon"])),
-            display_name=top.get("display_name", query),
-            state=address.get("state"),
-            country=address.get("country"),
-            provenance=Provenance.live("locationiq-geocoding"),
-        )
-
     if provider == "nominatim":
         payload = await client.get_json(
             "nominatim",
@@ -267,45 +219,6 @@ async def _reverse_with(
             state=_component(top.get("address_components", []), "administrative_area_level_1"),
             country=_component(top.get("address_components", []), "country"),
             provenance=Provenance.live("google-geocoding"),
-        )
-
-    if provider == "geoapify":
-        payload = await client.get_json(
-            "geoapify-geocoding",
-            "https://api.geoapify.com/v1/geocode/reverse",
-            params={"lat": lat, "lon": lon, "apiKey": settings.geoapify_api_key},
-        )
-        features = payload.get("features") or []
-        if not features:
-            return None
-        props = features[0]["properties"]
-        return GeocodeResult(
-            coordinates=coordinates,
-            display_name=props.get("formatted", f"{lat:.4f}, {lon:.4f}"),
-            state=props.get("state"),
-            country=props.get("country"),
-            provenance=Provenance.live("geoapify-geocoding"),
-        )
-
-    if provider == "locationiq":
-        payload = await client.get_json(
-            "locationiq-geocoding",
-            "https://us1.locationiq.com/v1/reverse",
-            params={
-                "key": settings.locationiq_api_key,
-                "lat": lat,
-                "lon": lon,
-                "format": "json",
-                "addressdetails": 1,
-            },
-        )
-        address = payload.get("address", {})
-        return GeocodeResult(
-            coordinates=coordinates,
-            display_name=payload.get("display_name", f"{lat:.4f}, {lon:.4f}"),
-            state=address.get("state"),
-            country=address.get("country"),
-            provenance=Provenance.live("locationiq-geocoding"),
         )
 
     if provider == "nominatim":

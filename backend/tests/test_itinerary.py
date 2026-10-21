@@ -497,7 +497,8 @@ class TestLLMContainment:
 
         goa, request, plan = context
         configured = Settings(
-            anthropic_api_key="sk-ant-fake-for-test",
+            openai_api_key="sk-fake-for-test",
+            openai_model="gpt-test",
             enable_nominatim=False, enable_osrm=False,
             enable_overpass=False, enable_open_meteo=False,
         )
@@ -529,7 +530,8 @@ class TestLLMContainment:
         """A well-behaved model shapes the plan; we still own the numbers."""
         goa, request, plan = context
         configured = Settings(
-            anthropic_api_key="sk-ant-fake-for-test",
+            openai_api_key="sk-fake-for-test",
+            openai_model="gpt-test",
             enable_nominatim=False, enable_osrm=False,
             enable_overpass=False, enable_open_meteo=False,
         )

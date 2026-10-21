@@ -1,13 +1,17 @@
 /**
- * Leaflet map with OpenStreetMap tiles.
+ * Leaflet map.
  *
- * OSM tiles need no API key, which keeps the browser bundle free of
- * credentials entirely. Attribution is required by the OSM tile usage policy
- * and is rendered by Leaflet itself.
+ * Two tile sources, chosen automatically:
  *
- * If you switch to a commercial tile provider, its browser key must be
- * referrer-restricted in that provider's console -- a browser key is public
- * by design and restriction is the only thing protecting it.
+ * - **OpenStreetMap** (default). No key, no cost, no billing account. This is
+ *   what makes the app free to run.
+ * - **Google Maps**, when `VITE_GOOGLE_MAPS_BROWSER_KEY` is set at build time.
+ *
+ * A browser map key is public by design -- it ships in the bundle and anyone
+ * can read it. The *only* thing protecting it is an HTTP-referrer restriction
+ * set in the Google Cloud console, so restrict it there before you deploy, and
+ * restrict it to the Maps APIs alone. It is a separate key from the server one,
+ * which never leaves the backend.
  */
 
 import { useEffect, useMemo } from 'react';
@@ -15,6 +19,33 @@ import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-
 import L from 'leaflet';
 import type { Coordinates } from '../lib/types';
 import { distance as formatDistance } from '../lib/format';
+
+/**
+ * Tile source. Resolved once at module load from the build-time environment.
+ *
+ * Google's raster tile endpoint is used because it drops into Leaflet without
+ * pulling in the whole Maps JavaScript SDK, which would add far more weight
+ * than this screen needs.
+ */
+const GOOGLE_BROWSER_KEY = import.meta.env.VITE_GOOGLE_MAPS_BROWSER_KEY?.trim() || '';
+
+const TILES = GOOGLE_BROWSER_KEY
+  ? {
+      url: `https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i{z}!2i{x}!3i{y}!4i256!2m3!1e0!2sm!3i000000000!3m9!2sen!3sIN!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!4e0&key=${GOOGLE_BROWSER_KEY}`,
+      attribution: '&copy; Google',
+      maxZoom: 20,
+      name: 'google' as const,
+    }
+  : {
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+      name: 'openstreetmap' as const,
+    };
+
+/** Which tile source is live. Surfaced so the UI can say so honestly. */
+export const activeTileSource = TILES.name;
 
 export interface MapPoint {
   coordinates: Coordinates;
@@ -126,11 +157,7 @@ export function MapView({
         doubleClickZoom={interactive}
         attributionControl
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          maxZoom={18}
-        />
+        <TileLayer url={TILES.url} attribution={TILES.attribution} maxZoom={TILES.maxZoom} />
         {polyline.length > 1 ? (
           <Polyline
             positions={polyline}

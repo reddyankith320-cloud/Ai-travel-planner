@@ -72,7 +72,6 @@ def settings(tmp_path) -> Settings:
         enable_overpass=False,
         enable_open_meteo=False,
         enable_wikimedia_images=False,
-        anthropic_api_key=None,
         openai_api_key=None,
         redis_url=None,
     )
@@ -142,7 +141,6 @@ def api_client(tmp_path, monkeypatch):
     monkeypatch.setenv("ENABLE_OVERPASS", "false")
     monkeypatch.setenv("ENABLE_OPEN_METEO", "false")
     monkeypatch.setenv("ENABLE_WIKIMEDIA_IMAGES", "false")
-    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     # A generous limit so functional tests are not throttled.
     monkeypatch.setenv("RATE_LIMIT_REQUESTS", "500")

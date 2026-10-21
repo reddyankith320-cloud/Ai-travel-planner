@@ -14,7 +14,7 @@
  */
 import { chromium } from 'playwright';
 
-const BASE = 'http://127.0.0.1:5201';
+const BASE = 'http://127.0.0.1:5220';
 const OUT = process.argv[2];
 const errors = [];
 
@@ -47,8 +47,8 @@ async function session(name, viewport) {
   await page.goto(BASE, { waitUntil: 'networkidle' });
   console.log(`[${name}] title: ${await page.title()}`);
   console.log(`[${name}] h1: ${(await page.locator('h1').first().innerText()).slice(0, 70)}`);
-  const demo = await page.locator('text=Demo mode').count();
-  console.log(`[${name}] demo-mode banner present: ${demo > 0}`);
+  const demo = await page.locator('text=Running free').count();
+  console.log(`[${name}] free-mode banner present: ${demo > 0}`);
 
   // Fill the form. Geolocation is granted, so use the location button.
   await page.click('text=Use my location');

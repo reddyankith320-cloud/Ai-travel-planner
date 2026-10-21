@@ -60,6 +60,11 @@ services:
       args:
         # Empty: nginx proxies /api to the api service on the same origin.
         VITE_API_BASE_URL: ''
+        # Optional. The PUBLIC Google browser key, for Google map tiles instead
+        # of the free OpenStreetMap ones. It is compiled into the bundle, so it
+        # must be referrer-restricted in the Google console. Leave unset and
+        # OpenStreetMap is used, which needs no key.
+        VITE_GOOGLE_MAPS_BROWSER_KEY: ${GOOGLE_MAPS_BROWSER_KEY:-}
     depends_on:
       - api
     ports:

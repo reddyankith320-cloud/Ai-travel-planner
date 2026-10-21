@@ -294,7 +294,7 @@ class TestGeoEndpoints:
     def test_search_without_a_geocoder_returns_404_with_guidance(self, api_client):
         response = api_client.get("/api/geo/search", params={"q": "Hyderabad"})
         assert response.status_code == 404
-        assert "GEOAPIFY_API_KEY" in response.json()["detail"]
+        assert "GOOGLE_MAPS_SERVER_KEY" in response.json()["detail"]
 
     def test_search_rejects_a_too_short_query(self, api_client):
         assert api_client.get("/api/geo/search", params={"q": "a"}).status_code == 422

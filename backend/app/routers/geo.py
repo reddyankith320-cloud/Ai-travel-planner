@@ -91,9 +91,9 @@ async def search(
         detail = (
             f"Could not find '{q}'. "
             + (
-                "No geocoding provider is configured on this deployment -- set one of "
-                "GOOGLE_MAPS_SERVER_KEY, GEOAPIFY_API_KEY or LOCATIONIQ_API_KEY, or enable "
-                "ENABLE_NOMINATIM."
+                "No geocoding provider is configured on this deployment -- set "
+                "GOOGLE_MAPS_SERVER_KEY, or enable the free keyless geocoder with "
+                "ENABLE_NOMINATIM=true."
                 if not settings.geocoding_providers
                 else "Try a larger nearby city, or allow location access instead."
             )

@@ -13,34 +13,35 @@ export function DemoModeBanner({ config }: { config: AppConfig | null }) {
 
   if (config.demo_mode) {
     return (
-      <div className="notice notice-warn no-print" role="status">
+      <div className="notice notice-brand no-print" role="status">
         <span className="notice-icon" aria-hidden="true">
           📐
         </span>
         <div>
-          <strong>Demo mode — all figures are estimates.</strong>{' '}
-          No travel provider is connected, so every cost here comes from TripWise's own
-          cost model, using reference rates for India
+          <strong>Running free — every figure is an estimate.</strong>{' '}
+          This is the full planner, not a trial: maps, geocoding and places come from
+          OpenStreetMap, and every cost is computed by TripWise's own model using reference
+          rates for India
           {config.cost_model_reference_date
             ? ` set in ${new Date(config.cost_model_reference_date).toLocaleDateString('en-IN', {
                 month: 'long',
                 year: 'numeric',
               })}`
             : ''}
-          . The planner is fully functional, but nothing shown is a live fare or room rate.
-          Connect providers in the backend's <code>.env</code> to pull live prices.
+          . No key, no card, nothing to pay. Nothing here is a live fare or room rate, so
+          check prices before you book.
         </div>
       </div>
     );
   }
 
+  // Only Google-backed capabilities count as "live": the free OSM services
+  // are always on and saying "live geocoding" because Nominatim answered
+  // would overstate what is actually connected.
   const live: string[] = [];
-  if (config.routing.length) live.push('road routing');
-  if (config.geocoding.length) live.push('geocoding');
-  if (config.places.length) live.push('places');
-  if (config.flights.length) live.push('flight fares');
-  if (config.hotels.length) live.push('hotel rates');
-  if (config.weather.length) live.push('climate data');
+  if (config.geocoding[0] === 'google') live.push('geocoding');
+  if (config.routing[0] === 'google') live.push('road routing');
+  if (config.places[0] === 'google') live.push('places');
 
   return (
     <div className="notice notice-info no-print" role="status">
@@ -48,11 +49,18 @@ export function DemoModeBanner({ config }: { config: AppConfig | null }) {
         🛰️
       </span>
       <div>
-        <strong>Live data connected for {live.join(', ') || 'some services'}.</strong>{' '}
-        Figures marked <span className="badge prov-live badge-dot">Live</span> come from a
-        provider; everything else is still a TripWise estimate. Indian rail and intercity bus
-        fares have no public API, so those are always estimated.
-        {config.llm.enabled ? ' Itineraries are written by an AI model and validated server-side.' : ''}
+        <strong>
+          {live.length
+            ? `Google Maps connected for ${live.join(', ')}.`
+            : 'Running on free data sources.'}
+        </strong>{' '}
+        Figures marked <span className="badge prov-live badge-dot">Live</span> came from a
+        provider; everything else is a TripWise estimate. Rail, bus, flight and hotel prices
+        are always estimated — no licensed fare API is connected, and none exists publicly for
+        Indian rail or bus.
+        {config.llm.enabled
+          ? ' Itineraries are written by OpenAI and validated server-side; all costs are recomputed here.'
+          : ''}
       </div>
     </div>
   );

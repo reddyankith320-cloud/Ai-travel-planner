@@ -10,6 +10,7 @@ import { Recommendations } from './pages/Recommendations';
 import { ItineraryPage } from './pages/ItineraryPage';
 import { SavedTrips } from './pages/SavedTrips';
 import { EmptyState } from './components/states';
+import { activeTileSource } from './components/MapView';
 
 function Header() {
   return (
@@ -81,7 +82,11 @@ function Footer({ config }: { config: AppConfig | null }) {
           the official booking channel instead.
         </p>
         <p className="xs subtle">
-          Maps and place data &copy;{' '}
+          {activeTileSource === 'google' ? (
+            <>Map tiles &copy; Google. Place data &copy; </>
+          ) : (
+            <>Maps and place data &copy; </>
+          )}
           <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
             OpenStreetMap
           </a>{' '}

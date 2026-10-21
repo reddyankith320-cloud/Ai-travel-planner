@@ -7,7 +7,8 @@ free and how you like to travel. It prices a trip to every destination it
 knows, discards the ones that don't fit, ranks what's left on a published
 scoring model, and builds a day-by-day plan for the one you choose.
 
-There is no destination field anywhere in the app. That's the point.
+There is no destination field anywhere in the app. That's the point. And it
+costs nothing to run.
 
 ```
 Budget ₹35,000 · 2 travellers · 4 days from Hyderabad · any mode
@@ -23,10 +24,13 @@ Budget ₹35,000 · 2 travellers · 4 days from Hyderabad · any mode
 
 ## What makes this different
 
-**It runs with zero API keys.** Out of the box, destination discovery, budget
-calculation, ranking and full day-by-day itineraries all work. Every figure
-comes from a deterministic cost model and is labelled as an estimate. Nothing
-is ever dressed up as a live quote.
+**It is free to run.** Out of the box — no keys, no card, no signup —
+destination discovery, budget calculation, ranking and full day-by-day
+itineraries all work, on OpenStreetMap and a deterministic cost model. Every
+figure is labelled as an estimate. Nothing is ever dressed up as a live quote.
+
+Two optional paid keys exist, Google Maps and OpenAI, and the app is fully
+functional before either of them.
 
 **Every number reconciles.** The headline total is the sum of the line items —
 by construction, not by convention. The category breakdown is a computed
@@ -106,18 +110,22 @@ switch left off, a placeholder left behind.
 See **[docs/API_KEYS.md](docs/API_KEYS.md)** for where to get each key,
 step-by-step, and what it costs. The short version:
 
-| Want | Set | Cost |
-|---|---|---|
-| Let users type a city instead of sharing location | `GEOAPIFY_API_KEY` | Free tier |
-| AI-written itineraries | `ANTHROPIC_API_KEY` | Per token |
-| Real road distances | `OPENROUTESERVICE_API_KEY` | Free tier |
-| Live flight/hotel prices | `AMADEUS_CLIENT_ID` + `_SECRET` | ⚠️ [status unconfirmed](docs/PROVIDERS.md) |
-| Indian train or bus fares | — | **No legitimate API exists.** Always estimated. |
+There are exactly two, both optional and both paid:
 
-Copy `.env.example` to `backend/.env` and fill in only what you need.
+| Key | Buys you | Cost | Free fallback if unset |
+|---|---|---|---|
+| `GOOGLE_MAPS_SERVER_KEY` | Typed-city search, real road distances, richer places | Billing account required; per-API free allowance | OpenStreetMap (Nominatim, OSRM, Overpass) |
+| `GOOGLE_MAPS_BROWSER_KEY` | Google map tiles | Same billing account | OpenStreetMap tiles |
+| `OPENAI_API_KEY` | Itineraries written by a model | **No free tier** | Built-in deterministic planner |
+| — | Indian train or bus fares | **No legitimate API exists.** Always estimated. | — |
 
-> **Never put a private key in `frontend/.env`.** Anything in a `VITE_*`
-> variable is compiled into the browser bundle and is public. Run
+**Being straight about "free":** Google needs a card on file even to stay
+inside its free allowance, and OpenAI has no free tier at all. What *is* free
+is the default path — and it is the full product, not a crippled demo.
+
+> **Only the browser key may go in `frontend/.env`.** Anything in a `VITE_*`
+> variable is compiled into the browser bundle and is public. The server key
+> and the OpenAI key stay in `backend/.env`. Run
 > `./scripts/verify-no-secrets.sh` to prove your build is clean.
 
 ---
@@ -198,11 +206,11 @@ backend/
       ranking.py         filters, scoring, shortfall explanations
       itinerary.py       deterministic planner + LLM containment
       planner.py         orchestration
-    providers/           one adapter each, all optional
+    providers/           google, openai, and the free OSM stack
     routers/             HTTP surface
     db/                  models + sessions
   alembic/               migrations
-  tests/                 355 tests
+  tests/                 349 tests
 frontend/
   src/
     lib/                 api client, types, formatting, geolocation
@@ -222,7 +230,7 @@ scripts/
 ## Testing
 
 ```bash
-cd backend && pytest                 # 355 tests
+cd backend && pytest                 # 349 tests
 cd frontend && npm test              # 36 tests
 cd frontend && npx tsc --noEmit      # typecheck
 ./scripts/verify-no-secrets.sh       # credential scan of the built bundle
@@ -308,14 +316,14 @@ admission charges on the operator's own site before committing money.
   when real auth is added; shipping half-built auth would be worse than none.
 - **The rate limiter is per-process.** Behind multiple workers, put a shared
   limiter in front.
-- **Amadeus integration is unverified** — see [docs/PROVIDERS.md](docs/PROVIDERS.md).
+- **Flight and hotel prices are modelled, not quoted.** No licensed fare or
+  rate API is wired up; the seam to add one is documented in
+  [docs/PROVIDERS.md](docs/PROVIDERS.md).
 
 ## Licence and attribution
 
 Map tiles and place geometry © [OpenStreetMap](https://www.openstreetmap.org/copyright)
-contributors (ODbL). Destination photographs via Wikipedia/Wikimedia under
-their respective licences, credited in the UI. Weather data from Open-Meteo
-(CC-BY 4.0) — **free tier is non-commercial**.
-
-If you enable LocationIQ's free tier, you must add their attribution link
-yourself.
+contributors (ODbL), or © Google when a browser key is configured — the footer
+follows whichever is active. Destination photographs via Wikipedia/Wikimedia
+under their respective licences, credited in the UI. Weather data from
+Open-Meteo (CC-BY 4.0) — **free tier is non-commercial**.

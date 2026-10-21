@@ -246,16 +246,22 @@ class TestFlight:
         assert quote.one_way_hours > pure_flight_hours + 2
 
     def test_live_fare_replaces_the_estimate_and_relabels(self, far_route):
+        """The seam an authorised fare provider would plug into.
+
+        No licensed fare API is wired up, so this path is unused in the
+        shipped app -- but it is the contract any future provider must satisfy:
+        supply a per-person one-way figure, and the provenance flips to live.
+        """
         leh, route = far_route
         quote = quote_flight(
             route=route, destination=leh, origin_lat=ORIGIN_LAT, origin_lon=ORIGIN_LON,
             travelers=2, start_date=date.today() + timedelta(days=40), today=date.today(),
-            overrides=OVERRIDES, live_fare_inr=4321.0, live_provider="amadeus-flights",
+            overrides=OVERRIDES, live_fare_inr=4321.0, live_provider="some-fare-api",
         )
         ticket = next(i for i in quote.line_items if "Flight" in i.label)
         assert ticket.unit_price_inr == 4321.0
         assert ticket.provenance.is_live
-        assert ticket.provenance.provider == "amadeus-flights"
+        assert ticket.provenance.provider == "some-fare-api"
 
     def test_estimated_fare_is_low_confidence(self, far_route):
         from app.schemas.enums import Confidence

@@ -15,7 +15,7 @@ from datetime import date
 
 from ..config import Settings
 from ..data.catalog import Destination, dataset_version, get_destination
-from ..providers import amadeus, geocoding, images, routing, weather
+from ..providers import geocoding, images, routing, weather
 from ..providers.cache import CacheBackend
 from ..providers.http import ProviderClient
 from ..schemas.common import Coordinates, Provenance
@@ -180,6 +180,9 @@ def _make_refiner(
         for candidate in shortlist:
             destination = candidate.destination
             live_route = None
+            # No licensed fare or room-rate API is configured. These stay None
+            # so the cost model produces the figures and labels them as
+            # estimates; they are the seam an authorised provider plugs into.
             live_flight_fare = None
             live_nightly = None
             live_hotel_provider = None
@@ -197,46 +200,6 @@ def _make_refiner(
                 )
                 if live_route is not None:
                     ctx.providers_used.add(live_route.provenance.provider or "routing")
-
-            if (
-                ctx.settings.flight_provider == "amadeus"
-                and candidate.transport.mode == TravelMode.FLIGHT
-            ):
-                detail = candidate.transport.detail
-                origin_iata = str(detail.get("origin_iata") or "")
-                dest_iata = str(detail.get("destination_iata") or "")
-                if origin_iata and dest_iata:
-                    live_flight_fare = await amadeus.cheapest_flight_fare_inr(
-                        origin_iata=origin_iata,
-                        destination_iata=dest_iata,
-                        departure_date=request.start_date.isoformat(),
-                        adults=request.travelers,
-                        settings=ctx.settings,
-                        client=ctx.client,
-                        failures=ctx.failures,
-                    )
-                    if live_flight_fare is not None:
-                        ctx.providers_used.add("amadeus-flights")
-
-            if ctx.settings.hotel_provider == "amadeus" and request.nights > 0:
-                # Price the stay type we will actually book, which may be a
-                # substitution if the destination has no match for the request.
-                stay_type, _ = resolve_stay_type(destination, request.accommodation)
-                rooms = cm.accommodation_units(stay_type, request.travelers)
-                live_nightly = await amadeus.cheapest_hotel_nightly_inr(
-                    lat=destination.lat,
-                    lon=destination.lon,
-                    check_in=request.start_date.isoformat(),
-                    check_out=(request.end_date or request.computed_end_date).isoformat(),
-                    rooms=rooms,
-                    adults=request.travelers,
-                    settings=ctx.settings,
-                    client=ctx.client,
-                    failures=ctx.failures,
-                )
-                if live_nightly is not None:
-                    live_hotel_provider = "amadeus-hotels"
-                    ctx.providers_used.add("amadeus-hotels")
 
             rebuilt, _ = build_candidate(
                 request=request,

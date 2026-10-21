@@ -112,7 +112,15 @@ car's fuel cost by the number of passengers. Here, fuel is
 `PER_VEHICLE_TRIP` with `units = vehicles`, so the mistake cannot be made
 silently — and a test asserts that four people in one car pay for one car.
 
-### 3. The LLM is contained, not trusted
+### 3. One paid provider per capability, one free fallback behind it
+
+Every capability resolves to a chain: Google first when a key is configured,
+the free keyless service otherwise and as the fallback when Google fails. That
+keeps the deployment decision to a single question per capability -- pay or
+don't -- instead of a matrix of overlapping vendors, and it means the app is
+fully functional before any billing account exists.
+
+### 4. The LLM is contained, not trusted
 
 The model receives a fixed list of candidate activities and returns an
 ordering with prose. The merge step (`_merge_llm_days`) then:
@@ -126,7 +134,7 @@ read. A hallucinated place cannot acquire coordinates or a cost. If the model
 is unreachable, returns malformed JSON, or fails schema validation twice, the
 deterministic planner takes over and the response says so.
 
-### 4. Budget fit rewards *using* the budget, not minimising it
+### 5. Budget fit rewards *using* the budget, not minimising it
 
 A trip costing 40% of the budget is usually a worse trip for no reason. The
 budget-fit curve peaks between 40% and 90% utilisation, drops at 90–100%
@@ -140,13 +148,13 @@ hours, past the feasibility limit, so flying is the only option — and flying
 costs more. Give the same trip 6 days and the train qualifies and the total
 drops. This is tested, not accidental.
 
-### 5. Two passes, so discovery is free
+### 6. Two passes, so discovery is free
 
 The broad pass runs entirely in-process: 58 destinations × up to 4 modes,
 fully costed, in about 50 ms. Only the shortlist gets live routing, weather
 and images. Adding destinations to the dataset costs nothing in API spend.
 
-### 6. Circuit breaking is a correctness feature, not just speed
+### 7. Circuit breaking is a correctness feature, not just speed
 
 Without it, an unreachable provider cost its full timeout-and-retry budget on
 every shortlisted destination — 20 seconds for one request. The breaker opens
@@ -154,10 +162,11 @@ after repeated failures and short-circuits for 60 seconds. Transport-level
 failures open it immediately, because retrying cannot reach a host that has no
 route. Measured: 20.3 s → 5.5 s cold → 63 ms warm.
 
-### 7. Nothing secret reaches the browser
+### 8. Nothing secret reaches the browser
 
 Every provider call originates server-side. The frontend's only network
-dependency is our own `/api`, plus OpenStreetMap tiles (which need no key).
+dependency is our own `/api`, plus map tiles -- OpenStreetMap by default, which
+needs no key, or Google when a referrer-restricted browser key is supplied.
 `scripts/verify-no-secrets.sh` fails the build if a credential pattern appears
 in the bundle, or if the bundle references a provider domain directly.
 

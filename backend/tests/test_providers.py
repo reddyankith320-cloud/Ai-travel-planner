@@ -28,21 +28,20 @@ class TestSecretHygiene:
         "url",
         [
             "https://maps.googleapis.com/maps/api/geocode/json?address=Goa&key=AIzaSyREALKEY",
-            "https://api.geoapify.com/v1/geocode/search?text=Goa&apiKey=realkey123",
-            "https://us1.locationiq.com/v1/search?key=pk.realkey&q=Goa",
+            "https://places.googleapis.com/v1/places:searchNearby?key=realkey123",
             "https://example.com/x?access_token=abc&token=def&api_key=ghi",
         ],
     )
     def test_credentials_never_appear_in_log_urls(self, url):
         redacted = redact_url(url)
-        for secret in ("AIzaSyREALKEY", "realkey123", "pk.realkey", "abc", "def", "ghi"):
+        for secret in ("AIzaSyREALKEY", "realkey123", "abc", "def", "ghi"):
             assert secret not in redacted
         assert "REDACTED" in redacted
 
     def test_non_secret_params_are_preserved(self):
-        redacted = redact_url("https://x.test/y?text=Goa&limit=1&apiKey=secret")
-        assert "text=Goa" in redacted
-        assert "limit=1" in redacted
+        redacted = redact_url("https://x.test/y?address=Goa&region=in&key=secret")
+        assert "address=Goa" in redacted
+        assert "region=in" in redacted
 
     def test_urls_without_query_are_untouched(self):
         assert redact_url("https://x.test/a/b") == "https://x.test/a/b"
@@ -50,18 +49,17 @@ class TestSecretHygiene:
     def test_provider_status_never_leaks_keys(self):
         settings = Settings(
             google_maps_server_key="super-secret-server-key",
-            geoapify_api_key="another-secret",
-            anthropic_api_key="sk-ant-secret",
-            amadeus_client_secret="amadeus-secret",
+            google_maps_browser_key="browser-secret-key",
+            openai_api_key="sk-proj-secret",
         )
         serialised = repr(settings.provider_status())
         for secret in (
-            "super-secret-server-key", "another-secret", "sk-ant-secret", "amadeus-secret"
+            "super-secret-server-key", "browser-secret-key", "sk-proj-secret"
         ):
             assert secret not in serialised
 
     def test_provider_status_reports_capability_not_credentials(self):
-        settings = Settings(google_maps_server_key="k", anthropic_api_key="sk-ant-x")
+        settings = Settings(google_maps_server_key="k", openai_api_key="sk-proj-x")
         status = settings.provider_status()
         # Google leads, and keyless Nominatim stays on as a fallback.
         assert status["geocoding"] == ["google", "nominatim"]
@@ -89,37 +87,29 @@ class TestDemoModeDetection:
         assert settings.geocoding_providers == ["nominatim"]
 
     def test_any_credential_leaves_demo_mode(self):
-        assert not Settings(geoapify_api_key="x").demo_mode
-        assert not Settings(anthropic_api_key="x").demo_mode
-        assert not Settings(amadeus_client_id="x").demo_mode
+        assert not Settings(google_maps_server_key="x").demo_mode
+        assert not Settings(openai_api_key="x").demo_mode
 
-    def test_provider_priority_order(self):
-        settings = Settings(
-            google_maps_server_key="g", geoapify_api_key="ga",
-            locationiq_api_key="l", enable_nominatim=True,
-        )
-        assert settings.geocoding_providers == [
-            "google", "geoapify", "locationiq", "nominatim"
-        ]
+    def test_google_leads_the_chain_with_free_fallback_behind(self):
+        """One paid provider per capability, one free fallback behind it."""
+        settings = Settings(google_maps_server_key="g", enable_nominatim=True)
+        assert settings.geocoding_providers == ["google", "nominatim"]
+        assert settings.routing_providers == ["google", "osrm"]
+        assert settings.places_providers == ["google", "overpass"]
 
-    def test_llm_requires_a_model_for_openai(self):
-        assert Settings(openai_api_key="k", llm_provider="openai").active_llm_provider is None
-        assert (
-            Settings(
-                openai_api_key="k", openai_model="some-model", llm_provider="openai"
-            ).active_llm_provider
-            == "openai"
-        )
-
-    def test_auto_prefers_anthropic(self):
-        settings = Settings(
-            anthropic_api_key="a", openai_api_key="o", openai_model="m", llm_provider="auto"
-        )
-        assert settings.active_llm_provider == "anthropic"
+    def test_openai_needs_only_a_key(self):
+        """The model ID is resolved from the API when it is not pinned."""
+        assert Settings(openai_api_key="k").active_llm_provider == "openai"
+        assert Settings(openai_api_key="k", openai_model="gpt-x").active_llm_provider == "openai"
 
     def test_llm_can_be_disabled_explicitly(self):
-        settings = Settings(anthropic_api_key="a", llm_provider="none")
-        assert settings.active_llm_provider is None
+        assert Settings(openai_api_key="k", enable_llm=False).active_llm_provider is None
+
+    def test_no_fare_or_rate_provider_is_claimed(self):
+        """Flights and hotels are always modelled, so nothing may claim live."""
+        status = Settings(google_maps_server_key="g", openai_api_key="k").provider_status()
+        assert status["flights"] == []
+        assert status["hotels"] == []
 
 
 class TestMemoryCache:
@@ -329,7 +319,7 @@ class TestRateLimiter:
 
 class TestGeocodingFallback:
     def test_falls_through_to_the_next_provider(self):
-        """Google failing must not stop Geoapify from answering."""
+        """Google failing must not stop the free geocoder from answering."""
         from app.providers import geocoding
 
         def handle(request):
@@ -337,22 +327,17 @@ class TestGeocodingFallback:
                 return httpx.Response(500)
             return httpx.Response(
                 200,
-                json={
-                    "features": [
-                        {
-                            "properties": {
-                                "lat": 15.6,
-                                "lon": 73.75,
-                                "formatted": "North Goa, Goa, India",
-                                "state": "Goa",
-                                "country": "India",
-                            }
-                        }
-                    ]
-                },
+                json=[
+                    {
+                        "lat": "15.6",
+                        "lon": "73.75",
+                        "display_name": "North Goa, Goa, India",
+                        "address": {"state": "Goa", "country": "India"},
+                    }
+                ],
             )
 
-        settings = Settings(google_maps_server_key="g", geoapify_api_key="ga")
+        settings = Settings(google_maps_server_key="g", enable_nominatim=True)
         client = fake_client(httpx.MockTransport(handle), max_retries=0)
         cache = MemoryCache()
         failures: list[str] = []
@@ -372,7 +357,7 @@ class TestGeocodingFallback:
         def handle(request):
             return httpx.Response(500)
 
-        settings = Settings(google_maps_server_key="g", geoapify_api_key="ga")
+        settings = Settings(google_maps_server_key="g", enable_nominatim=True)
         client = fake_client(httpx.MockTransport(handle), max_retries=0)
         result = asyncio.run(
             geocoding.geocode(
@@ -391,14 +376,10 @@ class TestGeocodingFallback:
             calls["n"] += 1
             return httpx.Response(
                 200,
-                json={
-                    "features": [
-                        {"properties": {"lat": 15.6, "lon": 73.75, "formatted": "Goa"}}
-                    ]
-                },
+                json=[{"lat": "15.6", "lon": "73.75", "display_name": "Goa", "address": {}}],
             )
 
-        settings = Settings(geoapify_api_key="ga")
+        settings = Settings(enable_nominatim=True)
         client = fake_client(httpx.MockTransport(handle))
         cache = MemoryCache()
         for _ in range(3):
@@ -417,14 +398,10 @@ class TestGeocodingFallback:
         def handle(request):
             return httpx.Response(
                 200,
-                json={
-                    "features": [
-                        {"properties": {"lat": 15.6, "lon": 73.75, "formatted": "Goa"}}
-                    ]
-                },
+                json=[{"lat": "15.6", "lon": "73.75", "display_name": "Goa", "address": {}}],
             )
 
-        settings = Settings(geoapify_api_key="ga")
+        settings = Settings(enable_nominatim=True)
         client = fake_client(httpx.MockTransport(handle))
         cache = MemoryCache()
         first = asyncio.run(
@@ -580,138 +557,6 @@ class TestPlacesProvider:
         asyncio.run(client.close())
 
 
-class TestAmadeus:
-    def test_flight_total_is_divided_to_per_person(self):
-        from app.providers import amadeus
-
-        amadeus.reset_token()
-
-        def handle(request):
-            if "oauth2/token" in str(request.url):
-                return httpx.Response(
-                    200, json={"access_token": "tok", "expires_in": 1799}
-                )
-            return httpx.Response(
-                200,
-                json={
-                    "data": [
-                        {"price": {"grandTotal": "12000.00", "currency": "INR"}},
-                        {"price": {"grandTotal": "9000.00", "currency": "INR"}},
-                    ]
-                },
-            )
-
-        settings = Settings(amadeus_client_id="id", amadeus_client_secret="secret")
-        client = fake_client(httpx.MockTransport(handle))
-        fare = asyncio.run(
-            amadeus.cheapest_flight_fare_inr(
-                origin_iata="HYD", destination_iata="GOX", departure_date="2026-12-01",
-                adults=2, settings=settings, client=client, failures=[],
-            )
-        )
-        # Cheapest grand total 9000 for 2 adults -> 4500 each.
-        assert fare == pytest.approx(4500.0)
-        asyncio.run(client.close())
-        amadeus.reset_token()
-
-    def test_non_inr_offers_are_ignored(self):
-        from app.providers import amadeus
-
-        amadeus.reset_token()
-
-        def handle(request):
-            if "oauth2/token" in str(request.url):
-                return httpx.Response(200, json={"access_token": "t", "expires_in": 1799})
-            return httpx.Response(
-                200, json={"data": [{"price": {"grandTotal": "100.00", "currency": "EUR"}}]}
-            )
-
-        settings = Settings(amadeus_client_id="id", amadeus_client_secret="s")
-        client = fake_client(httpx.MockTransport(handle))
-        assert (
-            asyncio.run(
-                amadeus.cheapest_flight_fare_inr(
-                    origin_iata="HYD", destination_iata="GOX", departure_date="2026-12-01",
-                    adults=1, settings=settings, client=client, failures=[],
-                )
-            )
-            is None
-        )
-        asyncio.run(client.close())
-        amadeus.reset_token()
-
-    def test_auth_failure_is_reported_not_raised(self):
-        from app.providers import amadeus
-
-        amadeus.reset_token()
-
-        def handle(request):
-            return httpx.Response(401, json={"error": "invalid_client"})
-
-        settings = Settings(amadeus_client_id="bad", amadeus_client_secret="bad")
-        client = fake_client(httpx.MockTransport(handle), max_retries=0)
-        failures: list[str] = []
-        fare = asyncio.run(
-            amadeus.cheapest_flight_fare_inr(
-                origin_iata="HYD", destination_iata="GOX", departure_date="2026-12-01",
-                adults=1, settings=settings, client=client, failures=failures,
-            )
-        )
-        assert fare is None
-        assert any("authenticate" in f for f in failures)
-        asyncio.run(client.close())
-        amadeus.reset_token()
-
-    def test_no_credentials_short_circuits(self):
-        from app.providers import amadeus
-
-        amadeus.reset_token()
-        settings = Settings()
-        token = asyncio.run(
-            amadeus.get_access_token(
-                settings, fake_client(httpx.MockTransport(lambda r: httpx.Response(200)))
-            )
-        )
-        assert token is None
-
-    def test_hotel_rate_is_per_room_per_night(self):
-        from app.providers import amadeus
-
-        amadeus.reset_token()
-
-        def handle(request):
-            url = str(request.url)
-            if "oauth2/token" in url:
-                return httpx.Response(200, json={"access_token": "t", "expires_in": 1799})
-            if "by-geocode" in url:
-                return httpx.Response(200, json={"data": [{"hotelId": "H1"}]})
-            return httpx.Response(
-                200,
-                json={
-                    "data": [
-                        {
-                            "offers": [
-                                # 3 nights, 2 rooms, 18000 total -> 3000 per room-night
-                                {"price": {"base": "18000.00", "currency": "INR"}}
-                            ]
-                        }
-                    ]
-                },
-            )
-
-        settings = Settings(amadeus_client_id="id", amadeus_client_secret="s")
-        client = fake_client(httpx.MockTransport(handle))
-        nightly = asyncio.run(
-            amadeus.cheapest_hotel_nightly_inr(
-                lat=15.6, lon=73.75, check_in="2026-12-01", check_out="2026-12-04",
-                rooms=2, adults=4, settings=settings, client=client, failures=[],
-            )
-        )
-        assert nightly == pytest.approx(3000.0)
-        asyncio.run(client.close())
-        amadeus.reset_token()
-
-
 class TestLLMJsonExtraction:
     def test_plain_json(self):
         from app.providers.llm import extract_json
@@ -748,7 +593,8 @@ class TestLLMJsonExtraction:
             asyncio.run(
                 complete_json(system_prompt="s", user_prompt="u", settings=settings)
             )
-        assert "ANTHROPIC_API_KEY" in str(exc.value)
+        assert "OPENAI_API_KEY" in str(exc.value)
+        assert "deterministic planner" in str(exc.value)
 
 
 class TestWeatherScoring:
@@ -798,8 +644,8 @@ class TestCredentialSlots:
         ["", "   ", "\t", "\n", None],
     )
     def test_blank_slots_are_treated_as_absent(self, raw):
-        settings = Settings(geoapify_api_key=raw, enable_nominatim=False)
-        assert settings.geoapify_api_key is None
+        settings = Settings(google_maps_server_key=raw, enable_nominatim=False)
+        assert settings.google_maps_server_key is None
         assert settings.geocoding_providers == []
         assert settings.demo_mode
 
@@ -808,8 +654,8 @@ class TestCredentialSlots:
         ["your-key-here", "YOUR-KEY-HERE", "changeme", "replace-me", "TODO", "<paste key>"],
     )
     def test_placeholders_are_treated_as_absent(self, placeholder):
-        settings = Settings(geoapify_api_key=placeholder, enable_nominatim=False)
-        assert settings.geoapify_api_key is None
+        settings = Settings(google_maps_server_key=placeholder, enable_nominatim=False)
+        assert settings.google_maps_server_key is None
         assert settings.demo_mode, "a placeholder must not switch off demo mode"
 
     @pytest.mark.parametrize(
@@ -824,23 +670,17 @@ class TestCredentialSlots:
     )
     def test_real_keys_are_cleaned_not_mangled(self, raw, expected):
         """A key pasted with quotes or spaces must still work."""
-        settings = Settings(geoapify_api_key=raw)
-        assert settings.geoapify_api_key == expected
-        assert "geoapify" in settings.geocoding_providers
+        settings = Settings(google_maps_server_key=raw)
+        assert settings.google_maps_server_key == expected
+        assert "google" in settings.geocoding_providers
         assert not settings.demo_mode
 
     def test_cleaning_applies_to_every_credential_field(self):
         blank = '  "" '
         settings = Settings(
-            anthropic_api_key="  ",
             openai_api_key="your-key-here",
             google_maps_server_key='""',
             google_maps_browser_key="<your browser key>",
-            locationiq_api_key="",
-            openrouteservice_api_key="   ",
-            foursquare_api_key="changeme",
-            amadeus_client_id="",
-            amadeus_client_secret="TODO",
             osm_contact_email=blank,
             enable_nominatim=False,
             enable_osrm=False,
@@ -849,53 +689,41 @@ class TestCredentialSlots:
             enable_wikimedia_images=False,
         )
         for field in (
-            "anthropic_api_key",
             "openai_api_key",
             "google_maps_server_key",
             "google_maps_browser_key",
-            "locationiq_api_key",
-            "openrouteservice_api_key",
-            "foursquare_api_key",
-            "amadeus_client_id",
-            "amadeus_client_secret",
             "osm_contact_email",
         ):
             assert getattr(settings, field) is None, f"{field} was not cleaned"
         assert settings.demo_mode
         assert settings.active_llm_provider is None
 
-    def test_openai_needs_both_key_and_model(self):
-        """A key with a blank model slot is not a usable OpenAI config."""
+    def test_blank_model_slot_still_yields_a_usable_config(self):
+        """The model ID is optional: it is resolved from the API when blank."""
+        assert Settings(openai_api_key="sk-x", openai_model="  ").openai_model == ""
+        assert Settings(openai_api_key="sk-x", openai_model="  ").active_llm_provider == "openai"
         assert (
-            Settings(openai_api_key="sk-x", openai_model="  ").active_llm_provider is None
+            Settings(openai_api_key="sk-x", openai_model="your-key-here").openai_model == ""
         )
-        assert (
-            Settings(openai_api_key="sk-x", openai_model="your-key-here").active_llm_provider
-            is None
-        )
-        assert (
-            Settings(openai_api_key="sk-x", openai_model="gpt-x").active_llm_provider
-            == "openai"
-        )
+        assert Settings(openai_api_key="sk-x", openai_model="gpt-x").openai_model == "gpt-x"
 
     def test_a_half_filled_file_enables_only_what_is_filled(self):
         """The realistic mid-setup state: one key in, the rest still blank."""
         settings = Settings(
-            geoapify_api_key="real-geoapify-key",
-            anthropic_api_key="",
-            google_maps_server_key="your-key-here",
-            amadeus_client_id="   ",
+            google_maps_server_key="real-google-key",
+            openai_api_key="",
+            google_maps_browser_key="your-key-here",
             enable_nominatim=False,
         )
-        assert settings.geocoding_providers == ["geoapify"]
+        assert settings.geocoding_providers == ["google"]
+        assert settings.google_maps_browser_key is None
         assert settings.active_llm_provider is None
-        assert settings.provider_status()["flights"] == []
         assert not settings.demo_mode  # one real provider is configured
 
     def test_status_never_echoes_a_credential_even_when_set(self):
         settings = Settings(
-            geoapify_api_key="super-secret-value",
-            anthropic_api_key="sk-ant-secret-value",
+            google_maps_server_key="super-secret-value",
+            openai_api_key="sk-proj-secret-value",
         )
         assert "super-secret-value" not in repr(settings.provider_status())
-        assert "sk-ant-secret-value" not in repr(settings.provider_status())
+        assert "sk-proj-secret-value" not in repr(settings.provider_status())

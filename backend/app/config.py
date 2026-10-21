@@ -110,25 +110,25 @@ class Settings(BaseSettings):
     redis_url: str | None = None
 
     # ---- LLM (server-side only) ------------------------------------------
-    anthropic_api_key: str | None = None
-    anthropic_model: str = "claude-sonnet-5-5"
     openai_api_key: str | None = None
-    # Deliberately empty. OpenAI model IDs change often enough that a
-    # hardcoded default would silently break; set OPENAI_MODEL to a current ID
-    # from `GET https://api.openai.com/v1/models`. Anthropic IDs are stable
-    # enough to default.
+    # Deliberately empty. OpenAI model IDs change often enough that any
+    # hardcoded default would eventually break, so when this is blank the app
+    # asks the API which models the key can actually use and picks one. Set it
+    # explicitly to pin a specific model.
     openai_model: str = ""
-    llm_provider: Literal["auto", "anthropic", "openai", "none"] = "auto"
+    # Lets you keep the key in place but turn the model off.
+    enable_llm: bool = True
     llm_timeout_seconds: float = 45.0
     llm_max_output_tokens: int = 8000
 
     # ---- Geocoding / routing / places ------------------------------------
+    # Two Google keys, deliberately separate:
+    #   server  -> Geocoding, Routes and Places. IP-restricted. Never sent to
+    #              the browser.
+    #   browser -> Maps JavaScript tiles only. Public by design, so it MUST be
+    #              HTTP-referrer restricted in the Google console.
     google_maps_server_key: str | None = None
     google_maps_browser_key: str | None = None
-    geoapify_api_key: str | None = None
-    locationiq_api_key: str | None = None
-    openrouteservice_api_key: str | None = None
-    foursquare_api_key: str | None = None
 
     # Keyless OSM-based services. Fair-use only: rate limited and cached.
     # Set to False in production unless you self-host or have permission.
@@ -147,13 +147,6 @@ class Settings(BaseSettings):
     # Required by the Nominatim usage policy; identifies this deployment.
     osm_contact_email: str | None = None
 
-    # ---- Transport / accommodation providers -----------------------------
-    amadeus_client_id: str | None = None
-    amadeus_client_secret: str | None = None
-    amadeus_environment: Literal["test", "production"] = "test"
-    hotel_provider: Literal["none", "amadeus"] = "none"
-    flight_provider: Literal["none", "amadeus"] = "none"
-
     # ---- Network behaviour -----------------------------------------------
     http_timeout_seconds: float = 8.0
     http_max_retries: int = 2
@@ -171,16 +164,9 @@ class Settings(BaseSettings):
     default_currency: str = "INR"
 
     @field_validator(
-        "anthropic_api_key",
         "openai_api_key",
         "google_maps_server_key",
         "google_maps_browser_key",
-        "geoapify_api_key",
-        "locationiq_api_key",
-        "openrouteservice_api_key",
-        "foursquare_api_key",
-        "amadeus_client_id",
-        "amadeus_client_secret",
         "osm_contact_email",
         "redis_url",
         mode="before",
@@ -192,7 +178,7 @@ class Settings(BaseSettings):
             return _clean_credential(value, info.field_name)
         return value
 
-    @field_validator("anthropic_model", "openai_model", mode="before")
+    @field_validator("openai_model", mode="before")
     @classmethod
     def _normalise_model_name(cls, value: object, info) -> str:
         """Model names are plain strings, so an unfilled slot becomes empty.
@@ -222,30 +208,23 @@ class Settings(BaseSettings):
 
     @property
     def active_llm_provider(self) -> str | None:
-        """Which LLM provider will actually be used, if any."""
-        if self.llm_provider == "none":
-            return None
-        if self.llm_provider == "anthropic":
-            return "anthropic" if self.anthropic_api_key else None
-        if self.llm_provider == "openai":
-            return "openai" if (self.openai_api_key and self.openai_model) else None
-        # auto
-        if self.anthropic_api_key:
-            return "anthropic"
-        if self.openai_api_key and self.openai_model:
-            return "openai"
-        return None
+        """Whether the OpenAI itinerary writer is usable.
 
+        Only the key is required. If OPENAI_MODEL is blank the app resolves a
+        current model ID from the API itself, so setup is one line, not two.
+        """
+        if not self.enable_llm:
+            return None
+        return "openai" if self.openai_api_key else None
+
+    # Each capability has exactly one paid provider (Google) and one free
+    # keyless fallback. Google first when configured; the free service
+    # otherwise, and as the fallback if Google fails.
     @property
     def geocoding_providers(self) -> list[str]:
-        """Geocoders in priority order."""
         chain: list[str] = []
         if self.google_maps_server_key:
             chain.append("google")
-        if self.geoapify_api_key:
-            chain.append("geoapify")
-        if self.locationiq_api_key:
-            chain.append("locationiq")
         if self.enable_nominatim:
             chain.append("nominatim")
         return chain
@@ -255,10 +234,6 @@ class Settings(BaseSettings):
         chain: list[str] = []
         if self.google_maps_server_key:
             chain.append("google")
-        if self.openrouteservice_api_key:
-            chain.append("openrouteservice")
-        if self.geoapify_api_key:
-            chain.append("geoapify")
         if self.enable_osrm:
             chain.append("osrm")
         return chain
@@ -268,10 +243,6 @@ class Settings(BaseSettings):
         chain: list[str] = []
         if self.google_maps_server_key:
             chain.append("google")
-        if self.foursquare_api_key:
-            chain.append("foursquare")
-        if self.geoapify_api_key:
-            chain.append("geoapify")
         if self.enable_overpass:
             chain.append("overpass")
         return chain
@@ -284,17 +255,7 @@ class Settings(BaseSettings):
         deterministic cost model and labelled as an estimate. Nothing is
         presented as live data.
         """
-        return not any(
-            [
-                self.google_maps_server_key,
-                self.geoapify_api_key,
-                self.locationiq_api_key,
-                self.openrouteservice_api_key,
-                self.foursquare_api_key,
-                self.amadeus_client_id,
-                self.active_llm_provider,
-            ]
-        )
+        return not any([self.google_maps_server_key, self.active_llm_provider])
 
     def provider_status(self) -> dict[str, object]:
         """Public, secret-free description of what is wired up.
@@ -307,21 +268,17 @@ class Settings(BaseSettings):
             "llm": {
                 "enabled": self.llm_enabled,
                 "provider": self.active_llm_provider,
-                "model": (
-                    self.anthropic_model
-                    if self.active_llm_provider == "anthropic"
-                    else self.openai_model
-                    if self.active_llm_provider == "openai"
-                    else None
-                ),
+                "model": self.openai_model or None,
             },
             "geocoding": self.geocoding_providers,
             "routing": self.routing_providers,
             "places": self.places_providers,
             "weather": ["open-meteo"] if self.enable_open_meteo else [],
             "images": ["wikimedia"] if self.enable_wikimedia_images else [],
-            "flights": [self.flight_provider] if self.flight_provider != "none" else [],
-            "hotels": [self.hotel_provider] if self.hotel_provider != "none" else [],
+            # No licensed fare or rate API is wired up, so these are always
+            # produced by the cost model and labelled as estimates.
+            "flights": [],
+            "hotels": [],
             # The browser map key is *designed* to be public but must be
             # restricted by HTTP referrer in the provider console.
             "maps_browser_key_present": bool(self.google_maps_browser_key),
