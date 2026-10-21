@@ -153,6 +153,38 @@ class TestSensitivity:
         )
         assert c5.cost.total_inr > c2.cost.total_inr
 
+    def test_group_size_changes_the_ranking_at_a_fixed_budget(self, settings):
+        """The same budget buys a different trip for one person and for six.
+
+        Holding the budget constant isolates group size: more travellers means
+        more per-head cost, a smaller feasible set, and a different ranked
+        list -- not merely different totals.
+        """
+        solo = rank(make_request(travelers=1, budget_inr=45_000), settings, limit=5)
+        group = rank(make_request(travelers=6, budget_inr=45_000), settings, limit=5)
+
+        assert [c.destination.id for c in solo.ranked] != [
+            c.destination.id for c in group.ranked
+        ]
+        assert solo.feasible > group.feasible, (
+            "a larger group on the same budget should have fewer workable options"
+        )
+
+    def test_sharing_lowers_the_per_head_cost(self, settings):
+        """Rooms and vehicles are shared, so cost per person falls with size."""
+        destination = get_destination("north-goa")
+        per_head = []
+        for travelers in (1, 2, 4):
+            request = make_request(travelers=travelers, budget_inr=400_000)
+            candidate, _ = build_candidate(
+                request=request, destination=destination, origin_lat=ORIGIN_LAT,
+                origin_lon=ORIGIN_LON, settings=settings, today=request.start_date,
+            )
+            per_head.append(candidate.cost.per_traveler_inr)
+        assert per_head == sorted(per_head, reverse=True), (
+            f"per-head cost should fall as the group grows, got {per_head}"
+        )
+
     def test_more_days_raises_the_total_for_a_fixed_mode(self, settings):
         """With the travel mode held constant, a longer trip costs more.
 

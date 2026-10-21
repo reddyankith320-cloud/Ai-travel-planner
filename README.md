@@ -186,7 +186,7 @@ backend/
     routers/             HTTP surface
     db/                  models + sessions
   alembic/               migrations
-  tests/                 333 tests
+  tests/                 335 tests
 frontend/
   src/
     lib/                 api client, types, formatting, geolocation
@@ -206,7 +206,7 @@ scripts/
 ## Testing
 
 ```bash
-cd backend && pytest                 # 333 tests
+cd backend && pytest                 # 335 tests
 cd frontend && npm test              # 36 tests
 cd frontend && npx tsc --noEmit      # typecheck
 ./scripts/verify-no-secrets.sh       # credential scan of the built bundle
