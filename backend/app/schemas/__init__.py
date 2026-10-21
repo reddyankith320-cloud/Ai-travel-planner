@@ -1,0 +1,72 @@
+"""Pydantic schemas: the validated contract between TripWise's layers."""
+
+from .common import Assumption, BookingLink, Coordinates, PlaceRef, Provenance
+from .cost import CategoryTotal, CostBreakdown, CostLineItem
+from .enums import (
+    AccommodationType,
+    ActivityKind,
+    BudgetFit,
+    Confidence,
+    CostBasis,
+    CostCategory,
+    DataSource,
+    Interest,
+    Pace,
+    TravelMode,
+)
+from .itinerary import Itinerary, ItineraryActivity, ItineraryDay, ItineraryRequest
+from .recommendation import (
+    BudgetShortfall,
+    InterestGap,
+    DestinationRecommendation,
+    DestinationSummary,
+    RecommendationResponse,
+    RejectedDestination,
+    ResponseMeta,
+    ScoreBreakdown,
+    ScoreComponent,
+    SeasonInfo,
+    TravelLeg,
+    UnmetInterest,
+)
+from .trip import OriginLocation, RecommendationQuery, TripRequest
+
+__all__ = [
+    "AccommodationType",
+    "ActivityKind",
+    "Assumption",
+    "BookingLink",
+    "BudgetFit",
+    "BudgetShortfall",
+    "CategoryTotal",
+    "Confidence",
+    "Coordinates",
+    "CostBasis",
+    "CostBreakdown",
+    "CostCategory",
+    "CostLineItem",
+    "DataSource",
+    "DestinationRecommendation",
+    "DestinationSummary",
+    "Interest",
+    "InterestGap",
+    "Itinerary",
+    "ItineraryActivity",
+    "ItineraryDay",
+    "ItineraryRequest",
+    "OriginLocation",
+    "Pace",
+    "PlaceRef",
+    "Provenance",
+    "RecommendationQuery",
+    "RecommendationResponse",
+    "RejectedDestination",
+    "ResponseMeta",
+    "ScoreBreakdown",
+    "ScoreComponent",
+    "SeasonInfo",
+    "TravelLeg",
+    "UnmetInterest",
+    "TravelMode",
+    "TripRequest",
+]

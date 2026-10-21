@@ -1,0 +1,6276 @@
+{
+ "version": "2026.10",
+ "source": "curated",
+ "note": "Maintained reference dataset for destination discovery. Coordinates are approximate centroids. Entry fees and opening hours are typical published values and are surfaced to users as 'approx.' with CURATED provenance -- they are not live quotes. Cost indices are multipliers against the national baseline in services/cost_model.py.",
+ "license": "Dataset compiled for this project. Place geometry inspired by OpenStreetMap (ODbL) -- verify before commercial redistribution.",
+ "destinations": [
+  {
+   "id": "agra",
+   "name": "Agra",
+   "region": "Braj",
+   "state": "Uttar Pradesh",
+   "lat": 27.1767,
+   "lon": 78.0081,
+   "tier": "budget",
+   "blurb": "Three UNESCO monuments within 10 km, doable as a tight two-day trip.",
+   "tags": [
+    "heritage",
+    "photography",
+    "food",
+    "art_culture",
+    "shopping"
+   ],
+   "quality": 0.91,
+   "popularity": 0.96,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.8,
+    "local": 0.8
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "AGR",
+    "name": "Agra (limited flights)",
+    "km": 13
+   },
+   "railhead": {
+    "name": "Agra Cantt",
+    "km": 6
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "Battery rickshaws near the Taj; autos elsewhere. Taj is closed Fridays.",
+   "attractions": [
+    {
+     "name": "Taj Mahal",
+     "category": "heritage",
+     "lat": 27.1751,
+     "lon": 78.0421,
+     "fee": 1100,
+     "hours": "Sunrise-sunset, closed Fri",
+     "minutes": 180,
+     "rating": 4.9
+    },
+    {
+     "name": "Agra Fort",
+     "category": "heritage",
+     "lat": 27.1795,
+     "lon": 78.0211,
+     "fee": 650,
+     "hours": "06:00-18:00",
+     "minutes": 120,
+     "rating": 4.6
+    },
+    {
+     "name": "Mehtab Bagh sunset view",
+     "category": "viewpoint",
+     "lat": 27.18,
+     "lon": 78.042,
+     "fee": 300,
+     "hours": "06:00-19:00",
+     "minutes": 75,
+     "rating": 4.4
+    },
+    {
+     "name": "Itmad-ud-Daulah (Baby Taj)",
+     "category": "heritage",
+     "lat": 27.193,
+     "lon": 78.03,
+     "fee": 310,
+     "hours": "06:00-18:00",
+     "minutes": 75,
+     "rating": 4.4
+    },
+    {
+     "name": "Fatehpur Sikri day trip",
+     "category": "heritage",
+     "lat": 27.0945,
+     "lon": 77.6679,
+     "fee": 610,
+     "hours": "06:00-18:00",
+     "minutes": 240,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "alleppey",
+   "name": "Alappuzha (Alleppey)",
+   "region": "Kerala Backwaters",
+   "state": "Kerala",
+   "lat": 9.4981,
+   "lon": 76.3388,
+   "tier": "mid",
+   "blurb": "Backwater canals, houseboats and village life at water level.",
+   "tags": [
+    "backwaters",
+    "nature",
+    "food",
+    "wellness",
+    "photography",
+    "offbeat"
+   ],
+   "quality": 0.89,
+   "popularity": 0.9,
+   "cost_index": {
+    "stay": 1.15,
+    "food": 0.95,
+    "local": 0.95
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "COK",
+    "name": "Kochi",
+    "km": 85
+   },
+   "railhead": {
+    "name": "Alappuzha",
+    "km": 4
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Public ferries are very cheap; autos for short hops. Houseboats are a separate booking.",
+   "attractions": [
+    {
+     "name": "Shikara backwater cruise",
+     "category": "activity",
+     "lat": 9.49,
+     "lon": 76.34,
+     "fee": 700,
+     "hours": "07:00-18:00",
+     "minutes": 180,
+     "rating": 4.6
+    },
+    {
+     "name": "Alappuzha Beach & pier",
+     "category": "beach",
+     "lat": 9.4894,
+     "lon": 76.32,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 75,
+     "rating": 4.0
+    },
+    {
+     "name": "Kumarakom Bird Sanctuary",
+     "category": "wildlife",
+     "lat": 9.6167,
+     "lon": 76.4333,
+     "fee": 100,
+     "hours": "06:00-17:00",
+     "minutes": 120,
+     "rating": 4.1
+    },
+    {
+     "name": "Public ferry to Kottayam",
+     "category": "activity",
+     "lat": 9.495,
+     "lon": 76.338,
+     "fee": 30,
+     "hours": "Scheduled sailings",
+     "minutes": 150,
+     "rating": 4.4
+    },
+    {
+     "name": "Marari village walk",
+     "category": "offbeat",
+     "lat": 9.6,
+     "lon": 76.3,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "amritsar",
+   "name": "Amritsar",
+   "region": "Majha",
+   "state": "Punjab",
+   "lat": 31.634,
+   "lon": 74.8723,
+   "tier": "budget",
+   "blurb": "The Golden Temple, a border ceremony and the best dhaba food in the north.",
+   "tags": [
+    "spiritual",
+    "heritage",
+    "food",
+    "art_culture",
+    "shopping",
+    "photography"
+   ],
+   "quality": 0.9,
+   "popularity": 0.91,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.7,
+    "local": 0.75
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "ATQ",
+    "name": "Sri Guru Ram Dass Jee Intl",
+    "km": 13
+   },
+   "railhead": {
+    "name": "Amritsar Jn",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "E-rickshaws around the walled city; shared cabs to Wagah.",
+   "attractions": [
+    {
+     "name": "Golden Temple (Harmandir Sahib)",
+     "category": "spiritual",
+     "lat": 31.62,
+     "lon": 74.8765,
+     "fee": 0,
+     "hours": "Open 24h",
+     "minutes": 180,
+     "rating": 4.9
+    },
+    {
+     "name": "Jallianwala Bagh",
+     "category": "heritage",
+     "lat": 31.6205,
+     "lon": 74.88,
+     "fee": 0,
+     "hours": "06:30-19:30",
+     "minutes": 60,
+     "rating": 4.5
+    },
+    {
+     "name": "Wagah Border ceremony",
+     "category": "activity",
+     "lat": 31.605,
+     "lon": 74.573,
+     "fee": 0,
+     "hours": "Ceremony ~16:15 (seasonal)",
+     "minutes": 240,
+     "rating": 4.6
+    },
+    {
+     "name": "Partition Museum",
+     "category": "museum",
+     "lat": 31.625,
+     "lon": 74.877,
+     "fee": 250,
+     "hours": "10:00-18:00",
+     "minutes": 120,
+     "rating": 4.6
+    },
+    {
+     "name": "Langar at the Golden Temple",
+     "category": "food",
+     "lat": 31.62,
+     "lon": 74.877,
+     "fee": 0,
+     "hours": "Open 24h",
+     "minutes": 60,
+     "rating": 4.8
+    }
+   ]
+  },
+  {
+   "id": "andaman",
+   "name": "Port Blair & Havelock",
+   "region": "Andaman Islands",
+   "state": "Andaman & Nicobar",
+   "lat": 11.6234,
+   "lon": 92.7265,
+   "tier": "premium",
+   "blurb": "Coral reefs and white sand, reached only by air or a long ferry.",
+   "tags": [
+    "beaches",
+    "adventure",
+    "nature",
+    "wellness",
+    "photography",
+    "wildlife"
+   ],
+   "quality": 0.93,
+   "popularity": 0.84,
+   "cost_index": {
+    "stay": 1.4,
+    "food": 1.35,
+    "local": 1.4
+   },
+   "best_months": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "IXZ",
+    "name": "Veer Savarkar Intl",
+    "km": 4
+   },
+   "railhead": {
+    "name": "No rail link",
+    "km": 0
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "resort"
+   ],
+   "ideal_days": [
+    5,
+    8
+   ],
+   "local_transport": "Inter-island ferries must be booked ahead; scooters on Havelock. Flights are the only practical access.",
+   "attractions": [
+    {
+     "name": "Radhanagar Beach",
+     "category": "beach",
+     "lat": 11.983,
+     "lon": 92.95,
+     "fee": 0,
+     "hours": "05:00-18:00",
+     "minutes": 180,
+     "rating": 4.8
+    },
+    {
+     "name": "Scuba diving at Havelock",
+     "category": "adventure",
+     "lat": 12.02,
+     "lon": 93.0,
+     "fee": 3500,
+     "hours": "07:00-15:00",
+     "minutes": 240,
+     "rating": 4.8
+    },
+    {
+     "name": "Cellular Jail & light-and-sound",
+     "category": "heritage",
+     "lat": 11.675,
+     "lon": 92.748,
+     "fee": 300,
+     "hours": "09:00-17:00; show 18:00",
+     "minutes": 180,
+     "rating": 4.6
+    },
+    {
+     "name": "Elephant Beach snorkelling",
+     "category": "activity",
+     "lat": 12.02,
+     "lon": 92.95,
+     "fee": 2000,
+     "hours": "08:00-15:00",
+     "minutes": 300,
+     "rating": 4.5
+    },
+    {
+     "name": "Ross Island (Netaji Subhash Dweep)",
+     "category": "heritage",
+     "lat": 11.678,
+     "lon": 92.762,
+     "fee": 250,
+     "hours": "08:30-16:00",
+     "minutes": 180,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "araku",
+   "name": "Araku Valley",
+   "region": "Eastern Ghats",
+   "state": "Andhra Pradesh",
+   "lat": 18.3273,
+   "lon": 82.8766,
+   "tier": "budget",
+   "blurb": "Coffee valley reached by one of India's most scenic train rides.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "offbeat",
+    "photography",
+    "waterfalls",
+    "art_culture"
+   ],
+   "quality": 0.8,
+   "popularity": 0.62,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.7,
+    "local": 0.8
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "VTZ",
+    "name": "Visakhapatnam",
+    "km": 115
+   },
+   "railhead": {
+    "name": "Araku",
+    "km": 2
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Take the Kirandul passenger train in; jeeps and autos in the valley.",
+   "attractions": [
+    {
+     "name": "Borra Caves",
+     "category": "nature",
+     "lat": 18.2833,
+     "lon": 83.0333,
+     "fee": 60,
+     "hours": "10:00-17:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Araku Tribal Museum",
+     "category": "museum",
+     "lat": 18.33,
+     "lon": 82.88,
+     "fee": 20,
+     "hours": "09:00-17:00",
+     "minutes": 60,
+     "rating": 4.0
+    },
+    {
+     "name": "Katiki Waterfalls",
+     "category": "waterfall",
+     "lat": 18.27,
+     "lon": 83.02,
+     "fee": 30,
+     "hours": "08:00-17:00",
+     "minutes": 150,
+     "rating": 4.2
+    },
+    {
+     "name": "Coffee plantation walk",
+     "category": "activity",
+     "lat": 18.34,
+     "lon": 82.87,
+     "fee": 100,
+     "hours": "09:00-17:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Galikonda viewpoint",
+     "category": "viewpoint",
+     "lat": 18.25,
+     "lon": 82.95,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 45,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "aurangabad",
+   "name": "Ajanta & Ellora (Aurangabad)",
+   "region": "Marathwada",
+   "state": "Maharashtra",
+   "lat": 19.8762,
+   "lon": 75.3433,
+   "tier": "budget",
+   "blurb": "Two of the world's great rock-cut cave complexes, 100 km apart.",
+   "tags": [
+    "heritage",
+    "art_culture",
+    "photography",
+    "spiritual",
+    "offbeat"
+   ],
+   "quality": 0.92,
+   "popularity": 0.75,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.75,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "IXU",
+    "name": "Chhatrapati Sambhajinagar",
+    "km": 10
+   },
+   "railhead": {
+    "name": "Chhatrapati Sambhajinagar",
+    "km": 5
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "MSRTC runs direct buses to both cave sites. Ajanta closes Mondays, Ellora Tuesdays.",
+   "attractions": [
+    {
+     "name": "Ajanta Caves",
+     "category": "heritage",
+     "lat": 20.5519,
+     "lon": 75.7033,
+     "fee": 40,
+     "hours": "09:00-17:30, closed Mon",
+     "minutes": 300,
+     "rating": 4.7
+    },
+    {
+     "name": "Ellora Caves & Kailasa Temple",
+     "category": "heritage",
+     "lat": 20.0269,
+     "lon": 75.179,
+     "fee": 40,
+     "hours": "08:00-17:30, closed Tue",
+     "minutes": 270,
+     "rating": 4.8
+    },
+    {
+     "name": "Bibi ka Maqbara",
+     "category": "heritage",
+     "lat": 19.902,
+     "lon": 75.32,
+     "fee": 25,
+     "hours": "08:00-20:00",
+     "minutes": 75,
+     "rating": 4.3
+    },
+    {
+     "name": "Daulatabad Fort",
+     "category": "heritage",
+     "lat": 19.943,
+     "lon": 75.22,
+     "fee": 25,
+     "hours": "09:00-18:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Grishneshwar Temple",
+     "category": "spiritual",
+     "lat": 20.025,
+     "lon": 75.17,
+     "fee": 0,
+     "hours": "05:30-21:30",
+     "minutes": 60,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "bir-billing",
+   "name": "Bir Billing",
+   "region": "Kangra Valley",
+   "state": "Himachal Pradesh",
+   "lat": 32.042,
+   "lon": 76.72,
+   "tier": "budget",
+   "blurb": "India's paragliding capital, with Tibetan monasteries in the same village.",
+   "tags": [
+    "adventure",
+    "mountains",
+    "offbeat",
+    "photography",
+    "spiritual",
+    "nature"
+   ],
+   "quality": 0.82,
+   "popularity": 0.71,
+   "cost_index": {
+    "stay": 0.75,
+    "food": 0.8,
+    "local": 0.8
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "airport": {
+    "iata": "DHM",
+    "name": "Gaggal (Kangra)",
+    "km": 65
+   },
+   "railhead": {
+    "name": "Ahju (narrow gauge)",
+    "km": 12
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Village is walkable; jeeps shuttle up to the Billing take-off.",
+   "attractions": [
+    {
+     "name": "Tandem paragliding flight",
+     "category": "adventure",
+     "lat": 32.06,
+     "lon": 76.71,
+     "fee": 2500,
+     "hours": "09:00-17:00 (season)",
+     "minutes": 120,
+     "rating": 4.8
+    },
+    {
+     "name": "Chokling Monastery",
+     "category": "spiritual",
+     "lat": 32.04,
+     "lon": 76.725,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 60,
+     "rating": 4.4
+    },
+    {
+     "name": "Bir tea factory walk",
+     "category": "activity",
+     "lat": 32.035,
+     "lon": 76.73,
+     "fee": 100,
+     "hours": "09:00-17:00",
+     "minutes": 75,
+     "rating": 4.1
+    },
+    {
+     "name": "Billing sunset viewpoint",
+     "category": "viewpoint",
+     "lat": 32.062,
+     "lon": 76.708,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Gunehar waterfall walk",
+     "category": "waterfall",
+     "lat": 32.028,
+     "lon": 76.745,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 150,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "bodh-gaya",
+   "name": "Bodh Gaya",
+   "region": "Magadh",
+   "state": "Bihar",
+   "lat": 24.6961,
+   "lon": 84.9869,
+   "tier": "budget",
+   "blurb": "Where the Buddha attained enlightenment, now ringed by monasteries from a dozen countries.",
+   "tags": [
+    "spiritual",
+    "heritage",
+    "art_culture",
+    "offbeat",
+    "wellness"
+   ],
+   "quality": 0.85,
+   "popularity": 0.7,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.65,
+    "local": 0.7
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "GAY",
+    "name": "Gaya Intl",
+    "km": 12
+   },
+   "railhead": {
+    "name": "Gaya Jn",
+    "km": 16
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "E-rickshaws cover everything; the temple complex is walkable.",
+   "attractions": [
+    {
+     "name": "Mahabodhi Temple & Bodhi Tree",
+     "category": "spiritual",
+     "lat": 24.6958,
+     "lon": 84.9911,
+     "fee": 0,
+     "hours": "05:00-21:00",
+     "minutes": 150,
+     "rating": 4.8
+    },
+    {
+     "name": "Great Buddha Statue",
+     "category": "heritage",
+     "lat": 24.693,
+     "lon": 84.988,
+     "fee": 20,
+     "hours": "07:00-18:00",
+     "minutes": 60,
+     "rating": 4.5
+    },
+    {
+     "name": "Thai & Japanese monasteries",
+     "category": "art_culture",
+     "lat": 24.695,
+     "lon": 84.985,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 120,
+     "rating": 4.4
+    },
+    {
+     "name": "Sujata Stupa & village",
+     "category": "heritage",
+     "lat": 24.69,
+     "lon": 85.01,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Meditation sitting",
+     "category": "wellness",
+     "lat": 24.696,
+     "lon": 84.99,
+     "fee": 0,
+     "hours": "05:30-07:00",
+     "minutes": 90,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "chikmagalur",
+   "name": "Chikmagalur",
+   "region": "Western Ghats",
+   "state": "Karnataka",
+   "lat": 13.3161,
+   "lon": 75.772,
+   "tier": "budget",
+   "blurb": "Karnataka's quieter coffee hills, with the state's highest peak behind them.",
+   "tags": [
+    "hill_station",
+    "trekking",
+    "nature",
+    "waterfalls",
+    "offbeat",
+    "photography"
+   ],
+   "quality": 0.82,
+   "popularity": 0.66,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.8,
+    "local": 0.9
+   },
+   "best_months": [
+    9,
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "BLR",
+    "name": "Bengaluru Kempegowda",
+    "km": 245
+   },
+   "railhead": {
+    "name": "Kadur",
+    "km": 40
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Jeep hire for Mullayanagiri road; own vehicle strongly preferred.",
+   "attractions": [
+    {
+     "name": "Mullayanagiri Peak",
+     "category": "viewpoint",
+     "lat": 13.3917,
+     "lon": 75.72,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Baba Budangiri",
+     "category": "spiritual",
+     "lat": 13.4167,
+     "lon": 75.75,
+     "fee": 0,
+     "hours": "07:00-18:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Hebbe Falls",
+     "category": "waterfall",
+     "lat": 13.4833,
+     "lon": 75.6667,
+     "fee": 450,
+     "hours": "09:00-16:00 (jeep)",
+     "minutes": 180,
+     "rating": 4.2
+    },
+    {
+     "name": "Hirekolale Lake",
+     "category": "lake",
+     "lat": 13.35,
+     "lon": 75.73,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "Coffee museum & estate tour",
+     "category": "activity",
+     "lat": 13.32,
+     "lon": 75.78,
+     "fee": 300,
+     "hours": "10:00-17:00",
+     "minutes": 90,
+     "rating": 4.1
+    }
+   ]
+  },
+  {
+   "id": "chitrakote",
+   "name": "Chitrakote & Bastar",
+   "region": "Bastar",
+   "state": "Chhattisgarh",
+   "lat": 19.2,
+   "lon": 81.7,
+   "tier": "budget",
+   "blurb": "India's widest waterfall and tribal haat markets that see almost no tourists.",
+   "tags": [
+    "waterfalls",
+    "offbeat",
+    "nature",
+    "art_culture",
+    "photography",
+    "wildlife"
+   ],
+   "quality": 0.8,
+   "popularity": 0.45,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.65,
+    "local": 0.9
+   },
+   "best_months": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "RPR",
+    "name": "Raipur",
+    "km": 290
+   },
+   "railhead": {
+    "name": "Jagdalpur",
+    "km": 40
+   },
+   "stay_types": [
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Cab from Jagdalpur; public transport to the falls is sparse.",
+   "attractions": [
+    {
+     "name": "Chitrakote Falls",
+     "category": "waterfall",
+     "lat": 19.203,
+     "lon": 81.702,
+     "fee": 30,
+     "hours": "07:00-18:00",
+     "minutes": 150,
+     "rating": 4.6
+    },
+    {
+     "name": "Tirathgarh Falls",
+     "category": "waterfall",
+     "lat": 18.88,
+     "lon": 81.85,
+     "fee": 30,
+     "hours": "08:00-17:00",
+     "minutes": 150,
+     "rating": 4.4
+    },
+    {
+     "name": "Kutumsar Caves",
+     "category": "nature",
+     "lat": 18.87,
+     "lon": 81.93,
+     "fee": 80,
+     "hours": "09:00-16:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Bastar tribal haat market",
+     "category": "art_culture",
+     "lat": 19.08,
+     "lon": 82.02,
+     "fee": 0,
+     "hours": "Weekly, 09:00-16:00",
+     "minutes": 150,
+     "rating": 4.5
+    },
+    {
+     "name": "Kanger Valley National Park",
+     "category": "wildlife",
+     "lat": 18.85,
+     "lon": 81.9,
+     "fee": 250,
+     "hours": "08:00-16:00",
+     "minutes": 240,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "coorg",
+   "name": "Coorg (Madikeri)",
+   "region": "Western Ghats",
+   "state": "Karnataka",
+   "lat": 12.4244,
+   "lon": 75.7382,
+   "tier": "mid",
+   "blurb": "Coffee estates, misty ridges and waterfalls in Karnataka's hill country.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "waterfalls",
+    "trekking",
+    "wellness",
+    "food"
+   ],
+   "quality": 0.86,
+   "popularity": 0.84,
+   "cost_index": {
+    "stay": 1.05,
+    "food": 0.9,
+    "local": 0.95
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "IXM",
+    "name": "Mangaluru",
+    "km": 135
+   },
+   "railhead": {
+    "name": "Mysuru Jn",
+    "km": 120
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Hire a cab for the day; sights are 20-40 km apart with poor bus links.",
+   "attractions": [
+    {
+     "name": "Abbey Falls",
+     "category": "waterfall",
+     "lat": 12.4489,
+     "lon": 75.7222,
+     "fee": 30,
+     "hours": "09:00-17:30",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "Raja's Seat",
+     "category": "viewpoint",
+     "lat": 12.4186,
+     "lon": 75.7264,
+     "fee": 20,
+     "hours": "05:30-20:00",
+     "minutes": 45,
+     "rating": 4.1
+    },
+    {
+     "name": "Dubare Elephant Camp",
+     "category": "wildlife",
+     "lat": 12.3167,
+     "lon": 75.95,
+     "fee": 350,
+     "hours": "09:00-11:00, 16:00-17:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Talakaveri",
+     "category": "spiritual",
+     "lat": 12.3869,
+     "lon": 75.4953,
+     "fee": 0,
+     "hours": "06:00-20:00",
+     "minutes": 90,
+     "rating": 4.4
+    },
+    {
+     "name": "Coffee estate walk",
+     "category": "activity",
+     "lat": 12.41,
+     "lon": 75.75,
+     "fee": 500,
+     "hours": "09:00-17:00",
+     "minutes": 120,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "darjeeling",
+   "name": "Darjeeling",
+   "region": "Eastern Himalaya",
+   "state": "West Bengal",
+   "lat": 27.041,
+   "lon": 88.2663,
+   "tier": "mid",
+   "blurb": "Tea gardens, a UNESCO steam railway and Kanchenjunga on a clear morning.",
+   "tags": [
+    "hill_station",
+    "mountains",
+    "food",
+    "heritage",
+    "photography",
+    "nature"
+   ],
+   "quality": 0.86,
+   "popularity": 0.89,
+   "cost_index": {
+    "stay": 0.95,
+    "food": 0.85,
+    "local": 1.0
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    9,
+    10,
+    11,
+    12
+   ],
+   "airport": {
+    "iata": "IXB",
+    "name": "Bagdogra",
+    "km": 70
+   },
+   "railhead": {
+    "name": "New Jalpaiguri",
+    "km": 80
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    3,
+    4
+   ],
+   "local_transport": "Shared jeeps are the local workhorse; the Mall and Chowrasta are pedestrian.",
+   "attractions": [
+    {
+     "name": "Tiger Hill sunrise",
+     "category": "viewpoint",
+     "lat": 27.003,
+     "lon": 88.268,
+     "fee": 50,
+     "hours": "04:00-07:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Darjeeling Himalayan Railway joyride",
+     "category": "activity",
+     "lat": 27.042,
+     "lon": 88.263,
+     "fee": 1200,
+     "hours": "Scheduled departures",
+     "minutes": 150,
+     "rating": 4.6
+    },
+    {
+     "name": "Himalayan Mountaineering Institute & Zoo",
+     "category": "museum",
+     "lat": 27.05,
+     "lon": 88.26,
+     "fee": 120,
+     "hours": "08:30-16:30, closed Thu",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Happy Valley Tea Estate",
+     "category": "activity",
+     "lat": 27.053,
+     "lon": 88.254,
+     "fee": 100,
+     "hours": "08:00-16:30",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Batasia Loop & war memorial",
+     "category": "viewpoint",
+     "lat": 27.028,
+     "lon": 88.258,
+     "fee": 20,
+     "hours": "05:00-19:00",
+     "minutes": 60,
+     "rating": 4.4
+    },
+    {
+     "name": "Chowrasta & Glenary's",
+     "category": "food",
+     "lat": 27.042,
+     "lon": 88.266,
+     "fee": 300,
+     "hours": "08:00-21:00",
+     "minutes": 90,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "gangtok",
+   "name": "Gangtok & East Sikkim",
+   "region": "Eastern Himalaya",
+   "state": "Sikkim",
+   "lat": 27.3389,
+   "lon": 88.6065,
+   "tier": "mid",
+   "blurb": "Clean ridge-top capital with high-altitude lakes a day trip away.",
+   "tags": [
+    "mountains",
+    "hill_station",
+    "spiritual",
+    "lakes",
+    "nature",
+    "photography"
+   ],
+   "quality": 0.88,
+   "popularity": 0.86,
+   "cost_index": {
+    "stay": 1.0,
+    "food": 0.9,
+    "local": 1.1
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    9,
+    10,
+    11,
+    12
+   ],
+   "airport": {
+    "iata": "PYG",
+    "name": "Pakyong",
+    "km": 30
+   },
+   "railhead": {
+    "name": "New Jalpaiguri",
+    "km": 125
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    3,
+    5
+   ],
+   "local_transport": "Shared jeeps and taxis. Tsomgo Lake and Nathu La need permits arranged a day ahead.",
+   "attractions": [
+    {
+     "name": "Tsomgo (Changu) Lake",
+     "category": "lake",
+     "lat": 27.375,
+     "lon": 88.762,
+     "fee": 0,
+     "hours": "Permit required, daylight",
+     "minutes": 360,
+     "rating": 4.7
+    },
+    {
+     "name": "Rumtek Monastery",
+     "category": "spiritual",
+     "lat": 27.3,
+     "lon": 88.56,
+     "fee": 10,
+     "hours": "06:00-18:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "MG Marg promenade",
+     "category": "shopping",
+     "lat": 27.329,
+     "lon": 88.613,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 90,
+     "rating": 4.4
+    },
+    {
+     "name": "Banjhakri Falls & energy park",
+     "category": "waterfall",
+     "lat": 27.31,
+     "lon": 88.59,
+     "fee": 60,
+     "hours": "08:00-17:00",
+     "minutes": 90,
+     "rating": 4.1
+    },
+    {
+     "name": "Tashi Viewpoint",
+     "category": "viewpoint",
+     "lat": 27.37,
+     "lon": 88.61,
+     "fee": 10,
+     "hours": "05:00-18:00",
+     "minutes": 75,
+     "rating": 4.3
+    },
+    {
+     "name": "Ganesh Tok & Himalayan Zoo",
+     "category": "wildlife",
+     "lat": 27.345,
+     "lon": 88.62,
+     "fee": 60,
+     "hours": "09:00-16:00",
+     "minutes": 120,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "gir",
+   "name": "Gir National Park (Sasan Gir)",
+   "region": "Saurashtra",
+   "state": "Gujarat",
+   "lat": 21.125,
+   "lon": 70.824,
+   "tier": "mid",
+   "blurb": "The only place on earth with wild Asiatic lions.",
+   "tags": [
+    "wildlife",
+    "nature",
+    "photography",
+    "offbeat",
+    "adventure"
+   ],
+   "quality": 0.87,
+   "popularity": 0.72,
+   "cost_index": {
+    "stay": 1.0,
+    "food": 0.85,
+    "local": 1.0
+   },
+   "best_months": [
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "DIU",
+    "name": "Diu",
+    "km": 110
+   },
+   "railhead": {
+    "name": "Junagadh",
+    "km": 60
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Safari permits must be booked online well ahead; autos locally.",
+   "attractions": [
+    {
+     "name": "Gir lion safari (gypsy)",
+     "category": "wildlife",
+     "lat": 21.13,
+     "lon": 70.82,
+     "fee": 1400,
+     "hours": "06:00-09:00, 15:00-18:00",
+     "minutes": 210,
+     "rating": 4.6
+    },
+    {
+     "name": "Devalia Interpretation Zone",
+     "category": "wildlife",
+     "lat": 21.1,
+     "lon": 70.75,
+     "fee": 190,
+     "hours": "07:00-11:00, 15:00-17:30",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Kamleshwar Dam crocodile spotting",
+     "category": "nature",
+     "lat": 21.15,
+     "lon": 70.65,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.1
+    },
+    {
+     "name": "Somnath Temple day trip",
+     "category": "spiritual",
+     "lat": 20.888,
+     "lon": 70.401,
+     "fee": 0,
+     "hours": "06:00-21:00",
+     "minutes": 180,
+     "rating": 4.7
+    },
+    {
+     "name": "Junagadh Uparkot Fort",
+     "category": "heritage",
+     "lat": 21.522,
+     "lon": 70.468,
+     "fee": 25,
+     "hours": "08:00-18:00",
+     "minutes": 180,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "gokarna",
+   "name": "Gokarna",
+   "region": "Coastal Karnataka",
+   "state": "Karnataka",
+   "lat": 14.5479,
+   "lon": 74.3188,
+   "tier": "budget",
+   "blurb": "Temple town with a string of cliff-separated beaches you reach on foot.",
+   "tags": [
+    "beaches",
+    "spiritual",
+    "trekking",
+    "offbeat",
+    "nature",
+    "photography"
+   ],
+   "quality": 0.84,
+   "popularity": 0.72,
+   "cost_index": {
+    "stay": 0.75,
+    "food": 0.8,
+    "local": 0.8
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "IXG",
+    "name": "Belagavi",
+    "km": 175
+   },
+   "railhead": {
+    "name": "Gokarna Road",
+    "km": 10
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Autos between town and beaches; the beach trek is the main route.",
+   "attractions": [
+    {
+     "name": "Om Beach",
+     "category": "beach",
+     "lat": 14.5133,
+     "lon": 74.315,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Kudle Beach",
+     "category": "beach",
+     "lat": 14.526,
+     "lon": 74.313,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 150,
+     "rating": 4.4
+    },
+    {
+     "name": "Mahabaleshwar Temple",
+     "category": "spiritual",
+     "lat": 14.5486,
+     "lon": 74.3164,
+     "fee": 0,
+     "hours": "06:00-12:30, 17:00-20:00",
+     "minutes": 45,
+     "rating": 4.4
+    },
+    {
+     "name": "Beach trek (Kudle to Paradise)",
+     "category": "trek",
+     "lat": 14.52,
+     "lon": 74.312,
+     "fee": 0,
+     "hours": "Daylight only",
+     "minutes": 240,
+     "rating": 4.6
+    },
+    {
+     "name": "Mirjan Fort",
+     "category": "heritage",
+     "lat": 14.4886,
+     "lon": 74.4258,
+     "fee": 25,
+     "hours": "08:30-17:30",
+     "minutes": 60,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "hampi",
+   "name": "Hampi",
+   "region": "Deccan",
+   "state": "Karnataka",
+   "lat": 15.335,
+   "lon": 76.46,
+   "tier": "budget",
+   "blurb": "A boulder-strewn Vijayanagara capital spread over 40 sq km of ruins.",
+   "tags": [
+    "heritage",
+    "photography",
+    "offbeat",
+    "adventure",
+    "art_culture",
+    "trekking"
+   ],
+   "quality": 0.93,
+   "popularity": 0.74,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.7,
+    "local": 0.75
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "VDY",
+    "name": "Vidyanagar (Jindal)",
+    "km": 35
+   },
+   "railhead": {
+    "name": "Hosapete Jn",
+    "km": 13
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Rented bicycle or scooter is the only sane way to cover the ruins; autos for half-day tours.",
+   "attractions": [
+    {
+     "name": "Virupaksha Temple",
+     "category": "heritage",
+     "lat": 15.335,
+     "lon": 76.458,
+     "fee": 0,
+     "hours": "06:00-12:30, 15:00-21:00",
+     "minutes": 90,
+     "rating": 4.6
+    },
+    {
+     "name": "Vittala Temple & Stone Chariot",
+     "category": "heritage",
+     "lat": 15.3422,
+     "lon": 76.4753,
+     "fee": 40,
+     "hours": "08:30-17:30",
+     "minutes": 120,
+     "rating": 4.8
+    },
+    {
+     "name": "Hemakuta Hill sunset",
+     "category": "viewpoint",
+     "lat": 15.334,
+     "lon": 76.4595,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 60,
+     "rating": 4.7
+    },
+    {
+     "name": "Matanga Hill sunrise",
+     "category": "viewpoint",
+     "lat": 15.339,
+     "lon": 76.468,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.6
+    },
+    {
+     "name": "Queen's Bath & Royal Enclosure",
+     "category": "heritage",
+     "lat": 15.3262,
+     "lon": 76.465,
+     "fee": 40,
+     "hours": "08:30-17:30",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Anegundi coracle ride",
+     "category": "activity",
+     "lat": 15.349,
+     "lon": 76.483,
+     "fee": 300,
+     "hours": "09:00-17:00",
+     "minutes": 60,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "jaipur",
+   "name": "Jaipur",
+   "region": "Dhundhar",
+   "state": "Rajasthan",
+   "lat": 26.9124,
+   "lon": 75.7873,
+   "tier": "budget",
+   "blurb": "Pink-washed bazaars, hill forts and the most accessible of Rajasthan's cities.",
+   "tags": [
+    "heritage",
+    "shopping",
+    "food",
+    "art_culture",
+    "photography",
+    "spiritual"
+   ],
+   "quality": 0.9,
+   "popularity": 0.95,
+   "cost_index": {
+    "stay": 0.9,
+    "food": 0.85,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "JAI",
+    "name": "Jaipur Intl",
+    "km": 13
+   },
+   "railhead": {
+    "name": "Jaipur Jn",
+    "km": 3
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Metro on one corridor, plus very cheap autos. A composite monument ticket saves money.",
+   "attractions": [
+    {
+     "name": "Amber Fort",
+     "category": "heritage",
+     "lat": 26.9855,
+     "lon": 75.8513,
+     "fee": 200,
+     "hours": "08:00-17:30",
+     "minutes": 180,
+     "rating": 4.7
+    },
+    {
+     "name": "Hawa Mahal",
+     "category": "heritage",
+     "lat": 26.9239,
+     "lon": 75.8267,
+     "fee": 50,
+     "hours": "09:00-16:30",
+     "minutes": 60,
+     "rating": 4.4
+    },
+    {
+     "name": "City Palace",
+     "category": "heritage",
+     "lat": 26.9258,
+     "lon": 75.8237,
+     "fee": 300,
+     "hours": "09:30-17:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Jantar Mantar",
+     "category": "heritage",
+     "lat": 26.9247,
+     "lon": 75.8246,
+     "fee": 50,
+     "hours": "09:00-16:30",
+     "minutes": 60,
+     "rating": 4.4
+    },
+    {
+     "name": "Nahargarh Fort sunset",
+     "category": "viewpoint",
+     "lat": 26.9374,
+     "lon": 75.8153,
+     "fee": 50,
+     "hours": "10:00-17:30",
+     "minutes": 90,
+     "rating": 4.5
+    },
+    {
+     "name": "Johari & Bapu Bazaar",
+     "category": "shopping",
+     "lat": 26.918,
+     "lon": 75.823,
+     "fee": 0,
+     "hours": "11:00-21:00",
+     "minutes": 120,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "jaisalmer",
+   "name": "Jaisalmer",
+   "region": "Thar Desert",
+   "state": "Rajasthan",
+   "lat": 26.9157,
+   "lon": 70.9083,
+   "tier": "budget",
+   "blurb": "A living sandstone fort on the edge of the Thar, with dunes an hour away.",
+   "tags": [
+    "desert",
+    "heritage",
+    "adventure",
+    "photography",
+    "offbeat",
+    "art_culture"
+   ],
+   "quality": 0.89,
+   "popularity": 0.82,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.8,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "JSA",
+    "name": "Jaisalmer",
+    "km": 15
+   },
+   "railhead": {
+    "name": "Jaisalmer",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Fort is walkable; desert camps include jeep transfers.",
+   "attractions": [
+    {
+     "name": "Jaisalmer Fort (Sonar Quila)",
+     "category": "heritage",
+     "lat": 26.9124,
+     "lon": 70.9124,
+     "fee": 50,
+     "hours": "09:00-18:00",
+     "minutes": 180,
+     "rating": 4.6
+    },
+    {
+     "name": "Patwon ki Haveli",
+     "category": "heritage",
+     "lat": 26.918,
+     "lon": 70.913,
+     "fee": 100,
+     "hours": "09:00-18:00",
+     "minutes": 75,
+     "rating": 4.3
+    },
+    {
+     "name": "Sam Sand Dunes camel safari",
+     "category": "activity",
+     "lat": 26.89,
+     "lon": 70.5,
+     "fee": 900,
+     "hours": "16:00-19:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Gadisar Lake",
+     "category": "lake",
+     "lat": 26.908,
+     "lon": 70.92,
+     "fee": 0,
+     "hours": "06:00-20:00",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Kuldhara abandoned village",
+     "category": "offbeat",
+     "lat": 26.7833,
+     "lon": 70.7333,
+     "fee": 20,
+     "hours": "08:00-18:00",
+     "minutes": 90,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "jodhpur",
+   "name": "Jodhpur",
+   "region": "Marwar",
+   "state": "Rajasthan",
+   "lat": 26.2389,
+   "lon": 73.0243,
+   "tier": "budget",
+   "blurb": "Blue old city under one of the most imposing forts in the country.",
+   "tags": [
+    "heritage",
+    "food",
+    "photography",
+    "shopping",
+    "art_culture",
+    "desert"
+   ],
+   "quality": 0.89,
+   "popularity": 0.85,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.8,
+    "local": 0.8
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "JDH",
+    "name": "Jodhpur",
+    "km": 6
+   },
+   "railhead": {
+    "name": "Jodhpur Jn",
+    "km": 4
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Autos are cheap; the blue city lanes are walking-only in places.",
+   "attractions": [
+    {
+     "name": "Mehrangarh Fort",
+     "category": "heritage",
+     "lat": 26.2978,
+     "lon": 73.0183,
+     "fee": 200,
+     "hours": "09:00-17:00",
+     "minutes": 180,
+     "rating": 4.8
+    },
+    {
+     "name": "Jaswant Thada",
+     "category": "heritage",
+     "lat": 26.3,
+     "lon": 73.025,
+     "fee": 50,
+     "hours": "09:00-17:00",
+     "minutes": 45,
+     "rating": 4.4
+    },
+    {
+     "name": "Toorji ka Jhalra stepwell",
+     "category": "heritage",
+     "lat": 26.295,
+     "lon": 73.026,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 40,
+     "rating": 4.3
+    },
+    {
+     "name": "Sardar Market & clock tower",
+     "category": "shopping",
+     "lat": 26.293,
+     "lon": 73.029,
+     "fee": 0,
+     "hours": "10:00-21:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Mandore Gardens",
+     "category": "garden",
+     "lat": 26.34,
+     "lon": 73.04,
+     "fee": 0,
+     "hours": "08:00-20:00",
+     "minutes": 75,
+     "rating": 4.0
+    }
+   ]
+  },
+  {
+   "id": "kasol-tosh",
+   "name": "Kasol & Tosh",
+   "region": "Parvati Valley",
+   "state": "Himachal Pradesh",
+   "lat": 32.01,
+   "lon": 77.31,
+   "tier": "budget",
+   "blurb": "Riverside hostels and short valley treks in the Parvati.",
+   "tags": [
+    "mountains",
+    "trekking",
+    "offbeat",
+    "nature",
+    "photography",
+    "adventure"
+   ],
+   "quality": 0.8,
+   "popularity": 0.79,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.8,
+    "local": 0.85
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "airport": {
+    "iata": "KUU",
+    "name": "Bhuntar",
+    "km": 35
+   },
+   "railhead": {
+    "name": "Joginder Nagar",
+    "km": 145
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "HRTC bus to Barshaini, then shared jeep. Last stretch to Tosh is on foot.",
+   "attractions": [
+    {
+     "name": "Kheerganga trek & hot spring",
+     "category": "trek",
+     "lat": 32.03,
+     "lon": 77.45,
+     "fee": 0,
+     "hours": "Start before 11:00",
+     "minutes": 420,
+     "rating": 4.7
+    },
+    {
+     "name": "Tosh village walk",
+     "category": "offbeat",
+     "lat": 32.01,
+     "lon": 77.37,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 150,
+     "rating": 4.5
+    },
+    {
+     "name": "Manikaran Gurudwara & springs",
+     "category": "spiritual",
+     "lat": 32.028,
+     "lon": 77.347,
+     "fee": 0,
+     "hours": "04:00-22:00",
+     "minutes": 90,
+     "rating": 4.4
+    },
+    {
+     "name": "Chalal riverside walk",
+     "category": "nature",
+     "lat": 32.013,
+     "lon": 77.315,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Pulga & Fairy Forest",
+     "category": "nature",
+     "lat": 32.025,
+     "lon": 77.41,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 180,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "kaziranga",
+   "name": "Kaziranga",
+   "region": "Brahmaputra Valley",
+   "state": "Assam",
+   "lat": 26.5775,
+   "lon": 93.1711,
+   "tier": "mid",
+   "blurb": "Two-thirds of the world's one-horned rhinos in tall-grass floodplain.",
+   "tags": [
+    "wildlife",
+    "nature",
+    "photography",
+    "offbeat",
+    "adventure"
+   ],
+   "quality": 0.89,
+   "popularity": 0.74,
+   "cost_index": {
+    "stay": 0.95,
+    "food": 0.85,
+    "local": 1.0
+   },
+   "best_months": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "JRH",
+    "name": "Jorhat",
+    "km": 95
+   },
+   "railhead": {
+    "name": "Furkating",
+    "km": 75
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Jeep and elephant safaris booked at the range offices; park closed mid-May to Oct.",
+   "attractions": [
+    {
+     "name": "Central Range jeep safari",
+     "category": "wildlife",
+     "lat": 26.58,
+     "lon": 93.17,
+     "fee": 2500,
+     "hours": "07:30-09:30, 14:00-16:00",
+     "minutes": 180,
+     "rating": 4.7
+    },
+    {
+     "name": "Elephant safari, Western Range",
+     "category": "wildlife",
+     "lat": 26.62,
+     "lon": 93.0,
+     "fee": 1500,
+     "hours": "05:30-07:30",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Kaziranga Orchid Park",
+     "category": "garden",
+     "lat": 26.59,
+     "lon": 93.15,
+     "fee": 200,
+     "hours": "08:00-17:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Tea estate walk",
+     "category": "activity",
+     "lat": 26.6,
+     "lon": 93.2,
+     "fee": 150,
+     "hours": "09:00-16:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Brahmaputra sunset at Agoratoli",
+     "category": "viewpoint",
+     "lat": 26.65,
+     "lon": 93.4,
+     "fee": 0,
+     "hours": "16:00-18:30",
+     "minutes": 120,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "khajuraho",
+   "name": "Khajuraho",
+   "region": "Bundelkhand",
+   "state": "Madhya Pradesh",
+   "lat": 24.8318,
+   "lon": 79.9199,
+   "tier": "budget",
+   "blurb": "Chandela temple sculpture at a level of craft that is hard to overstate.",
+   "tags": [
+    "heritage",
+    "art_culture",
+    "photography",
+    "offbeat",
+    "spiritual"
+   ],
+   "quality": 0.9,
+   "popularity": 0.68,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.75,
+    "local": 0.8
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "HJR",
+    "name": "Khajuraho",
+    "km": 5
+   },
+   "railhead": {
+    "name": "Khajuraho",
+    "km": 6
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "The western group is walkable; cycle rickshaws for the eastern temples.",
+   "attractions": [
+    {
+     "name": "Western Group of Temples",
+     "category": "heritage",
+     "lat": 24.852,
+     "lon": 79.919,
+     "fee": 40,
+     "hours": "08:00-18:00",
+     "minutes": 180,
+     "rating": 4.8
+    },
+    {
+     "name": "Kandariya Mahadeva Temple",
+     "category": "heritage",
+     "lat": 24.852,
+     "lon": 79.918,
+     "fee": 0,
+     "hours": "08:00-18:00",
+     "minutes": 60,
+     "rating": 4.8
+    },
+    {
+     "name": "Eastern Group (Jain temples)",
+     "category": "heritage",
+     "lat": 24.845,
+     "lon": 79.933,
+     "fee": 0,
+     "hours": "08:00-18:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Light & sound show",
+     "category": "art_culture",
+     "lat": 24.852,
+     "lon": 79.919,
+     "fee": 250,
+     "hours": "18:30-20:30",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Raneh Falls canyon",
+     "category": "nature",
+     "lat": 24.95,
+     "lon": 79.8,
+     "fee": 150,
+     "hours": "08:00-17:00",
+     "minutes": 180,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "kochi",
+   "name": "Kochi",
+   "region": "Malabar Coast",
+   "state": "Kerala",
+   "lat": 9.9312,
+   "lon": 76.2673,
+   "tier": "mid",
+   "blurb": "Fort Kochi's spice-trade layers, Chinese nets and a strong art and food scene.",
+   "tags": [
+    "heritage",
+    "food",
+    "art_culture",
+    "shopping",
+    "photography",
+    "backwaters"
+   ],
+   "quality": 0.87,
+   "popularity": 0.89,
+   "cost_index": {
+    "stay": 1.05,
+    "food": 1.0,
+    "local": 0.9
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "COK",
+    "name": "Kochi Intl",
+    "km": 30
+   },
+   "railhead": {
+    "name": "Ernakulam Jn",
+    "km": 8
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Kochi Metro plus very cheap public ferries between Fort Kochi and Ernakulam.",
+   "attractions": [
+    {
+     "name": "Chinese Fishing Nets",
+     "category": "heritage",
+     "lat": 9.9658,
+     "lon": 76.242,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "Mattancherry Palace",
+     "category": "museum",
+     "lat": 9.958,
+     "lon": 76.259,
+     "fee": 10,
+     "hours": "09:00-17:00 (closed Fri)",
+     "minutes": 75,
+     "rating": 4.2
+    },
+    {
+     "name": "St Francis Church",
+     "category": "heritage",
+     "lat": 9.9647,
+     "lon": 76.242,
+     "fee": 0,
+     "hours": "08:30-17:30",
+     "minutes": 40,
+     "rating": 4.3
+    },
+    {
+     "name": "Jew Town & Paradesi Synagogue",
+     "category": "heritage",
+     "lat": 9.9575,
+     "lon": 76.2597,
+     "fee": 10,
+     "hours": "10:00-13:00, 15:00-17:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Kathakali performance",
+     "category": "art_culture",
+     "lat": 9.968,
+     "lon": 76.245,
+     "fee": 450,
+     "hours": "18:00-20:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Marine Drive walkway",
+     "category": "viewpoint",
+     "lat": 9.981,
+     "lon": 76.276,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 60,
+     "rating": 4.1
+    }
+   ]
+  },
+  {
+   "id": "kodaikanal",
+   "name": "Kodaikanal",
+   "region": "Palani Hills",
+   "state": "Tamil Nadu",
+   "lat": 10.2381,
+   "lon": 77.4892,
+   "tier": "budget",
+   "blurb": "Shola forest, a star-shaped lake and cliffs that drop into cloud.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "lakes",
+    "trekking",
+    "photography",
+    "offbeat"
+   ],
+   "quality": 0.83,
+   "popularity": 0.82,
+   "cost_index": {
+    "stay": 0.9,
+    "food": 0.85,
+    "local": 0.9
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "IXM",
+    "name": "Madurai",
+    "km": 120
+   },
+   "railhead": {
+    "name": "Kodai Road",
+    "km": 80
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Rented cycle round the lake; cab or local bus for the viewpoint loop.",
+   "attractions": [
+    {
+     "name": "Kodai Lake cycling",
+     "category": "lake",
+     "lat": 10.235,
+     "lon": 77.485,
+     "fee": 120,
+     "hours": "07:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Coaker's Walk",
+     "category": "viewpoint",
+     "lat": 10.23,
+     "lon": 77.49,
+     "fee": 20,
+     "hours": "07:00-19:00",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Pillar Rocks",
+     "category": "viewpoint",
+     "lat": 10.212,
+     "lon": 77.465,
+     "fee": 30,
+     "hours": "09:00-17:30",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Bryant Park",
+     "category": "garden",
+     "lat": 10.233,
+     "lon": 77.492,
+     "fee": 50,
+     "hours": "09:00-18:00",
+     "minutes": 75,
+     "rating": 4.0
+    },
+    {
+     "name": "Dolphin's Nose trek",
+     "category": "trek",
+     "lat": 10.195,
+     "lon": 77.48,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 180,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "kolkata",
+   "name": "Kolkata",
+   "region": "Lower Bengal",
+   "state": "West Bengal",
+   "lat": 22.5726,
+   "lon": 88.3639,
+   "tier": "budget",
+   "blurb": "Colonial architecture, trams, coffee houses and the best street food value in India.",
+   "tags": [
+    "heritage",
+    "food",
+    "art_culture",
+    "shopping",
+    "photography",
+    "spiritual"
+   ],
+   "quality": 0.88,
+   "popularity": 0.86,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.7,
+    "local": 0.6
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "CCU",
+    "name": "Netaji Subhas Chandra Bose Intl",
+    "km": 17
+   },
+   "railhead": {
+    "name": "Howrah / Sealdah",
+    "km": 5
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "The metro plus trams and buses make this the cheapest big city in India to get around.",
+   "attractions": [
+    {
+     "name": "Victoria Memorial",
+     "category": "heritage",
+     "lat": 22.5448,
+     "lon": 88.3426,
+     "fee": 50,
+     "hours": "10:00-17:00, closed Mon",
+     "minutes": 150,
+     "rating": 4.6
+    },
+    {
+     "name": "Howrah Bridge & flower market",
+     "category": "photography",
+     "lat": 22.585,
+     "lon": 88.347,
+     "fee": 0,
+     "hours": "Best 05:30-08:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Indian Museum",
+     "category": "museum",
+     "lat": 22.558,
+     "lon": 88.351,
+     "fee": 50,
+     "hours": "10:00-17:00, closed Mon",
+     "minutes": 150,
+     "rating": 4.3
+    },
+    {
+     "name": "Kumartuli idol-makers' quarter",
+     "category": "art_culture",
+     "lat": 22.6,
+     "lon": 88.363,
+     "fee": 0,
+     "hours": "09:00-18:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Park Street & Indian Coffee House",
+     "category": "food",
+     "lat": 22.553,
+     "lon": 88.352,
+     "fee": 300,
+     "hours": "09:00-22:00",
+     "minutes": 120,
+     "rating": 4.4
+    },
+    {
+     "name": "Dakshineswar & Belur Math",
+     "category": "spiritual",
+     "lat": 22.655,
+     "lon": 88.358,
+     "fee": 0,
+     "hours": "06:00-12:30, 15:00-20:30",
+     "minutes": 180,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "kutch",
+   "name": "Rann of Kutch (Bhuj)",
+   "region": "Kutch",
+   "state": "Gujarat",
+   "lat": 23.242,
+   "lon": 69.6669,
+   "tier": "budget",
+   "blurb": "A white salt desert and India's densest concentration of craft villages.",
+   "tags": [
+    "desert",
+    "art_culture",
+    "offbeat",
+    "photography",
+    "heritage",
+    "nature"
+   ],
+   "quality": 0.88,
+   "popularity": 0.7,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.75,
+    "local": 1.0
+   },
+   "best_months": [
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "BHJ",
+    "name": "Bhuj",
+    "km": 5
+   },
+   "railhead": {
+    "name": "Bhuj",
+    "km": 3
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    3,
+    4
+   ],
+   "local_transport": "Hire a car for the craft-village circuit; a permit is required for Dhordo.",
+   "attractions": [
+    {
+     "name": "White Rann at Dhordo",
+     "category": "desert",
+     "lat": 23.85,
+     "lon": 69.65,
+     "fee": 100,
+     "hours": "Sunrise-sunset, permit needed",
+     "minutes": 240,
+     "rating": 4.7
+    },
+    {
+     "name": "Craft villages (Nirona, Ajrakhpur)",
+     "category": "art_culture",
+     "lat": 23.45,
+     "lon": 69.55,
+     "fee": 0,
+     "hours": "10:00-18:00",
+     "minutes": 240,
+     "rating": 4.6
+    },
+    {
+     "name": "Kalo Dungar viewpoint",
+     "category": "viewpoint",
+     "lat": 23.94,
+     "lon": 69.83,
+     "fee": 30,
+     "hours": "07:00-18:00",
+     "minutes": 150,
+     "rating": 4.4
+    },
+    {
+     "name": "Aina Mahal & Prag Mahal",
+     "category": "heritage",
+     "lat": 23.25,
+     "lon": 69.67,
+     "fee": 50,
+     "hours": "09:00-17:00",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Mandvi Beach & ship-building yard",
+     "category": "beach",
+     "lat": 22.83,
+     "lon": 69.35,
+     "fee": 20,
+     "hours": "08:00-19:00",
+     "minutes": 180,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "leh-ladakh",
+   "name": "Leh & Ladakh",
+   "region": "Trans-Himalaya",
+   "state": "Ladakh",
+   "lat": 34.1526,
+   "lon": 77.5771,
+   "tier": "mid",
+   "blurb": "High-altitude desert, Pangong's blue and passes above 5,000 m.",
+   "tags": [
+    "mountains",
+    "adventure",
+    "offbeat",
+    "photography",
+    "lakes",
+    "spiritual"
+   ],
+   "quality": 0.96,
+   "popularity": 0.88,
+   "cost_index": {
+    "stay": 1.1,
+    "food": 1.2,
+    "local": 1.5
+   },
+   "best_months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "airport": {
+    "iata": "IXL",
+    "name": "Kushok Bakula Rimpochee",
+    "km": 5
+   },
+   "railhead": {
+    "name": "Jammu Tawi",
+    "km": 690
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    6,
+    10
+   ],
+   "local_transport": "Shared taxis run on fixed union rates. Reserve the first 24-36 h for acclimatisation.",
+   "attractions": [
+    {
+     "name": "Pangong Tso",
+     "category": "lake",
+     "lat": 33.76,
+     "lon": 78.67,
+     "fee": 0,
+     "hours": "Permit required",
+     "minutes": 480,
+     "rating": 4.8
+    },
+    {
+     "name": "Nubra Valley & Hunder dunes",
+     "category": "desert",
+     "lat": 34.58,
+     "lon": 77.5,
+     "fee": 0,
+     "hours": "Permit required",
+     "minutes": 600,
+     "rating": 4.7
+    },
+    {
+     "name": "Thiksey Monastery",
+     "category": "spiritual",
+     "lat": 34.056,
+     "lon": 77.667,
+     "fee": 50,
+     "hours": "06:00-19:00",
+     "minutes": 90,
+     "rating": 4.7
+    },
+    {
+     "name": "Leh Palace & old town",
+     "category": "heritage",
+     "lat": 34.167,
+     "lon": 77.585,
+     "fee": 100,
+     "hours": "07:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Khardung La",
+     "category": "viewpoint",
+     "lat": 34.278,
+     "lon": 77.604,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Magnetic Hill & Sangam",
+     "category": "viewpoint",
+     "lat": 34.22,
+     "lon": 77.35,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 180,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "lonavala",
+   "name": "Lonavala & Khandala",
+   "region": "Sahyadri",
+   "state": "Maharashtra",
+   "lat": 18.7546,
+   "lon": 73.4062,
+   "tier": "budget",
+   "blurb": "The closest green escape to Mumbai and Pune, with forts on both ridges.",
+   "tags": [
+    "hill_station",
+    "waterfalls",
+    "trekking",
+    "nature",
+    "food",
+    "photography"
+   ],
+   "quality": 0.74,
+   "popularity": 0.9,
+   "cost_index": {
+    "stay": 1.05,
+    "food": 0.95,
+    "local": 0.9
+   },
+   "best_months": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "PNQ",
+    "name": "Pune",
+    "km": 65
+   },
+   "railhead": {
+    "name": "Lonavala",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    1,
+    2
+   ],
+   "local_transport": "Local trains from Pune/Mumbai are very cheap; autos for the point loop.",
+   "attractions": [
+    {
+     "name": "Bhushi Dam",
+     "category": "waterfall",
+     "lat": 18.734,
+     "lon": 73.39,
+     "fee": 0,
+     "hours": "08:00-18:00",
+     "minutes": 90,
+     "rating": 3.9
+    },
+    {
+     "name": "Rajmachi Fort trek",
+     "category": "trek",
+     "lat": 18.83,
+     "lon": 73.42,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 360,
+     "rating": 4.5
+    },
+    {
+     "name": "Karla Caves",
+     "category": "heritage",
+     "lat": 18.783,
+     "lon": 73.472,
+     "fee": 25,
+     "hours": "08:00-17:30",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Tiger's Leap viewpoint",
+     "category": "viewpoint",
+     "lat": 18.73,
+     "lon": 73.37,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 75,
+     "rating": 4.2
+    },
+    {
+     "name": "Lohagad Fort",
+     "category": "trek",
+     "lat": 18.708,
+     "lon": 73.475,
+     "fee": 25,
+     "hours": "09:00-18:00",
+     "minutes": 240,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "madurai",
+   "name": "Madurai",
+   "region": "Southern Tamil Nadu",
+   "state": "Tamil Nadu",
+   "lat": 9.9252,
+   "lon": 78.1198,
+   "tier": "budget",
+   "blurb": "A living temple city that has been continuously inhabited for two millennia.",
+   "tags": [
+    "spiritual",
+    "heritage",
+    "food",
+    "art_culture",
+    "shopping",
+    "photography"
+   ],
+   "quality": 0.86,
+   "popularity": 0.81,
+   "cost_index": {
+    "stay": 0.75,
+    "food": 0.7,
+    "local": 0.75
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "IXM",
+    "name": "Madurai",
+    "km": 12
+   },
+   "railhead": {
+    "name": "Madurai Jn",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "Autos and city buses; the temple district is walkable.",
+   "attractions": [
+    {
+     "name": "Meenakshi Amman Temple",
+     "category": "spiritual",
+     "lat": 9.9195,
+     "lon": 78.1193,
+     "fee": 0,
+     "hours": "05:00-12:30, 16:00-21:30",
+     "minutes": 150,
+     "rating": 4.8
+    },
+    {
+     "name": "Thirumalai Nayakkar Palace",
+     "category": "heritage",
+     "lat": 9.915,
+     "lon": 78.123,
+     "fee": 50,
+     "hours": "09:00-17:00",
+     "minutes": 75,
+     "rating": 4.2
+    },
+    {
+     "name": "Gandhi Memorial Museum",
+     "category": "museum",
+     "lat": 9.932,
+     "lon": 78.134,
+     "fee": 10,
+     "hours": "10:00-13:00, 14:00-17:45",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Puthu Mandapam bazaar",
+     "category": "shopping",
+     "lat": 9.919,
+     "lon": 78.118,
+     "fee": 0,
+     "hours": "09:00-21:00",
+     "minutes": 60,
+     "rating": 4.1
+    },
+    {
+     "name": "Jigarthanda & night food walk",
+     "category": "food",
+     "lat": 9.923,
+     "lon": 78.12,
+     "fee": 300,
+     "hours": "19:00-23:00",
+     "minutes": 120,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "mahabaleshwar",
+   "name": "Mahabaleshwar & Panchgani",
+   "region": "Sahyadri",
+   "state": "Maharashtra",
+   "lat": 17.9237,
+   "lon": 73.6586,
+   "tier": "budget",
+   "blurb": "Strawberry country on a plateau with a dozen cliff-edge viewpoints.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "viewpoint",
+    "food",
+    "photography",
+    "lakes"
+   ],
+   "quality": 0.78,
+   "popularity": 0.86,
+   "cost_index": {
+    "stay": 1.0,
+    "food": 0.9,
+    "local": 0.9
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "PNQ",
+    "name": "Pune",
+    "km": 120
+   },
+   "railhead": {
+    "name": "Satara",
+    "km": 60
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Point-to-point taxi packages are standard; MSRTC buses to Panchgani.",
+   "attractions": [
+    {
+     "name": "Arthur's Seat",
+     "category": "viewpoint",
+     "lat": 17.92,
+     "lon": 73.63,
+     "fee": 30,
+     "hours": "06:00-18:00",
+     "minutes": 90,
+     "rating": 4.4
+    },
+    {
+     "name": "Venna Lake boating",
+     "category": "lake",
+     "lat": 17.923,
+     "lon": 73.67,
+     "fee": 200,
+     "hours": "07:00-19:00",
+     "minutes": 75,
+     "rating": 4.1
+    },
+    {
+     "name": "Pratapgad Fort",
+     "category": "heritage",
+     "lat": 17.94,
+     "lon": 73.58,
+     "fee": 30,
+     "hours": "09:00-18:00",
+     "minutes": 180,
+     "rating": 4.4
+    },
+    {
+     "name": "Mapro Garden",
+     "category": "food",
+     "lat": 17.94,
+     "lon": 73.79,
+     "fee": 0,
+     "hours": "08:00-21:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Table Land, Panchgani",
+     "category": "viewpoint",
+     "lat": 17.924,
+     "lon": 73.8,
+     "fee": 0,
+     "hours": "06:00-19:00",
+     "minutes": 90,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "mahabalipuram",
+   "name": "Mahabalipuram",
+   "region": "Coromandel Coast",
+   "state": "Tamil Nadu",
+   "lat": 12.6269,
+   "lon": 80.1927,
+   "tier": "budget",
+   "blurb": "Pallava rock-cut temples right where the shore begins.",
+   "tags": [
+    "heritage",
+    "beaches",
+    "art_culture",
+    "photography",
+    "food"
+   ],
+   "quality": 0.88,
+   "popularity": 0.8,
+   "cost_index": {
+    "stay": 0.95,
+    "food": 0.9,
+    "local": 0.85
+   },
+   "best_months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "MAA",
+    "name": "Chennai",
+    "km": 55
+   },
+   "railhead": {
+    "name": "Chengalpattu",
+    "km": 30
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "Everything is within 3 km; walk or hire a cycle.",
+   "attractions": [
+    {
+     "name": "Shore Temple",
+     "category": "heritage",
+     "lat": 12.616,
+     "lon": 80.199,
+     "fee": 40,
+     "hours": "06:00-18:00",
+     "minutes": 90,
+     "rating": 4.6
+    },
+    {
+     "name": "Pancha Rathas",
+     "category": "heritage",
+     "lat": 12.61,
+     "lon": 80.192,
+     "fee": 40,
+     "hours": "06:00-18:00",
+     "minutes": 75,
+     "rating": 4.6
+    },
+    {
+     "name": "Arjuna's Penance relief",
+     "category": "heritage",
+     "lat": 12.618,
+     "lon": 80.189,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 45,
+     "rating": 4.5
+    },
+    {
+     "name": "Krishna's Butter Ball",
+     "category": "heritage",
+     "lat": 12.62,
+     "lon": 80.19,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 30,
+     "rating": 4.3
+    },
+    {
+     "name": "Mahabalipuram Beach",
+     "category": "beach",
+     "lat": 12.625,
+     "lon": 80.2,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 90,
+     "rating": 4.0
+    }
+   ]
+  },
+  {
+   "id": "manali",
+   "name": "Manali",
+   "region": "Kullu Valley",
+   "state": "Himachal Pradesh",
+   "lat": 32.2432,
+   "lon": 77.1892,
+   "tier": "mid",
+   "blurb": "Beas-valley base camp for snow, high passes and Himachali village walks.",
+   "tags": [
+    "mountains",
+    "adventure",
+    "trekking",
+    "nature",
+    "photography",
+    "hill_station"
+   ],
+   "quality": 0.86,
+   "popularity": 0.95,
+   "cost_index": {
+    "stay": 1.0,
+    "food": 0.9,
+    "local": 1.0
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "airport": {
+    "iata": "KUU",
+    "name": "Bhuntar",
+    "km": 50
+   },
+   "railhead": {
+    "name": "Joginder Nagar (narrow gauge)",
+    "km": 160
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    3,
+    5
+   ],
+   "local_transport": "HRTC buses to Vashisht and Solang; shared cabs for Atal Tunnel runs.",
+   "attractions": [
+    {
+     "name": "Hadimba Devi Temple",
+     "category": "spiritual",
+     "lat": 32.2432,
+     "lon": 77.18,
+     "fee": 0,
+     "hours": "06:00-19:00",
+     "minutes": 60,
+     "rating": 4.4
+    },
+    {
+     "name": "Solang Valley",
+     "category": "adventure",
+     "lat": 32.317,
+     "lon": 77.156,
+     "fee": 0,
+     "hours": "08:00-18:00",
+     "minutes": 240,
+     "rating": 4.3
+    },
+    {
+     "name": "Old Manali & Manu Temple",
+     "category": "offbeat",
+     "lat": 32.256,
+     "lon": 77.182,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 120,
+     "rating": 4.4
+    },
+    {
+     "name": "Vashisht hot springs",
+     "category": "wellness",
+     "lat": 32.266,
+     "lon": 77.188,
+     "fee": 0,
+     "hours": "06:00-21:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Atal Tunnel & Sissu",
+     "category": "viewpoint",
+     "lat": 32.48,
+     "lon": 77.13,
+     "fee": 0,
+     "hours": "Daylight (weather dependent)",
+     "minutes": 300,
+     "rating": 4.6
+    },
+    {
+     "name": "Jogini Falls trek",
+     "category": "trek",
+     "lat": 32.27,
+     "lon": 77.19,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 180,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "mcleodganj",
+   "name": "McLeod Ganj & Dharamshala",
+   "region": "Kangra Valley",
+   "state": "Himachal Pradesh",
+   "lat": 32.219,
+   "lon": 76.3234,
+   "tier": "budget",
+   "blurb": "Tibetan monasteries under the Dhauladhar wall, with easy ridge treks.",
+   "tags": [
+    "mountains",
+    "spiritual",
+    "trekking",
+    "food",
+    "offbeat",
+    "wellness"
+   ],
+   "quality": 0.87,
+   "popularity": 0.85,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.85,
+    "local": 0.85
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "airport": {
+    "iata": "DHM",
+    "name": "Gaggal (Kangra)",
+    "km": 18
+   },
+   "railhead": {
+    "name": "Pathankot",
+    "km": 90
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Shared taxis up to Dharamkot and Bhagsu; the core is walkable but steep.",
+   "attractions": [
+    {
+     "name": "Tsuglagkhang (Dalai Lama Temple)",
+     "category": "spiritual",
+     "lat": 32.219,
+     "lon": 76.325,
+     "fee": 0,
+     "hours": "05:00-20:00",
+     "minutes": 90,
+     "rating": 4.6
+    },
+    {
+     "name": "Bhagsu Waterfall & cafe",
+     "category": "waterfall",
+     "lat": 32.237,
+     "lon": 76.329,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Triund trek",
+     "category": "trek",
+     "lat": 32.26,
+     "lon": 76.34,
+     "fee": 0,
+     "hours": "Start before 09:00",
+     "minutes": 480,
+     "rating": 4.7
+    },
+    {
+     "name": "Namgyal Monastery & museum",
+     "category": "museum",
+     "lat": 32.22,
+     "lon": 76.324,
+     "fee": 50,
+     "hours": "09:00-17:00",
+     "minutes": 75,
+     "rating": 4.4
+    },
+    {
+     "name": "Dharamkot cafe hopping",
+     "category": "food",
+     "lat": 32.242,
+     "lon": 76.324,
+     "fee": 400,
+     "hours": "08:00-22:00",
+     "minutes": 120,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "mount-abu",
+   "name": "Mount Abu",
+   "region": "Aravalli",
+   "state": "Rajasthan",
+   "lat": 24.5925,
+   "lon": 72.7156,
+   "tier": "budget",
+   "blurb": "Rajasthan's only hill station, with the extraordinary Dilwara marble temples.",
+   "tags": [
+    "hill_station",
+    "spiritual",
+    "heritage",
+    "lakes",
+    "nature",
+    "photography"
+   ],
+   "quality": 0.8,
+   "popularity": 0.77,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.8,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "UDR",
+    "name": "Udaipur",
+    "km": 165
+   },
+   "railhead": {
+    "name": "Abu Road",
+    "km": 28
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Town is compact; shared jeeps to Guru Shikhar and the sunset point.",
+   "attractions": [
+    {
+     "name": "Dilwara Jain Temples",
+     "category": "heritage",
+     "lat": 24.606,
+     "lon": 72.723,
+     "fee": 0,
+     "hours": "12:00-18:00 (non-Jains)",
+     "minutes": 120,
+     "rating": 4.8
+    },
+    {
+     "name": "Nakki Lake boating",
+     "category": "lake",
+     "lat": 24.592,
+     "lon": 72.71,
+     "fee": 200,
+     "hours": "09:00-18:00",
+     "minutes": 75,
+     "rating": 4.1
+    },
+    {
+     "name": "Guru Shikhar",
+     "category": "viewpoint",
+     "lat": 24.65,
+     "lon": 72.78,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Sunset Point",
+     "category": "viewpoint",
+     "lat": 24.588,
+     "lon": 72.7,
+     "fee": 0,
+     "hours": "16:00-19:00",
+     "minutes": 75,
+     "rating": 4.2
+    },
+    {
+     "name": "Achalgarh Fort & Achaleshwar Temple",
+     "category": "heritage",
+     "lat": 24.64,
+     "lon": 72.74,
+     "fee": 0,
+     "hours": "08:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "munnar",
+   "name": "Munnar",
+   "region": "Western Ghats",
+   "state": "Kerala",
+   "lat": 10.0889,
+   "lon": 77.0595,
+   "tier": "mid",
+   "blurb": "Tea-terraced slopes, cool air and viewpoints stacked above 1,500 m.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "trekking",
+    "wellness",
+    "photography",
+    "waterfalls"
+   ],
+   "quality": 0.9,
+   "popularity": 0.91,
+   "cost_index": {
+    "stay": 1.1,
+    "food": 0.9,
+    "local": 1.0
+   },
+   "best_months": [
+    9,
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "COK",
+    "name": "Kochi",
+    "km": 110
+   },
+   "railhead": {
+    "name": "Aluva",
+    "km": 105
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Day-rate jeep or cab; sights are strung along steep ghat roads.",
+   "attractions": [
+    {
+     "name": "Eravikulam National Park",
+     "category": "wildlife",
+     "lat": 10.1667,
+     "lon": 77.05,
+     "fee": 200,
+     "hours": "07:30-16:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Mattupetty Dam",
+     "category": "lake",
+     "lat": 10.105,
+     "lon": 77.125,
+     "fee": 20,
+     "hours": "09:00-17:00",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "Top Station viewpoint",
+     "category": "viewpoint",
+     "lat": 10.1333,
+     "lon": 77.2333,
+     "fee": 30,
+     "hours": "07:00-17:00",
+     "minutes": 90,
+     "rating": 4.4
+    },
+    {
+     "name": "Tea Museum",
+     "category": "museum",
+     "lat": 10.1,
+     "lon": 77.05,
+     "fee": 150,
+     "hours": "09:00-16:00",
+     "minutes": 90,
+     "rating": 4.1
+    },
+    {
+     "name": "Attukal Waterfalls",
+     "category": "waterfall",
+     "lat": 10.07,
+     "lon": 77.07,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 45,
+     "rating": 4.0
+    },
+    {
+     "name": "Kolukkumalai sunrise jeep",
+     "category": "activity",
+     "lat": 9.9833,
+     "lon": 77.2167,
+     "fee": 1200,
+     "hours": "04:30-09:00",
+     "minutes": 270,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "mussoorie",
+   "name": "Mussoorie",
+   "region": "Garhwal Himalaya",
+   "state": "Uttarakhand",
+   "lat": 30.4598,
+   "lon": 78.0644,
+   "tier": "mid",
+   "blurb": "Queen-of-the-hills ridge walks an hour above Dehradun.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "photography",
+    "waterfalls",
+    "food",
+    "shopping"
+   ],
+   "quality": 0.78,
+   "popularity": 0.88,
+   "cost_index": {
+    "stay": 1.05,
+    "food": 0.95,
+    "local": 1.0
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "airport": {
+    "iata": "DED",
+    "name": "Dehradun Jolly Grant",
+    "km": 55
+   },
+   "railhead": {
+    "name": "Dehradun",
+    "km": 35
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Mall Road is pedestrian-only in the evening; taxis for Kempty and Lal Tibba.",
+   "attractions": [
+    {
+     "name": "Camel's Back Road walk",
+     "category": "viewpoint",
+     "lat": 30.46,
+     "lon": 78.07,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Gun Hill ropeway",
+     "category": "viewpoint",
+     "lat": 30.462,
+     "lon": 78.067,
+     "fee": 125,
+     "hours": "10:00-19:00",
+     "minutes": 75,
+     "rating": 4.0
+    },
+    {
+     "name": "Kempty Falls",
+     "category": "waterfall",
+     "lat": 30.483,
+     "lon": 78.01,
+     "fee": 50,
+     "hours": "08:00-18:00",
+     "minutes": 120,
+     "rating": 3.8
+    },
+    {
+     "name": "Lal Tibba viewpoint",
+     "category": "viewpoint",
+     "lat": 30.47,
+     "lon": 78.09,
+     "fee": 60,
+     "hours": "08:00-18:00",
+     "minutes": 75,
+     "rating": 4.2
+    },
+    {
+     "name": "Landour bakery & cantonment walk",
+     "category": "food",
+     "lat": 30.465,
+     "lon": 78.095,
+     "fee": 300,
+     "hours": "09:00-18:00",
+     "minutes": 120,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "mysuru",
+   "name": "Mysuru",
+   "region": "Southern Deccan",
+   "state": "Karnataka",
+   "lat": 12.2958,
+   "lon": 76.6394,
+   "tier": "budget",
+   "blurb": "Palace city with a hilltop temple, a serious food scene and easy logistics.",
+   "tags": [
+    "heritage",
+    "art_culture",
+    "food",
+    "shopping",
+    "spiritual",
+    "photography"
+   ],
+   "quality": 0.87,
+   "popularity": 0.88,
+   "cost_index": {
+    "stay": 0.85,
+    "food": 0.8,
+    "local": 0.85
+   },
+   "best_months": [
+    9,
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "MYQ",
+    "name": "Mysuru",
+    "km": 12
+   },
+   "railhead": {
+    "name": "Mysuru Jn",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "City buses and autos are cheap and plentiful; most sights are within 12 km.",
+   "attractions": [
+    {
+     "name": "Mysuru Palace",
+     "category": "heritage",
+     "lat": 12.3052,
+     "lon": 76.6552,
+     "fee": 120,
+     "hours": "10:00-17:30",
+     "minutes": 150,
+     "rating": 4.6
+    },
+    {
+     "name": "Chamundi Hill Temple",
+     "category": "spiritual",
+     "lat": 12.2725,
+     "lon": 76.6706,
+     "fee": 0,
+     "hours": "07:30-14:00, 15:30-18:00",
+     "minutes": 120,
+     "rating": 4.5
+    },
+    {
+     "name": "Brindavan Gardens",
+     "category": "garden",
+     "lat": 12.4216,
+     "lon": 76.5728,
+     "fee": 50,
+     "hours": "06:30-20:00",
+     "minutes": 120,
+     "rating": 4.1
+    },
+    {
+     "name": "Devaraja Market",
+     "category": "shopping",
+     "lat": 12.3096,
+     "lon": 76.652,
+     "fee": 0,
+     "hours": "06:00-20:30",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "St Philomena's Cathedral",
+     "category": "heritage",
+     "lat": 12.3199,
+     "lon": 76.6557,
+     "fee": 0,
+     "hours": "08:00-18:00",
+     "minutes": 45,
+     "rating": 4.4
+    },
+    {
+     "name": "Railway Museum",
+     "category": "museum",
+     "lat": 12.318,
+     "lon": 76.643,
+     "fee": 50,
+     "hours": "09:30-18:30",
+     "minutes": 60,
+     "rating": 4.0
+    }
+   ]
+  },
+  {
+   "id": "nainital",
+   "name": "Nainital",
+   "region": "Kumaon",
+   "state": "Uttarakhand",
+   "lat": 29.3919,
+   "lon": 79.4542,
+   "tier": "mid",
+   "blurb": "A lake town in a bowl of Kumaon ridges, with Himalayan views from the top.",
+   "tags": [
+    "hill_station",
+    "lakes",
+    "nature",
+    "photography",
+    "food",
+    "shopping"
+   ],
+   "quality": 0.79,
+   "popularity": 0.87,
+   "cost_index": {
+    "stay": 1.0,
+    "food": 0.9,
+    "local": 0.95
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "airport": {
+    "iata": "PGH",
+    "name": "Pantnagar",
+    "km": 70
+   },
+   "railhead": {
+    "name": "Kathgodam",
+    "km": 35
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Mall Road walk plus shared taxis to Snow View and Tiffin Top.",
+   "attractions": [
+    {
+     "name": "Naini Lake boating",
+     "category": "lake",
+     "lat": 29.39,
+     "lon": 79.456,
+     "fee": 210,
+     "hours": "07:00-18:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Snow View Point ropeway",
+     "category": "viewpoint",
+     "lat": 29.399,
+     "lon": 79.461,
+     "fee": 300,
+     "hours": "10:00-17:00",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Tiffin Top (Dorothy's Seat)",
+     "category": "viewpoint",
+     "lat": 29.383,
+     "lon": 79.444,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 150,
+     "rating": 4.3
+    },
+    {
+     "name": "Naina Devi Temple",
+     "category": "spiritual",
+     "lat": 29.394,
+     "lon": 79.454,
+     "fee": 0,
+     "hours": "06:00-22:00",
+     "minutes": 45,
+     "rating": 4.4
+    },
+    {
+     "name": "Sattal day trip",
+     "category": "lake",
+     "lat": 29.345,
+     "lon": 79.53,
+     "fee": 100,
+     "hours": "08:00-18:00",
+     "minutes": 180,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "north-goa",
+   "name": "North Goa",
+   "region": "Konkan Coast",
+   "state": "Goa",
+   "lat": 15.5993,
+   "lon": 73.7554,
+   "tier": "mid",
+   "blurb": "Beach shacks, Portuguese churches and the busiest nightlife strip on the west coast.",
+   "tags": [
+    "beaches",
+    "nightlife",
+    "food",
+    "heritage",
+    "photography",
+    "adventure"
+   ],
+   "quality": 0.9,
+   "popularity": 0.97,
+   "cost_index": {
+    "stay": 1.25,
+    "food": 1.15,
+    "local": 1.2
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "GOX",
+    "name": "Manohar Intl (Mopa)",
+    "km": 33
+   },
+   "railhead": {
+    "name": "Thivim",
+    "km": 20
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    3,
+    6
+   ],
+   "local_transport": "Rented scooter is cheapest; app cabs exist but surge. Public buses thin out after dark.",
+   "attractions": [
+    {
+     "name": "Baga Beach",
+     "category": "beach",
+     "lat": 15.5553,
+     "lon": 73.7517,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Fort Aguada",
+     "category": "heritage",
+     "lat": 15.4927,
+     "lon": 73.7735,
+     "fee": 50,
+     "hours": "09:30-18:00",
+     "minutes": 75,
+     "rating": 4.3
+    },
+    {
+     "name": "Basilica of Bom Jesus",
+     "category": "heritage",
+     "lat": 15.5009,
+     "lon": 73.9116,
+     "fee": 0,
+     "hours": "09:00-18:30",
+     "minutes": 60,
+     "rating": 4.5
+    },
+    {
+     "name": "Anjuna Flea Market",
+     "category": "shopping",
+     "lat": 15.5759,
+     "lon": 73.7407,
+     "fee": 0,
+     "hours": "Wed 08:00-18:00",
+     "minutes": 120,
+     "rating": 4.0
+    },
+    {
+     "name": "Chapora Fort",
+     "category": "viewpoint",
+     "lat": 15.6065,
+     "lon": 73.7363,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "Dudhsagar Falls day trip",
+     "category": "waterfall",
+     "lat": 15.3144,
+     "lon": 74.3144,
+     "fee": 400,
+     "hours": "08:00-17:00 (jeep safari)",
+     "minutes": 300,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "ooty",
+   "name": "Ooty",
+   "region": "Nilgiris",
+   "state": "Tamil Nadu",
+   "lat": 11.4102,
+   "lon": 76.695,
+   "tier": "mid",
+   "blurb": "Colonial hill station reached by a UNESCO-listed mountain railway.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "lakes",
+    "photography",
+    "food",
+    "wellness"
+   ],
+   "quality": 0.83,
+   "popularity": 0.92,
+   "cost_index": {
+    "stay": 1.0,
+    "food": 0.9,
+    "local": 0.95
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "CJB",
+    "name": "Coimbatore",
+    "km": 90
+   },
+   "railhead": {
+    "name": "Udagamandalam (NMR)",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Local buses to Coonoor and Doddabetta; autos in town. Book the toy train ahead.",
+   "attractions": [
+    {
+     "name": "Nilgiri Mountain Railway ride",
+     "category": "activity",
+     "lat": 11.405,
+     "lon": 76.7,
+     "fee": 205,
+     "hours": "Scheduled departures",
+     "minutes": 270,
+     "rating": 4.7
+    },
+    {
+     "name": "Botanical Gardens",
+     "category": "garden",
+     "lat": 11.416,
+     "lon": 76.706,
+     "fee": 50,
+     "hours": "07:00-18:30",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Doddabetta Peak",
+     "category": "viewpoint",
+     "lat": 11.4,
+     "lon": 76.735,
+     "fee": 30,
+     "hours": "08:00-18:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Ooty Lake boating",
+     "category": "lake",
+     "lat": 11.403,
+     "lon": 76.688,
+     "fee": 150,
+     "hours": "09:00-18:00",
+     "minutes": 90,
+     "rating": 3.9
+    },
+    {
+     "name": "Tea factory & museum",
+     "category": "museum",
+     "lat": 11.423,
+     "lon": 76.72,
+     "fee": 20,
+     "hours": "09:00-18:00",
+     "minutes": 60,
+     "rating": 4.0
+    },
+    {
+     "name": "Coonoor Sim's Park day trip",
+     "category": "garden",
+     "lat": 11.353,
+     "lon": 76.795,
+     "fee": 30,
+     "hours": "08:00-18:30",
+     "minutes": 180,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "pachmarhi",
+   "name": "Pachmarhi",
+   "region": "Satpura",
+   "state": "Madhya Pradesh",
+   "lat": 22.4676,
+   "lon": 78.4336,
+   "tier": "budget",
+   "blurb": "Madhya Pradesh's only hill station, inside a biosphere reserve.",
+   "tags": [
+    "hill_station",
+    "nature",
+    "waterfalls",
+    "trekking",
+    "offbeat",
+    "wildlife"
+   ],
+   "quality": 0.79,
+   "popularity": 0.6,
+   "cost_index": {
+    "stay": 0.75,
+    "food": 0.7,
+    "local": 0.9
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "JLR",
+    "name": "Jabalpur",
+    "km": 240
+   },
+   "railhead": {
+    "name": "Pipariya",
+    "km": 50
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Only registered gypsies may enter the park zones; book through the forest office.",
+   "attractions": [
+    {
+     "name": "Bee Falls",
+     "category": "waterfall",
+     "lat": 22.46,
+     "lon": 78.42,
+     "fee": 50,
+     "hours": "07:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Dhupgarh sunset (highest point in MP)",
+     "category": "viewpoint",
+     "lat": 22.44,
+     "lon": 78.37,
+     "fee": 100,
+     "hours": "06:00-18:30",
+     "minutes": 150,
+     "rating": 4.5
+    },
+    {
+     "name": "Pandav Caves",
+     "category": "heritage",
+     "lat": 22.47,
+     "lon": 78.44,
+     "fee": 30,
+     "hours": "08:00-18:00",
+     "minutes": 75,
+     "rating": 4.1
+    },
+    {
+     "name": "Jata Shankar Cave Temple",
+     "category": "spiritual",
+     "lat": 22.48,
+     "lon": 78.43,
+     "fee": 0,
+     "hours": "06:00-19:00",
+     "minutes": 75,
+     "rating": 4.2
+    },
+    {
+     "name": "Satpura National Park safari",
+     "category": "wildlife",
+     "lat": 22.5,
+     "lon": 78.3,
+     "fee": 1800,
+     "hours": "06:30-10:30, 15:00-18:00",
+     "minutes": 240,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "pelling",
+   "name": "Pelling & West Sikkim",
+   "region": "Eastern Himalaya",
+   "state": "Sikkim",
+   "lat": 27.32,
+   "lon": 88.24,
+   "tier": "budget",
+   "blurb": "The closest road-accessible Kanchenjunga views, with ruined monasteries below.",
+   "tags": [
+    "mountains",
+    "offbeat",
+    "spiritual",
+    "waterfalls",
+    "nature",
+    "photography"
+   ],
+   "quality": 0.86,
+   "popularity": 0.68,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.85,
+    "local": 1.05
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    9,
+    10,
+    11,
+    12
+   ],
+   "airport": {
+    "iata": "IXB",
+    "name": "Bagdogra",
+    "km": 140
+   },
+   "railhead": {
+    "name": "New Jalpaiguri",
+    "km": 135
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Shared jeeps from Jorethang/Geyzing; a reserved cab for the sightseeing loop.",
+   "attractions": [
+    {
+     "name": "Kanchenjunga sunrise from Pelling",
+     "category": "viewpoint",
+     "lat": 27.32,
+     "lon": 88.239,
+     "fee": 0,
+     "hours": "05:00-07:00",
+     "minutes": 60,
+     "rating": 4.8
+    },
+    {
+     "name": "Pemayangtse Monastery",
+     "category": "spiritual",
+     "lat": 27.305,
+     "lon": 88.252,
+     "fee": 30,
+     "hours": "07:00-17:00",
+     "minutes": 90,
+     "rating": 4.5
+    },
+    {
+     "name": "Rabdentse Ruins",
+     "category": "heritage",
+     "lat": 27.303,
+     "lon": 88.247,
+     "fee": 25,
+     "hours": "08:00-17:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Skywalk & Chenrezig statue",
+     "category": "viewpoint",
+     "lat": 27.29,
+     "lon": 88.26,
+     "fee": 100,
+     "hours": "08:00-17:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Khecheopalri Lake",
+     "category": "lake",
+     "lat": 27.34,
+     "lon": 88.19,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 150,
+     "rating": 4.5
+    },
+    {
+     "name": "Kanchenjunga Falls",
+     "category": "waterfall",
+     "lat": 27.36,
+     "lon": 88.17,
+     "fee": 20,
+     "hours": "07:00-18:00",
+     "minutes": 90,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "pondicherry",
+   "name": "Puducherry",
+   "region": "Coromandel Coast",
+   "state": "Puducherry",
+   "lat": 11.9416,
+   "lon": 79.8083,
+   "tier": "mid",
+   "blurb": "French-quarter streets, a seafront promenade and cafes that justify the trip.",
+   "tags": [
+    "beaches",
+    "heritage",
+    "food",
+    "art_culture",
+    "wellness",
+    "photography"
+   ],
+   "quality": 0.86,
+   "popularity": 0.87,
+   "cost_index": {
+    "stay": 1.1,
+    "food": 1.1,
+    "local": 0.9
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "MAA",
+    "name": "Chennai",
+    "km": 150
+   },
+   "railhead": {
+    "name": "Puducherry",
+    "km": 3
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Rented two-wheeler or cycle; the White Town core is walkable.",
+   "attractions": [
+    {
+     "name": "Promenade Beach",
+     "category": "beach",
+     "lat": 11.932,
+     "lon": 79.836,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Sri Aurobindo Ashram",
+     "category": "spiritual",
+     "lat": 11.9339,
+     "lon": 79.836,
+     "fee": 0,
+     "hours": "08:00-12:00, 14:00-18:00",
+     "minutes": 45,
+     "rating": 4.4
+    },
+    {
+     "name": "Auroville Matrimandir viewpoint",
+     "category": "art_culture",
+     "lat": 12.0075,
+     "lon": 79.8106,
+     "fee": 0,
+     "hours": "09:00-17:30",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "French Quarter walk",
+     "category": "heritage",
+     "lat": 11.934,
+     "lon": 79.834,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 120,
+     "rating": 4.6
+    },
+    {
+     "name": "Paradise Beach (boat)",
+     "category": "beach",
+     "lat": 11.878,
+     "lon": 79.82,
+     "fee": 200,
+     "hours": "09:00-16:30",
+     "minutes": 180,
+     "rating": 4.2
+    },
+    {
+     "name": "Basilica of the Sacred Heart",
+     "category": "heritage",
+     "lat": 11.928,
+     "lon": 79.824,
+     "fee": 0,
+     "hours": "06:00-20:00",
+     "minutes": 40,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "puri",
+   "name": "Puri & Konark",
+   "region": "Coastal Odisha",
+   "state": "Odisha",
+   "lat": 19.8135,
+   "lon": 85.8312,
+   "tier": "budget",
+   "blurb": "Jagannath temple town plus the Sun Temple, 35 km up the coast.",
+   "tags": [
+    "spiritual",
+    "heritage",
+    "beaches",
+    "art_culture",
+    "food",
+    "photography"
+   ],
+   "quality": 0.85,
+   "popularity": 0.82,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.65,
+    "local": 0.7
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2
+   ],
+   "airport": {
+    "iata": "BBI",
+    "name": "Bhubaneswar",
+    "km": 60
+   },
+   "railhead": {
+    "name": "Puri",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Cycle rickshaws in town; buses along the marine drive to Konark.",
+   "attractions": [
+    {
+     "name": "Jagannath Temple",
+     "category": "spiritual",
+     "lat": 19.805,
+     "lon": 85.818,
+     "fee": 0,
+     "hours": "05:00-22:00 (Hindus only inside)",
+     "minutes": 120,
+     "rating": 4.7
+    },
+    {
+     "name": "Konark Sun Temple",
+     "category": "heritage",
+     "lat": 19.8876,
+     "lon": 86.0945,
+     "fee": 40,
+     "hours": "06:00-20:00",
+     "minutes": 180,
+     "rating": 4.7
+    },
+    {
+     "name": "Puri Beach sunrise",
+     "category": "beach",
+     "lat": 19.798,
+     "lon": 85.83,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Raghurajpur artist village",
+     "category": "art_culture",
+     "lat": 19.9,
+     "lon": 85.83,
+     "fee": 0,
+     "hours": "09:00-18:00",
+     "minutes": 150,
+     "rating": 4.5
+    },
+    {
+     "name": "Chilika Lake dolphin boat",
+     "category": "wildlife",
+     "lat": 19.7,
+     "lon": 85.32,
+     "fee": 1500,
+     "hours": "07:00-16:00",
+     "minutes": 300,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "pushkar",
+   "name": "Pushkar",
+   "region": "Ajmer",
+   "state": "Rajasthan",
+   "lat": 26.4899,
+   "lon": 74.5511,
+   "tier": "budget",
+   "blurb": "A sacred lake ringed by 400 temples and a famously cheap traveller strip.",
+   "tags": [
+    "spiritual",
+    "offbeat",
+    "food",
+    "shopping",
+    "photography",
+    "wellness"
+   ],
+   "quality": 0.82,
+   "popularity": 0.76,
+   "cost_index": {
+    "stay": 0.7,
+    "food": 0.7,
+    "local": 0.7
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "JAI",
+    "name": "Jaipur",
+    "km": 145
+   },
+   "railhead": {
+    "name": "Ajmer Jn",
+    "km": 15
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    1,
+    3
+   ],
+   "local_transport": "Entirely walkable; autos to Ajmer station.",
+   "attractions": [
+    {
+     "name": "Pushkar Lake & ghats",
+     "category": "spiritual",
+     "lat": 26.487,
+     "lon": 74.553,
+     "fee": 0,
+     "hours": "05:00-21:00",
+     "minutes": 90,
+     "rating": 4.4
+    },
+    {
+     "name": "Brahma Temple",
+     "category": "spiritual",
+     "lat": 26.488,
+     "lon": 74.551,
+     "fee": 0,
+     "hours": "05:30-13:30, 15:00-21:00",
+     "minutes": 60,
+     "rating": 4.5
+    },
+    {
+     "name": "Savitri Mata Temple ropeway",
+     "category": "viewpoint",
+     "lat": 26.482,
+     "lon": 74.542,
+     "fee": 126,
+     "hours": "06:00-19:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Pushkar bazaar",
+     "category": "shopping",
+     "lat": 26.489,
+     "lon": 74.552,
+     "fee": 0,
+     "hours": "10:00-22:00",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Desert sunset camel ride",
+     "category": "activity",
+     "lat": 26.47,
+     "lon": 74.53,
+     "fee": 500,
+     "hours": "16:30-18:30",
+     "minutes": 120,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "ranthambore",
+   "name": "Ranthambore",
+   "region": "Hadoti",
+   "state": "Rajasthan",
+   "lat": 26.0173,
+   "lon": 76.5026,
+   "tier": "mid",
+   "blurb": "India's most reliable tiger sighting, around a 10th-century fort.",
+   "tags": [
+    "wildlife",
+    "nature",
+    "photography",
+    "heritage",
+    "adventure"
+   ],
+   "quality": 0.88,
+   "popularity": 0.83,
+   "cost_index": {
+    "stay": 1.1,
+    "food": 0.95,
+    "local": 1.05
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "airport": {
+    "iata": "JAI",
+    "name": "Jaipur",
+    "km": 160
+   },
+   "railhead": {
+    "name": "Sawai Madhopur",
+    "km": 11
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Safari canters and gypsies are pre-booked; autos between town and gate.",
+   "attractions": [
+    {
+     "name": "Tiger safari (canter, shared)",
+     "category": "wildlife",
+     "lat": 26.02,
+     "lon": 76.5,
+     "fee": 1600,
+     "hours": "06:30-10:00, 14:30-18:00",
+     "minutes": 210,
+     "rating": 4.5
+    },
+    {
+     "name": "Ranthambore Fort",
+     "category": "heritage",
+     "lat": 26.023,
+     "lon": 76.456,
+     "fee": 0,
+     "hours": "06:00-18:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Trinetra Ganesh Temple",
+     "category": "spiritual",
+     "lat": 26.024,
+     "lon": 76.455,
+     "fee": 0,
+     "hours": "06:00-19:00",
+     "minutes": 60,
+     "rating": 4.4
+    },
+    {
+     "name": "Surwal Lake birding",
+     "category": "wildlife",
+     "lat": 26.06,
+     "lon": 76.38,
+     "fee": 0,
+     "hours": "06:00-09:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Rajiv Gandhi Regional Museum",
+     "category": "museum",
+     "lat": 26.01,
+     "lon": 76.35,
+     "fee": 20,
+     "hours": "10:00-17:00",
+     "minutes": 75,
+     "rating": 4.0
+    }
+   ]
+  },
+  {
+   "id": "rishikesh",
+   "name": "Rishikesh",
+   "region": "Garhwal Himalaya foothills",
+   "state": "Uttarakhand",
+   "lat": 30.0869,
+   "lon": 78.2676,
+   "tier": "budget",
+   "blurb": "Ganga rapids, suspension bridges and India's densest cluster of yoga schools.",
+   "tags": [
+    "adventure",
+    "spiritual",
+    "wellness",
+    "trekking",
+    "nature",
+    "offbeat"
+   ],
+   "quality": 0.87,
+   "popularity": 0.93,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.75,
+    "local": 0.8
+   },
+   "best_months": [
+    9,
+    10,
+    11,
+    2,
+    3,
+    4,
+    5
+   ],
+   "airport": {
+    "iata": "DED",
+    "name": "Dehradun Jolly Grant",
+    "km": 20
+   },
+   "railhead": {
+    "name": "Haridwar Jn",
+    "km": 25
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Shared autos along the Tapovan-Laxman Jhula strip; most of it is walkable.",
+   "attractions": [
+    {
+     "name": "Ganga river rafting (16 km)",
+     "category": "activity",
+     "lat": 30.12,
+     "lon": 78.32,
+     "fee": 1000,
+     "hours": "08:00-16:00 (Sep-Jun)",
+     "minutes": 210,
+     "rating": 4.7
+    },
+    {
+     "name": "Laxman Jhula & Ram Jhula",
+     "category": "heritage",
+     "lat": 30.125,
+     "lon": 78.328,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Triveni Ghat Aarti",
+     "category": "spiritual",
+     "lat": 30.106,
+     "lon": 78.296,
+     "fee": 0,
+     "hours": "18:00-19:30",
+     "minutes": 75,
+     "rating": 4.5
+    },
+    {
+     "name": "Beatles Ashram",
+     "category": "art_culture",
+     "lat": 30.108,
+     "lon": 78.318,
+     "fee": 150,
+     "hours": "09:00-17:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Neer Garh Waterfall",
+     "category": "waterfall",
+     "lat": 30.138,
+     "lon": 78.323,
+     "fee": 30,
+     "hours": "08:00-17:00",
+     "minutes": 120,
+     "rating": 4.1
+    },
+    {
+     "name": "Bungee jump / zipline",
+     "category": "adventure",
+     "lat": 30.17,
+     "lon": 78.35,
+     "fee": 3700,
+     "hours": "09:00-17:00",
+     "minutes": 150,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "shillong",
+   "name": "Shillong & Cherrapunji",
+   "region": "Meghalaya Plateau",
+   "state": "Meghalaya",
+   "lat": 25.5788,
+   "lon": 91.8933,
+   "tier": "mid",
+   "blurb": "Living root bridges, canyon waterfalls and the wettest place on record.",
+   "tags": [
+    "waterfalls",
+    "nature",
+    "offbeat",
+    "trekking",
+    "photography",
+    "adventure"
+   ],
+   "quality": 0.9,
+   "popularity": 0.81,
+   "cost_index": {
+    "stay": 0.95,
+    "food": 0.9,
+    "local": 1.15
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "SHL",
+    "name": "Shillong (limited); Guwahati GAU 125 km",
+    "km": 30
+   },
+   "railhead": {
+    "name": "Guwahati",
+    "km": 100
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    4,
+    6
+   ],
+   "local_transport": "Reserved cab is effectively required; shared sumos run the Guwahati-Shillong trunk.",
+   "attractions": [
+    {
+     "name": "Nohkalikai Falls",
+     "category": "waterfall",
+     "lat": 25.276,
+     "lon": 91.686,
+     "fee": 30,
+     "hours": "08:00-17:00",
+     "minutes": 90,
+     "rating": 4.6
+    },
+    {
+     "name": "Double Decker Living Root Bridge trek",
+     "category": "trek",
+     "lat": 25.247,
+     "lon": 91.665,
+     "fee": 100,
+     "hours": "Start before 10:00",
+     "minutes": 420,
+     "rating": 4.8
+    },
+    {
+     "name": "Mawsmai Cave",
+     "category": "nature",
+     "lat": 25.25,
+     "lon": 91.73,
+     "fee": 30,
+     "hours": "09:00-17:00",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Dawki & Umngot River boating",
+     "category": "activity",
+     "lat": 25.18,
+     "lon": 92.02,
+     "fee": 1000,
+     "hours": "08:00-16:00",
+     "minutes": 240,
+     "rating": 4.7
+    },
+    {
+     "name": "Mawlynnong (cleanest village)",
+     "category": "offbeat",
+     "lat": 25.2,
+     "lon": 91.92,
+     "fee": 50,
+     "hours": "08:00-17:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Elephant Falls & Shillong Peak",
+     "category": "waterfall",
+     "lat": 25.55,
+     "lon": 91.85,
+     "fee": 30,
+     "hours": "08:30-17:00",
+     "minutes": 150,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "shimla",
+   "name": "Shimla",
+   "region": "Shivalik",
+   "state": "Himachal Pradesh",
+   "lat": 31.1048,
+   "lon": 77.1734,
+   "tier": "mid",
+   "blurb": "Colonial summer capital reached by the Kalka-Shimla toy train.",
+   "tags": [
+    "hill_station",
+    "heritage",
+    "food",
+    "shopping",
+    "photography",
+    "nature"
+   ],
+   "quality": 0.8,
+   "popularity": 0.91,
+   "cost_index": {
+    "stay": 1.05,
+    "food": 0.95,
+    "local": 0.95
+   },
+   "best_months": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11,
+    12
+   ],
+   "airport": {
+    "iata": "SLV",
+    "name": "Jubbarhatti",
+    "km": 23
+   },
+   "railhead": {
+    "name": "Shimla (UNESCO narrow gauge)",
+    "km": 2
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "The Ridge and Mall are pedestrian-only; lifts and local buses for the rest.",
+   "attractions": [
+    {
+     "name": "Kalka-Shimla toy train",
+     "category": "activity",
+     "lat": 31.09,
+     "lon": 77.12,
+     "fee": 300,
+     "hours": "Scheduled departures",
+     "minutes": 330,
+     "rating": 4.7
+    },
+    {
+     "name": "The Ridge & Christ Church",
+     "category": "heritage",
+     "lat": 31.105,
+     "lon": 77.173,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 75,
+     "rating": 4.3
+    },
+    {
+     "name": "Jakhoo Temple",
+     "category": "spiritual",
+     "lat": 31.1,
+     "lon": 77.185,
+     "fee": 0,
+     "hours": "05:00-20:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Viceregal Lodge",
+     "category": "heritage",
+     "lat": 31.105,
+     "lon": 77.155,
+     "fee": 100,
+     "hours": "09:30-17:00",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Kufri day trip",
+     "category": "viewpoint",
+     "lat": 31.098,
+     "lon": 77.266,
+     "fee": 100,
+     "hours": "09:00-17:00",
+     "minutes": 180,
+     "rating": 3.9
+    }
+   ]
+  },
+  {
+   "id": "south-goa",
+   "name": "South Goa",
+   "region": "Konkan Coast",
+   "state": "Goa",
+   "lat": 15.27,
+   "lon": 73.95,
+   "tier": "mid",
+   "blurb": "Quieter palm-backed beaches, slow afternoons and Goan-Portuguese villages.",
+   "tags": [
+    "beaches",
+    "nature",
+    "food",
+    "wellness",
+    "photography",
+    "offbeat"
+   ],
+   "quality": 0.88,
+   "popularity": 0.8,
+   "cost_index": {
+    "stay": 1.15,
+    "food": 1.05,
+    "local": 1.15
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "GOI",
+    "name": "Dabolim",
+    "km": 28
+   },
+   "railhead": {
+    "name": "Madgaon",
+    "km": 12
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    3,
+    6
+   ],
+   "local_transport": "Scooter rental is standard; distances between beaches are long so plan clusters.",
+   "attractions": [
+    {
+     "name": "Palolem Beach",
+     "category": "beach",
+     "lat": 15.01,
+     "lon": 74.0233,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Colva Beach",
+     "category": "beach",
+     "lat": 15.28,
+     "lon": 73.922,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 120,
+     "rating": 4.0
+    },
+    {
+     "name": "Cabo de Rama Fort",
+     "category": "heritage",
+     "lat": 15.0897,
+     "lon": 73.9222,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Butterfly Beach boat ride",
+     "category": "activity",
+     "lat": 15.03,
+     "lon": 74.015,
+     "fee": 500,
+     "hours": "08:00-17:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Chandor heritage houses",
+     "category": "heritage",
+     "lat": 15.25,
+     "lon": 74.04,
+     "fee": 200,
+     "hours": "10:00-17:00",
+     "minutes": 90,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "spiti",
+   "name": "Spiti Valley (Kaza)",
+   "region": "Trans-Himalaya",
+   "state": "Himachal Pradesh",
+   "lat": 32.226,
+   "lon": 78.071,
+   "tier": "budget",
+   "blurb": "A cold desert at 3,800 m with thousand-year-old monasteries and no crowds.",
+   "tags": [
+    "mountains",
+    "offbeat",
+    "adventure",
+    "photography",
+    "spiritual",
+    "desert"
+   ],
+   "quality": 0.94,
+   "popularity": 0.6,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.95,
+    "local": 1.35
+   },
+   "best_months": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "airport": {
+    "iata": "KUU",
+    "name": "Bhuntar",
+    "km": 200
+   },
+   "railhead": {
+    "name": "Shimla",
+    "km": 420
+   },
+   "stay_types": [
+    "budget_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    6,
+    10
+   ],
+   "local_transport": "One HRTC bus a day; most travellers share a jeep. Plan for altitude acclimatisation.",
+   "attractions": [
+    {
+     "name": "Key Monastery",
+     "category": "spiritual",
+     "lat": 32.298,
+     "lon": 78.013,
+     "fee": 0,
+     "hours": "07:00-18:00",
+     "minutes": 90,
+     "rating": 4.7
+    },
+    {
+     "name": "Chandratal Lake",
+     "category": "lake",
+     "lat": 32.479,
+     "lon": 77.618,
+     "fee": 0,
+     "hours": "Daylight (Jun-Oct)",
+     "minutes": 300,
+     "rating": 4.8
+    },
+    {
+     "name": "Hikkim post office (world's highest)",
+     "category": "offbeat",
+     "lat": 32.28,
+     "lon": 78.05,
+     "fee": 0,
+     "hours": "10:00-16:00",
+     "minutes": 60,
+     "rating": 4.5
+    },
+    {
+     "name": "Dhankar Monastery & lake",
+     "category": "spiritual",
+     "lat": 32.083,
+     "lon": 78.217,
+     "fee": 30,
+     "hours": "08:00-18:00",
+     "minutes": 180,
+     "rating": 4.6
+    },
+    {
+     "name": "Pin Valley National Park",
+     "category": "wildlife",
+     "lat": 32.0,
+     "lon": 78.0,
+     "fee": 100,
+     "hours": "Daylight",
+     "minutes": 240,
+     "rating": 4.5
+    },
+    {
+     "name": "Langza fossil village",
+     "category": "offbeat",
+     "lat": 32.263,
+     "lon": 78.073,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 120,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "sundarbans",
+   "name": "Sundarbans",
+   "region": "Ganges Delta",
+   "state": "West Bengal",
+   "lat": 21.9497,
+   "lon": 88.9,
+   "tier": "budget",
+   "blurb": "The world's largest mangrove forest, navigated entirely by boat.",
+   "tags": [
+    "wildlife",
+    "nature",
+    "offbeat",
+    "photography",
+    "adventure"
+   ],
+   "quality": 0.84,
+   "popularity": 0.65,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.8,
+    "local": 1.1
+   },
+   "best_months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "CCU",
+    "name": "Kolkata",
+    "km": 110
+   },
+   "railhead": {
+    "name": "Canning",
+    "km": 50
+   },
+   "stay_types": [
+    "budget_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Package boat tours from Godkhali are the practical option; permits are included.",
+   "attractions": [
+    {
+     "name": "Mangrove boat safari",
+     "category": "wildlife",
+     "lat": 21.95,
+     "lon": 88.9,
+     "fee": 1800,
+     "hours": "06:00-17:00",
+     "minutes": 480,
+     "rating": 4.5
+    },
+    {
+     "name": "Sajnekhali Watchtower",
+     "category": "wildlife",
+     "lat": 22.11,
+     "lon": 88.82,
+     "fee": 180,
+     "hours": "08:00-16:00",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Dobanki canopy walk",
+     "category": "nature",
+     "lat": 21.98,
+     "lon": 88.87,
+     "fee": 150,
+     "hours": "09:00-15:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Village folk performance",
+     "category": "art_culture",
+     "lat": 22.0,
+     "lon": 88.8,
+     "fee": 200,
+     "hours": "19:00-20:30",
+     "minutes": 90,
+     "rating": 4.2
+    },
+    {
+     "name": "Netidhopani watchtower",
+     "category": "wildlife",
+     "lat": 21.88,
+     "lon": 88.85,
+     "fee": 200,
+     "hours": "09:00-15:00",
+     "minutes": 180,
+     "rating": 4.3
+    }
+   ]
+  },
+  {
+   "id": "tarkarli",
+   "name": "Tarkarli & Malvan",
+   "region": "Konkan Coast",
+   "state": "Maharashtra",
+   "lat": 16.05,
+   "lon": 73.4667,
+   "tier": "budget",
+   "blurb": "Clear-water Konkan beaches with India's cheapest scuba intro dives.",
+   "tags": [
+    "beaches",
+    "adventure",
+    "food",
+    "offbeat",
+    "nature",
+    "photography"
+   ],
+   "quality": 0.81,
+   "popularity": 0.64,
+   "cost_index": {
+    "stay": 0.8,
+    "food": 0.85,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "GOX",
+    "name": "Manohar Intl (Mopa)",
+    "km": 115
+   },
+   "railhead": {
+    "name": "Kudal",
+    "km": 35
+   },
+   "stay_types": [
+    "budget_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Autos and rented two-wheelers; homestays usually arrange pickups.",
+   "attractions": [
+    {
+     "name": "Scuba diving / snorkelling",
+     "category": "adventure",
+     "lat": 16.04,
+     "lon": 73.46,
+     "fee": 1500,
+     "hours": "08:00-16:00 (Oct-May)",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Sindhudurg Fort",
+     "category": "heritage",
+     "lat": 16.04,
+     "lon": 73.46,
+     "fee": 100,
+     "hours": "09:00-17:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Tarkarli Beach",
+     "category": "beach",
+     "lat": 16.052,
+     "lon": 73.47,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 150,
+     "rating": 4.4
+    },
+    {
+     "name": "Devbagh sangam & backwater",
+     "category": "nature",
+     "lat": 16.02,
+     "lon": 73.47,
+     "fee": 200,
+     "hours": "08:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Malvani thali lunch",
+     "category": "food",
+     "lat": 16.06,
+     "lon": 73.468,
+     "fee": 350,
+     "hours": "12:00-15:00",
+     "minutes": 90,
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "id": "tirupati",
+   "name": "Tirupati",
+   "region": "Rayalaseema",
+   "state": "Andhra Pradesh",
+   "lat": 13.6288,
+   "lon": 79.4192,
+   "tier": "budget",
+   "blurb": "One of the most visited pilgrimage sites on earth, with hill temples above it.",
+   "tags": [
+    "spiritual",
+    "heritage",
+    "food",
+    "nature",
+    "offbeat"
+   ],
+   "quality": 0.82,
+   "popularity": 0.88,
+   "cost_index": {
+    "stay": 0.75,
+    "food": 0.65,
+    "local": 0.75
+   },
+   "best_months": [
+    9,
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "TIR",
+    "name": "Tirupati",
+    "km": 15
+   },
+   "railhead": {
+    "name": "Tirupati Main",
+    "km": 3
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel"
+   ],
+   "ideal_days": [
+    1,
+    2
+   ],
+   "local_transport": "APSRTC ghat buses run constantly up to Tirumala; book darshan slots online first.",
+   "attractions": [
+    {
+     "name": "Sri Venkateswara Temple, Tirumala",
+     "category": "spiritual",
+     "lat": 13.6833,
+     "lon": 79.3472,
+     "fee": 300,
+     "hours": "Darshan slots, book online",
+     "minutes": 300,
+     "rating": 4.8
+    },
+    {
+     "name": "Sri Kapileswara Swamy Temple",
+     "category": "spiritual",
+     "lat": 13.65,
+     "lon": 79.4,
+     "fee": 0,
+     "hours": "05:00-21:00",
+     "minutes": 75,
+     "rating": 4.4
+    },
+    {
+     "name": "Silathoranam natural arch",
+     "category": "nature",
+     "lat": 13.69,
+     "lon": 79.34,
+     "fee": 0,
+     "hours": "08:00-17:00",
+     "minutes": 60,
+     "rating": 4.3
+    },
+    {
+     "name": "Chandragiri Fort",
+     "category": "heritage",
+     "lat": 13.583,
+     "lon": 79.317,
+     "fee": 25,
+     "hours": "10:00-17:00, closed Fri",
+     "minutes": 120,
+     "rating": 4.2
+    },
+    {
+     "name": "Talakona Waterfall",
+     "category": "waterfall",
+     "lat": 13.75,
+     "lon": 79.25,
+     "fee": 50,
+     "hours": "08:00-17:00",
+     "minutes": 240,
+     "rating": 4.2
+    }
+   ]
+  },
+  {
+   "id": "udaipur",
+   "name": "Udaipur",
+   "region": "Mewar",
+   "state": "Rajasthan",
+   "lat": 24.5854,
+   "lon": 73.7125,
+   "tier": "mid",
+   "blurb": "Lake palaces, ghats and hill-ringed water in Rajasthan's gentlest city.",
+   "tags": [
+    "heritage",
+    "lakes",
+    "art_culture",
+    "food",
+    "photography",
+    "wellness"
+   ],
+   "quality": 0.92,
+   "popularity": 0.91,
+   "cost_index": {
+    "stay": 1.1,
+    "food": 1.0,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "UDR",
+    "name": "Maharana Pratap",
+    "km": 22
+   },
+   "railhead": {
+    "name": "Udaipur City",
+    "km": 4
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Old city is walkable; autos elsewhere. Rooftop cafes cluster near Lal Ghat.",
+   "attractions": [
+    {
+     "name": "City Palace Udaipur",
+     "category": "heritage",
+     "lat": 24.576,
+     "lon": 73.683,
+     "fee": 300,
+     "hours": "09:30-17:30",
+     "minutes": 150,
+     "rating": 4.6
+    },
+    {
+     "name": "Lake Pichola boat ride",
+     "category": "activity",
+     "lat": 24.572,
+     "lon": 73.68,
+     "fee": 400,
+     "hours": "10:00-18:00",
+     "minutes": 60,
+     "rating": 4.5
+    },
+    {
+     "name": "Saheliyon ki Bari",
+     "category": "garden",
+     "lat": 24.6,
+     "lon": 73.69,
+     "fee": 30,
+     "hours": "09:00-19:00",
+     "minutes": 60,
+     "rating": 4.2
+    },
+    {
+     "name": "Jagdish Temple",
+     "category": "spiritual",
+     "lat": 24.579,
+     "lon": 73.684,
+     "fee": 0,
+     "hours": "05:00-14:00, 16:00-22:00",
+     "minutes": 45,
+     "rating": 4.4
+    },
+    {
+     "name": "Monsoon Palace sunset",
+     "category": "viewpoint",
+     "lat": 24.593,
+     "lon": 73.643,
+     "fee": 100,
+     "hours": "09:00-18:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Bagore ki Haveli dance show",
+     "category": "art_culture",
+     "lat": 24.58,
+     "lon": 73.682,
+     "fee": 150,
+     "hours": "19:00-20:00",
+     "minutes": 75,
+     "rating": 4.5
+    }
+   ]
+  },
+  {
+   "id": "varanasi",
+   "name": "Varanasi",
+   "region": "Purvanchal",
+   "state": "Uttar Pradesh",
+   "lat": 25.3176,
+   "lon": 82.9739,
+   "tier": "budget",
+   "blurb": "Ghats, river ritual and lanes that have not been redrawn in centuries.",
+   "tags": [
+    "spiritual",
+    "heritage",
+    "food",
+    "photography",
+    "art_culture",
+    "offbeat"
+   ],
+   "quality": 0.9,
+   "popularity": 0.9,
+   "cost_index": {
+    "stay": 0.75,
+    "food": 0.65,
+    "local": 0.75
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "VNS",
+    "name": "Lal Bahadur Shastri",
+    "km": 25
+   },
+   "railhead": {
+    "name": "Varanasi Jn",
+    "km": 5
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    3
+   ],
+   "local_transport": "Walk the ghats; boats are the real transport. Autos cannot enter the old lanes.",
+   "attractions": [
+    {
+     "name": "Dashashwamedh Ghat Ganga Aarti",
+     "category": "spiritual",
+     "lat": 25.3077,
+     "lon": 83.0107,
+     "fee": 0,
+     "hours": "18:30-19:45",
+     "minutes": 90,
+     "rating": 4.7
+    },
+    {
+     "name": "Sunrise boat ride",
+     "category": "activity",
+     "lat": 25.306,
+     "lon": 83.012,
+     "fee": 300,
+     "hours": "05:15-07:30",
+     "minutes": 120,
+     "rating": 4.8
+    },
+    {
+     "name": "Kashi Vishwanath Temple",
+     "category": "spiritual",
+     "lat": 25.3109,
+     "lon": 83.0107,
+     "fee": 0,
+     "hours": "03:00-23:00",
+     "minutes": 90,
+     "rating": 4.6
+    },
+    {
+     "name": "Sarnath",
+     "category": "heritage",
+     "lat": 25.3808,
+     "lon": 83.0247,
+     "fee": 300,
+     "hours": "09:00-17:00",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Banarasi food walk",
+     "category": "food",
+     "lat": 25.31,
+     "lon": 83.008,
+     "fee": 350,
+     "hours": "07:00-11:00",
+     "minutes": 150,
+     "rating": 4.7
+    }
+   ]
+  },
+  {
+   "id": "varkala",
+   "name": "Varkala",
+   "region": "Malabar Coast",
+   "state": "Kerala",
+   "lat": 8.7379,
+   "lon": 76.7163,
+   "tier": "budget",
+   "blurb": "A red cliff above the Arabian Sea, lined with cafes and yoga shalas.",
+   "tags": [
+    "beaches",
+    "wellness",
+    "spiritual",
+    "food",
+    "offbeat",
+    "photography"
+   ],
+   "quality": 0.85,
+   "popularity": 0.78,
+   "cost_index": {
+    "stay": 0.9,
+    "food": 0.95,
+    "local": 0.85
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "TRV",
+    "name": "Thiruvananthapuram",
+    "km": 55
+   },
+   "railhead": {
+    "name": "Varkala Sivagiri",
+    "km": 3
+   },
+   "stay_types": [
+    "hostel",
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Cliff strip is walkable; autos to the station and temple.",
+   "attractions": [
+    {
+     "name": "Varkala Cliff & North Beach",
+     "category": "beach",
+     "lat": 8.735,
+     "lon": 76.705,
+     "fee": 0,
+     "hours": "Open all day",
+     "minutes": 180,
+     "rating": 4.5
+    },
+    {
+     "name": "Janardanaswamy Temple",
+     "category": "spiritual",
+     "lat": 8.732,
+     "lon": 76.703,
+     "fee": 0,
+     "hours": "04:00-12:00, 17:00-20:00",
+     "minutes": 45,
+     "rating": 4.3
+    },
+    {
+     "name": "Kappil Beach & backwater",
+     "category": "beach",
+     "lat": 8.78,
+     "lon": 76.69,
+     "fee": 0,
+     "hours": "Daylight",
+     "minutes": 90,
+     "rating": 4.3
+    },
+    {
+     "name": "Sivagiri Mutt",
+     "category": "spiritual",
+     "lat": 8.742,
+     "lon": 76.72,
+     "fee": 0,
+     "hours": "05:00-20:00",
+     "minutes": 45,
+     "rating": 4.2
+    },
+    {
+     "name": "Sunrise yoga session",
+     "category": "wellness",
+     "lat": 8.735,
+     "lon": 76.7055,
+     "fee": 400,
+     "hours": "07:00-08:30",
+     "minutes": 90,
+     "rating": 4.4
+    }
+   ]
+  },
+  {
+   "id": "wayanad",
+   "name": "Wayanad",
+   "region": "Western Ghats",
+   "state": "Kerala",
+   "lat": 11.6854,
+   "lon": 76.132,
+   "tier": "budget",
+   "blurb": "Spice plantations, caves and a wildlife sanctuary in Kerala's green north.",
+   "tags": [
+    "nature",
+    "wildlife",
+    "trekking",
+    "waterfalls",
+    "offbeat",
+    "photography"
+   ],
+   "quality": 0.85,
+   "popularity": 0.76,
+   "cost_index": {
+    "stay": 0.9,
+    "food": 0.85,
+    "local": 0.95
+   },
+   "best_months": [
+    10,
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "airport": {
+    "iata": "CCJ",
+    "name": "Kozhikode",
+    "km": 95
+   },
+   "railhead": {
+    "name": "Kozhikode",
+    "km": 90
+   },
+   "stay_types": [
+    "budget_hotel",
+    "midrange_hotel",
+    "homestay",
+    "resort"
+   ],
+   "ideal_days": [
+    2,
+    4
+   ],
+   "local_transport": "Cab for the day; sights sprawl 30-50 km across the district.",
+   "attractions": [
+    {
+     "name": "Edakkal Caves",
+     "category": "heritage",
+     "lat": 11.6167,
+     "lon": 76.25,
+     "fee": 40,
+     "hours": "08:00-16:00",
+     "minutes": 180,
+     "rating": 4.3
+    },
+    {
+     "name": "Chembra Peak trek",
+     "category": "trek",
+     "lat": 11.5167,
+     "lon": 76.1,
+     "fee": 750,
+     "hours": "07:00-14:00",
+     "minutes": 300,
+     "rating": 4.5
+    },
+    {
+     "name": "Soochipara Falls",
+     "category": "waterfall",
+     "lat": 11.5333,
+     "lon": 76.1833,
+     "fee": 100,
+     "hours": "08:00-17:00",
+     "minutes": 120,
+     "rating": 4.3
+    },
+    {
+     "name": "Banasura Sagar Dam",
+     "category": "lake",
+     "lat": 11.67,
+     "lon": 75.95,
+     "fee": 60,
+     "hours": "09:00-17:00",
+     "minutes": 120,
+     "rating": 4.1
+    },
+    {
+     "name": "Muthanga Wildlife Safari",
+     "category": "wildlife",
+     "lat": 11.6667,
+     "lon": 76.4,
+     "fee": 400,
+     "hours": "07:00-09:00, 15:00-17:00",
+     "minutes": 150,
+     "rating": 4.2
+    }
+   ]
+  }
+ ]
+}

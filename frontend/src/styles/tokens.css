@@ -1,0 +1,253 @@
+/*
+ * TripWise design tokens.
+ *
+ * Identity: deep teal (travel, trust, calm) with a warm amber accent for
+ * money and highlights. Budget-fit states get their own semantic ramp so the
+ * same colour always means the same thing across cards, bars and pills.
+ *
+ * Both themes are defined here. Dark mode follows the system preference and
+ * can be forced with [data-theme].
+ */
+
+:root {
+  /* Brand */
+  --teal-50: #f0fdfa;
+  --teal-100: #ccfbf1;
+  --teal-200: #99f6e4;
+  --teal-300: #5eead4;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-700: #0f766e;
+  --teal-800: #115e59;
+  --teal-900: #134e4a;
+  --teal-950: #042f2e;
+
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+
+  --coral-400: #fb7185;
+  --coral-500: #f43f5e;
+  --coral-600: #e11d48;
+
+  /* Neutrals */
+  --ink-50: #f8fafc;
+  --ink-100: #f1f5f9;
+  --ink-200: #e2e8f0;
+  --ink-300: #cbd5e1;
+  --ink-400: #94a3b8;
+  --ink-500: #64748b;
+  --ink-600: #475569;
+  --ink-700: #334155;
+  --ink-800: #1e293b;
+  --ink-900: #0f172a;
+  --ink-950: #020617;
+
+  /* Semantic surfaces (light) */
+  --bg: var(--ink-50);
+  --bg-subtle: #eef2f7;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: var(--ink-100);
+  --border: var(--ink-200);
+  --border-strong: var(--ink-300);
+
+  --text: var(--ink-900);
+  --text-muted: var(--ink-600);
+  --text-subtle: var(--ink-500);
+  --text-inverse: #ffffff;
+
+  --brand: var(--teal-600);
+  --brand-strong: var(--teal-700);
+  --brand-soft: var(--teal-50);
+  --brand-border: var(--teal-200);
+  --on-brand: #ffffff;
+
+  --accent: var(--amber-600);
+  --accent-soft: #fffbeb;
+  --accent-border: var(--amber-300);
+
+  /* Budget-fit ramp: one meaning per colour, everywhere */
+  --fit-comfortable: #059669;
+  --fit-comfortable-bg: #ecfdf5;
+  --fit-good: var(--teal-600);
+  --fit-good-bg: var(--teal-50);
+  --fit-tight: var(--amber-600);
+  --fit-tight-bg: #fffbeb;
+  --fit-stretch: #ea580c;
+  --fit-stretch-bg: #fff7ed;
+  --fit-over: var(--coral-600);
+  --fit-over-bg: #fff1f2;
+
+  /* Provenance ramp: live vs estimated must be visually distinct */
+  --prov-live: #0369a1;
+  --prov-live-bg: #f0f9ff;
+  --prov-estimated: var(--ink-600);
+  --prov-estimated-bg: var(--ink-100);
+  --prov-curated: #7c3aed;
+  --prov-curated-bg: #f5f3ff;
+
+  /* Category colours for the budget dashboard */
+  --cat-transport: #0ea5e9;
+  --cat-accommodation: #8b5cf6;
+  --cat-food: #f59e0b;
+  --cat-local: #14b8a6;
+  --cat-activities: #ec4899;
+  --cat-taxes: #64748b;
+  --cat-contingency: #94a3b8;
+
+  /* Type */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 2.75rem;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06), 0 1px 3px rgb(15 23 42 / 0.04);
+  --shadow: 0 2px 4px rgb(15 23 42 / 0.05), 0 4px 12px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 4px 8px rgb(15 23 42 / 0.05), 0 12px 24px rgb(15 23 42 / 0.08);
+  --shadow-lg: 0 8px 16px rgb(15 23 42 / 0.06), 0 24px 48px rgb(15 23 42 / 0.1);
+
+  --ring: 0 0 0 3px rgb(13 148 136 / 0.25);
+
+  /* Layout */
+  --page-max: 1180px;
+  --gutter: 16px;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 180ms;
+}
+
+/* Dark theme, by system preference unless light is forced. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #081417;
+    --bg-subtle: #0b1a1e;
+    --surface: #0f2227;
+    --surface-raised: #143036;
+    --surface-sunken: #0a181c;
+    --border: #1d3b42;
+    --border-strong: #2a5159;
+
+    --text: #e6f4f1;
+    --text-muted: #9cbdb8;
+    --text-subtle: #7da39d;
+    --text-inverse: #04171a;
+
+    --brand: var(--teal-400);
+    --brand-strong: var(--teal-300);
+    --brand-soft: #0c2b2c;
+    --brand-border: #1b5551;
+    --on-brand: #04171a;
+
+    --accent: var(--amber-400);
+    --accent-soft: #2a2010;
+    --accent-border: #5c4411;
+
+    --fit-comfortable: #34d399;
+    --fit-comfortable-bg: #0a2b22;
+    --fit-good: var(--teal-400);
+    --fit-good-bg: #0c2b2c;
+    --fit-tight: var(--amber-400);
+    --fit-tight-bg: #2a2010;
+    --fit-stretch: #fb923c;
+    --fit-stretch-bg: #2c1a0d;
+    --fit-over: var(--coral-400);
+    --fit-over-bg: #2d1218;
+
+    --prov-live: #7dd3fc;
+    --prov-live-bg: #0b2430;
+    --prov-estimated: #9cbdb8;
+    --prov-estimated-bg: #12262b;
+    --prov-curated: #c4b5fd;
+    --prov-curated-bg: #1e1b38;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow: 0 2px 6px rgb(0 0 0 / 0.45);
+    --shadow-md: 0 8px 20px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 20px 44px rgb(0 0 0 / 0.55);
+
+    --ring: 0 0 0 3px rgb(45 212 191 / 0.3);
+  }
+}
+
+/* Forced dark, for an explicit toggle. */
+:root[data-theme='dark'] {
+  --bg: #081417;
+  --bg-subtle: #0b1a1e;
+  --surface: #0f2227;
+  --surface-raised: #143036;
+  --surface-sunken: #0a181c;
+  --border: #1d3b42;
+  --border-strong: #2a5159;
+
+  --text: #e6f4f1;
+  --text-muted: #9cbdb8;
+  --text-subtle: #7da39d;
+  --text-inverse: #04171a;
+
+  --brand: var(--teal-400);
+  --brand-strong: var(--teal-300);
+  --brand-soft: #0c2b2c;
+  --brand-border: #1b5551;
+  --on-brand: #04171a;
+
+  --accent: var(--amber-400);
+  --accent-soft: #2a2010;
+  --accent-border: #5c4411;
+
+  --fit-comfortable: #34d399;
+  --fit-comfortable-bg: #0a2b22;
+  --fit-good: var(--teal-400);
+  --fit-good-bg: #0c2b2c;
+  --fit-tight: var(--amber-400);
+  --fit-tight-bg: #2a2010;
+  --fit-stretch: #fb923c;
+  --fit-stretch-bg: #2c1a0d;
+  --fit-over: var(--coral-400);
+  --fit-over-bg: #2d1218;
+
+  --prov-live: #7dd3fc;
+  --prov-live-bg: #0b2430;
+  --prov-estimated: #9cbdb8;
+  --prov-estimated-bg: #12262b;
+  --prov-curated: #c4b5fd;
+  --prov-curated-bg: #1e1b38;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow: 0 2px 6px rgb(0 0 0 / 0.45);
+  --shadow-md: 0 8px 20px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 20px 44px rgb(0 0 0 / 0.55);
+
+  --ring: 0 0 0 3px rgb(45 212 191 / 0.3);
+}

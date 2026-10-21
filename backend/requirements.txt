@@ -1,0 +1,28 @@
+# TripWise backend dependencies.
+# Pinned to the exact versions this was built and tested against
+# (Python 3.13).
+
+# --- Web framework ---------------------------------------------------------
+fastapi==0.156.4
+uvicorn[standard]==0.54.0
+pydantic==2.14.1
+pydantic-settings==2.16.1
+python-dotenv==1.2.4
+
+# --- HTTP client for every provider call -----------------------------------
+httpx==0.28.1
+
+# --- Persistence -----------------------------------------------------------
+# psycopg is only needed for PostgreSQL; the SQLite default needs nothing.
+SQLAlchemy==2.1.5
+psycopg[binary]==3.3.6
+alembic==1.20.0
+
+# --- Optional shared cache -------------------------------------------------
+# Only used when REDIS_URL is set; an in-process cache is the default.
+redis==8.1.0
+
+# --- LLM providers ---------------------------------------------------------
+# Both optional at runtime. TripWise generates itineraries without either.
+anthropic==1.17.0
+openai==3.35.1

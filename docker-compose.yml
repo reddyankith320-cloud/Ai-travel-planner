@@ -1,0 +1,70 @@
+# TripWise, end to end.
+#
+#   cp .env.example .env     # fill in only what you need; it runs empty
+#   docker compose up --build
+#   open http://localhost:8080
+#
+# Secrets are read from .env at run time and are never baked into an image.
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: tripwise
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tripwise_dev_only}
+      POSTGRES_DB: tripwise
+    volumes:
+      - tripwise_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U tripwise']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  cache:
+    image: redis:7-alpine
+    command: ['redis-server', '--save', '', '--appendonly', 'no']
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build: ./backend
+    # Everything in .env is passed through; nothing is stored in the image.
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://tripwise:${POSTGRES_PASSWORD:-tripwise_dev_only}@db:5432/tripwise
+      REDIS_URL: redis://cache:6379/0
+      CORS_ORIGINS: http://localhost:8080
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+    # Apply migrations before serving, so a fresh volume comes up ready.
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - '8000:8000'
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        # Empty: nginx proxies /api to the api service on the same origin.
+        VITE_API_BASE_URL: ''
+    depends_on:
+      - api
+    ports:
+      - '8080:80'
+    restart: unless-stopped
+
+volumes:
+  tripwise_db:
